@@ -114,8 +114,35 @@ The goals of this project are:
 - complete basic research on a framework for applitudes
 - based on this, create an open-source tool for knowledge workers
   in general
-- maintain these tool and build an open-source community around them...
+- maintain these tools and build an open-source community around them...
 
+
+XXX research goals:
+
+- framework for applitudes, i.e. interfaces that independent programmers
+  code against, which then allow their software to be used together
+  by the user as part of forming applitudes
+
+- UI for creating applitudes
+
+  - how to let the user create structures (vocabs) for new applitudes,
+    or extending existing applitudes
+
+  - how to let the user create view settings for specific applitudes
+    (creating new app-specific views)
+
+  - how to let the user create a UI for specific applitudes, i.e.,
+    let them create controls useful for an app... is this necessary?
+
+  - 'soft programming' -- how to let the user do simple programming-like tasks
+    necessary to wire different applitudes together (i.e., magic potion)
+
+XXX didn't we have a list of research topics for this project, somewhere?
+
+
+we intend to deliver the goals of this research in a form directly
+useful to the general public: as open-source software that may be used
+without charge
 
 
 
@@ -204,3 +231,73 @@ we believe we will get this involvement
 
 
 XXX mention patent above (where is the right place?)
+
+
+
+
+-----------------------------------------------------------------------
+
+And another try ...
+
+What are the goals and intended results?
+========================================
+
+The ultimate goal of the Fenfire project is to create a desktop environment
+for knowledge workers in which 
+
+a) information is structured as relationships between real-world things,
+   rather than through artificial concepts like applications and folders;
+
+b) the user can easily extend the available relationships, creating
+   their own "applications";
+
+c) information is easily exchanged between different users with support
+   for versioning and collaborative work.
+
+The goals of the currently proposed project are
+
+- to complete a first version of a single-user Fenfire system implementing
+  points a) and b), above;
+- to publish this software as open source, build a community around it
+  and evaluate the results of real-world use of the software.
+
+Additionally, ... [we will produce] the following deliverables ...
+
+- (working libvob/lob system)
+- (research on magic potion)
+- XXX what else
+
+
+What is the demand for such goals and results?
+==============================================
+
+What are the potential applications?
+====================================
+
+Which level of developement the project aims to?
+================================================
+
+.. (basic research, prototyping, pilots...)
+  
+And what additional resources are needed for further developement?
+------------------------------------------------------------------
+
+How the results can be utilized -- commercial, social or scientific?
+====================================================================
+
+How soon?
+---------
+
+Which are the aims of project parties to utilize the results? 
+=============================================================
+
+Who owns IPR of the project, what's the contract?
+-------------------------------------------------
+
+What are the duties in utilizing for projects parties? 
+======================================================
+
+.. further study, lisencing, standarding, manufacturing, sales, marketing, etc
+
+Does the utilizing need support from outside of the project?
+============================================================
