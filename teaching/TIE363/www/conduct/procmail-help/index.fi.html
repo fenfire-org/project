@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fi">
+
+<head>
+
+<title>
+Procmail lyhyt oppimäärä - sähköpostiongelmat - suoritustapa - TIE363
+</title>
+
+</head>
+
+<body>
+
+
+<h1>Procmail helppi</h1>
+
+<p>
+Mikäli sähköpostilista asettaa mielestäsi aiheettomia paineita kurssin
+suoritukselle, ja tämä paine on yletön sähköpostimäärä, on tämä ohje
+sinulle.
+</p>
+
+<h2> .procmailrc </h2>
+
+<p>
+Tee itsellesi .procmailrc tiedosto, joka pitää huolen ettei
+kurssin sähköpostiviestit sekaannu muihin tärkeisiin viesteihisi.
+</p>
+
+<p>
+Asiaa ei kuitenkaan ole tehty helpoksi ATK-keskukselta, tai ainakin
+tälläisen käsityksen olen saanut viimeaikoina. Lähetä itsellesi
+seuraavankaltainen viesti. Viestin aihe on kotihakemistosi, jonka
+jatkona on ".procmailrc".
+</p>
+
+<p>
+Esimerkkinä eräs tapaus:
+<pre>
+
+Aihe: /home3/390/majukati/.procmailrc
+Vastaanottaja: majukati@cc.jyu.fi
+
+:0:
+* ^Subject:.*\[tie363-discuss
+Mail/tie363-discuss
+
+:0:
+* ^Subject:.*\[Fenfire-dev\]
+Mail/ff-mail
+
+:0:
+* ^Subject:.*\[Fencommits\]
+Mail/fen-commits
+
+</pre>
+</p>
+
+<p>
+Tämän jälkeen menet <a
+href="https://webmail.cc.jyu.fi/">webmailiin</a> ja Kansiot lehdeltä
+teet itsellesi kansion, jonka nimi on ".procmailrc", jonne äsken
+lähettämäsi viestin siirrät.
+</p>
+
+
+
+</body>
+</html>
+
