@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.3.7: http://docutils.sourceforge.net/" />
+<title>Lecture notes for the second lecture of the identities course</title>
+<link rel="stylesheet" href="default.css" type="text/css" />
+</head>
+<body>
+<div class="document" id="lecture-notes-for-the-second-lecture-of-the-identities-course">
+<h1 class="title">Lecture notes for the second lecture of the identities course</h1>
+<table class="docinfo" frame="void" rules="none">
+<col class="docinfo-name" />
+<col class="docinfo-content" />
+<tbody valign="top">
+<tr class="field"><th class="docinfo-name">Lecture date:</th><td class="field-body">2005-03-31</td>
+</tr>
+</tbody>
+</table>
+<p>There are two main topics in this lecture. First, we want to
+talk about our vision for the Fenfire project. Second, we want
+to get more practical and introduce you to a user interface framework
+that is part of Fenfire.</p>
+<div class="section" id="the-fenfire-vision">
+<h1><a name="the-fenfire-vision">The Fenfire vision</a></h1>
+<p>Here's the plan that keeps us going:</p>
+<ul>
+<li><p class="first">Store all of a user's information in a <em>single, structured data store</em>.</p>
+</li>
+<li><p class="first">In this data store, have references to <em>real-world things</em>
+(people, projects, ...) and relationships between these.</p>
+</li>
+<li><p class="first"><em>Don't have a fixed schema</em> of information. Allow the user to <em>extend</em>
+the kinds of information stored in the system.</p>
+</li>
+<li><p class="first">Allow programmers to <em>create views</em> for this information and <em>commands</em>
+to act on it. Encourage them to be general enough to be usable
+for different kinds of information.</p>
+</li>
+<li><p class="first">Instead of having applications, allow the user to combine arbitrary views
+and bindings suited for their current task.</p>
+</li>
+<li><p class="first">Provide a generic view showing the graph of relationships.
+Use this view [XXX to connect arbitrary other views and as the basic way
+for the user to interact with the system.]</p>
+<p><a class="reference" href="plan.html">More about these points.</a></p>
+</li>
+</ul>
+<p>XXX where to say the overlapping thing: information that would
+today be stored unconnected in different applications can now
+overlap freely, and so can the user's use of it -- this is important,
+has to be in here</p>
+<p>Then, we get a system XXX</p>
+<p>The data structure we use in Fenfire is <a class="reference" href="rdf.html">RDF</a>,
+developed by the World Wide Web Consortium<a class="footnote-reference" href="#id3" id="id1" name="id1">[1]</a> as a part of its
+Semantic Web effort<a class="footnote-reference" href="#id4" id="id2" name="id2">[2]</a> to create a Web of machine-readable data.</p>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1" name="id3">[1]</a></td><td><a class="reference" href="http://www.w3.org/">http://www.w3.org/</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2" name="id4">[2]</a></td><td><a class="reference" href="http://www.w3.org/2001/sw/">http://www.w3.org/2001/sw/</a></td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="lobs">
+<h1><a name="lobs">Lobs</a></h1>
+<p>One thing needed in order to realize this plan is a flexible view architecture
+that allows us to use use views together that were created independently
+by different programmers.</p>
+<p>XXX intro to lobs</p>
+<ul class="simple">
+<li>will give example demo</li>
+</ul>
+</div>
+</div>
+</body>
+</html>

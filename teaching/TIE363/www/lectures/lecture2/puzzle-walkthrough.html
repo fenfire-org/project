@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.3.7: http://docutils.sourceforge.net/" />
+<title>Puzzle demo walk-through</title>
+<link rel="stylesheet" href="default.css" type="text/css" />
+</head>
+<body>
+<div class="document" id="puzzle-demo-walk-through">
+<h1 class="title">Puzzle demo walk-through</h1>
+<p>On this page, we'll look at how we can create a 4x4 puzzle with
+the lob system, i.e., a puzzle looking like this,</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody valign="top">
+<tr><td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr><td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+</tr>
+<tr><td>9</td>
+<td>10</td>
+<td>11</td>
+<td>12</td>
+</tr>
+<tr><td>13</td>
+<td>14</td>
+<td>15</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>where you have a 4x4 grid filled with 15 pieces and one gap,
+and you can move a piece directly next to a gap into that gap.
+(The goal is to get from a random arrangement into a particular one
+like the one shown above, but that's beyond the scope of this demo;
+we'll just provide pieces that the user can move around.)</p>
+<div class="section" id="preliminaries">
+<h1><a name="preliminaries">Preliminaries</a></h1>
+<p>We'll use a class PuzzleBoard, which keeps the current state
+of the gameboard and has the following interface:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">int</span> <span class="pre">getPiece(int</span> <span class="pre">row,</span> <span class="pre">int</span> <span class="pre">column)</span></tt></dt>
+<dd>Return the number of the piece at the given row and column.
+If the gap is at the given row and column, return
+a negative number.</dd>
+<dt><tt class="docutils literal"><span class="pre">int</span> <span class="pre">getGapRow()</span></tt>, <tt class="docutils literal"><span class="pre">int</span> <span class="pre">getGapColumn()</span></tt></dt>
+<dd>Return the row and column that the gap is at.</dd>
+<dt><tt class="docutils literal"><span class="pre">void</span> <span class="pre">movePiece(int</span> <span class="pre">row,</span> <span class="pre">int</span> <span class="pre">column)</span></tt></dt>
+<dd>If the given row and column indicates a piece
+next to the gap, move it into the gap; else, do nothing.</dd>
+</dl>
+<p>The implementation of PuzzleBoard isn't important here,
+it's just ordinary Java.</p>
+</div>
+<div class="section" id="simple-lobs-creating-lobs-for-the-puzzle-pieces">
+<h1><a name="simple-lobs-creating-lobs-for-the-puzzle-pieces">Simple lobs: Creating lobs for the puzzle pieces</a></h1>
+<p>We start by writing some code to create the lob
+showing piece with number <tt class="docutils literal"><span class="pre">i</span></tt>.</p>
+<p>As in <tt class="docutils literal"><span class="pre">PuzzleBoard.getPiece()</span></tt>, a negative number indicates the gap;
+in this case, we return a &quot;null lob,&quot; meaning a lob
+that simply renders nothing.</p>
+<pre class="literal-block">
+if(i &lt; 0)
+    return Lobs.nullLob();
+</pre>
+<p>Otherwise, we first create a lob showing the given number as text,
+using a static method in the Lobs class.</p>
+<pre class="literal-block">
+Lob l = Components.label(&quot;&quot;+i);
+</pre>
+<p>This lob has a more or less fixed size. We now wrap this lob
+in another lob, which can be rendered in a box of arbitrary size,
+and will render its child at the middle of that box (at its natural size).</p>
+<pre class="literal-block">
+l = Lobs.align(l, .5f, .5f);
+</pre>
+<p>This method takes the lob to be wrapped (<tt class="docutils literal"><span class="pre">l</span></tt>), and one fraction
+between zero and one for the x- and y-axes each. It will align
+the child so that the point at the given fraction (here: 
+the point at the center) is rendered at the corresponding point
+in the given box (here, the center of the label is rendered at the center
+of the given box).</p>
+<p>However, the <em>size request</em> of the lob -- its minimum, natural,
+and maximum size -- are still the same as the label's. We would like
+all lobs to be rendered in a box of the same size. To do this,
+we wrap the lob again to change its size request.</p>
+<pre class="literal-block">
+l = Lobs.request(l, 30, 30, 30, 30, 30, 30);
+</pre>
+<p>The individual parameters of <tt class="docutils literal"><span class="pre">Lobs.request()</span></tt> are:
+the lob to be wrapped; the minimum, natural, and maximum size
+on the x-axis; and the minimum, natural, and maximum size
+on the y-axis (all in pixels).</p>
+<p>We now wrap this lob in another lob, which renders a background behind
+and a border around our label.</p>
+<pre class="literal-block">
+l = Components.frame(l);
+</pre>
+<p>Finally, we put a 10-pixel margin around the frame.</p>
+<pre class="literal-block">
+l = Lobs.margin(l, 10);
+return l;
+</pre>
+<p>You'll notice that some of the static functions we used 
+are in the <tt class="docutils literal"><span class="pre">Components</span></tt> class, while others are in the <tt class="docutils literal"><span class="pre">Lobs</span></tt> class.
+The difference is that <tt class="docutils literal"><span class="pre">Lobs</span></tt> contains functions whose output
+depends only on their input, whereas functions in <tt class="docutils literal"><span class="pre">Components</span></tt>
+may draw default values for fonts, colors, etc., from different sources.
+(Currently the defaults are hard-coded, but they are meant to be
+configurable.) For example, when calling <tt class="docutils literal"><span class="pre">Components.label()</span></tt>,
+we do not have to specify the font or color.</p>
+<p>We now arrived at the following function:</p>
+<pre class="literal-block">
+public static Lob piece(int i) {
+    if(i &lt; 0)
+        return Lobs.nullLob();
+
+    Lob l = Components.label(&quot;&quot;+i);
+    l = Lobs.align(l, .5f, .5f);
+    l = Lobs.request(l, 30, 30, 30, 30, 30, 30);
+    l = Components.frame(l);
+    l = Lobs.margin(l, 10);
+    return l;
+}
+</pre>
+</div>
+<div class="section" id="lobs-and-identity">
+<h1><a name="lobs-and-identity">Lobs and identity</a></h1>
+<p>We'll make one more change to the above: We will associate the lob
+with the <em>identity</em> of the piece. To do this, we have to provide
+a Java object that represents the piece. We'll simply use
+an <tt class="docutils literal"><span class="pre">Integer</span></tt> object containing the piece number (i.e., <tt class="docutils literal"><span class="pre">i</span></tt>).</p>
+<p>Our function then looks like this:</p>
+<pre class="literal-block">
+public static Lob piece(int i) {
+    if(i &lt; 0)
+        return Lobs.nullLob();
+
+    Lob l;
+
+    RoleContext.enter(new Integer(i));
+    try {
+        l = Components.label(&quot;&quot;+i);
+        l = Lobs.align(l, .5f, .5f);
+        l = Lobs.request(l, 30, 30, 30, 30, 30, 30);
+        l = Components.frame(l);
+        l = Lobs.margin(l, 10);
+
+        l = RoleContext.lob(l);
+    } finally {
+        RoleContext.exit();
+    }
+    
+    return l;
+}
+</pre>
+<p>We added three things:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">RoleContext.enter()</span></tt>, to which we pass the <tt class="docutils literal"><span class="pre">Integer</span></tt> object
+representing our piece;</li>
+<li>a <tt class="docutils literal"><span class="pre">try...finally</span></tt> block, with <tt class="docutils literal"><span class="pre">RoleContext.exit()</span></tt> 
+in the <tt class="docutils literal"><span class="pre">finally</span></tt> clause; and</li>
+<li>at the end of the <tt class="docutils literal"><span class="pre">try</span></tt> clause, the line <tt class="docutils literal"><span class="pre">l</span> <span class="pre">=</span> <span class="pre">RoleContext.lob(l)</span></tt>.</li>
+</ul>
+<p>Together, these tell the lob system that the lob 
+created in the <tt class="docutils literal"><span class="pre">try</span></tt> clause represents on the screen
+the object <tt class="docutils literal"><span class="pre">Integer(i)</span></tt>.</p>
+<p>The most visible effect is that when the screen changes,
+but there are lobs representing the same object in the old
+and new screens, the system will automatically show an animation
+of the lob moving to its new place. In the puzzle demo,
+this means that when the puzzle pieces move to a different place,
+the lob system will automatically show an animation.</p>
+<p>This functionality is, in fact, provided by the underlying
+Libvob system, which we will look at in a future lecture.</p>
+<p>The less visible effects are:</p>
+<ul class="simple">
+<li>We can create code that adds information to independently created views,
+by looking at the identities of the lobs created by these views.
+For example, we could create a view that looks for lobs 
+representing a person, and adds a thought bubble with the person's birthday 
+to each such lob. (This, too, uses the underlying Libvob system.)</li>
+<li>Lobs can store state, which will be associated with the identity
+they represent. For example, a text field needs to store
+the current cursor position. This is an issue because
+we generally create a new tree of lobs each time we update the screen;
+we can therefore not store state &quot;inside&quot; the lob objects.</li>
+</ul>
+<p>The identities of lobs form a hierarchy. Consider the following code:</p>
+<pre class="literal-block">
+RoleContext.enter(&quot;identity A&quot;);
+try {
+    RoleContext.enter(&quot;identity 1&quot;);
+    try {
+        // create lob a
+    
+        a = RoleContext.lob(a);
+    } finally {
+        RoleContext.exit();
+    }
+
+    a = RoleContext.lob(a);
+} finally {
+    RoleContext.exit();
+}
+
+RoleContext.enter(&quot;identity B&quot;);
+try {
+    RoleContext.enter(&quot;identity 1&quot;);
+    try {
+        // create lob b
+    
+        b = RoleContext.lob(b);
+    } finally {
+        RoleContext.exit();
+    }
+
+    b = RoleContext.lob(b);
+} finally {
+    RoleContext.exit();
+}
+</pre>
+<p>Lobs 'a' and 'b' do not have the same identity, as far as
+the lob system is concerned; for example, they would not
+be animated to each other.</p>
+</div>
+<div class="section" id="the-puzzle">
+<h1><a name="the-puzzle">The puzzle</a></h1>
+<p>Like the individual pieces, the whole puzzle is a lob.
+It is created by a function called <tt class="docutils literal"><span class="pre">lob()</span></tt>:</p>
+<pre class="literal-block">
+public static Lob lob(Map params) {
+    PuzzleBoard board = 
+        (PuzzleBoard)Components.getState(params, &quot;board&quot;, null);
+
+    // ...
+}
+</pre>
+<p>The first line of the function is an example of a lob
+using state associated with its identity. Consider this code:</p>
+<pre class="literal-block">
+RoleContext.enter(&quot;the first puzzle&quot;);
+try {
+    puzzle1 = lob(new HashMap());
+} finally {
+    RoleContext.exit();
+}
+
+RoleContext.enter(&quot;the second puzzle&quot;);
+try {
+    puzzle2 = lob(new HashMap());
+} finally {
+    RoleContext.exit();
+}
+</pre>
+<p>Here, 'puzzle1' and 'puzzle2' would have different PuzzleBoards
+because they are associated with different identities.</p>
+<p>The second parameter to <tt class="docutils literal"><span class="pre">Components.getState()</span></tt> is the name
+of the state field to be read; the third parameter is a default value,
+if this state field hasn't been set, yet; and the first parameter
+is a <tt class="docutils literal"><span class="pre">Map</span></tt> that can be used to explicitly provide an object
+containing state, rather than associating the state
+with the lob's identity (for example, if we wanted to store
+a text field's cursor in an RDF database, instead of only
+keeping it in memory).</p>
+<p><tt class="docutils literal"><span class="pre">lob()</span></tt> continues to check whether a board has actually been
+created already, and creates a new one if necessary:</p>
+<pre class="literal-block">
+if(board == null) {
+    board = new PuzzleBoard();
+    Components.setState(params, &quot;board&quot;, board);
+}
+</pre>
+<p>Then, we proceed to create a the grid of puzzle pieces. For this,
+we use <tt class="docutils literal"><span class="pre">TableLob</span></tt>, a special lob for layouting things
+in a grid.</p>
+<p><tt class="docutils literal"><span class="pre">TableLob</span></tt> contains an interface we need to implement:</p>
+<pre class="literal-block">
+public interface Table extends Realtime { 
+    int getRowCount();
+    int getColumnCount();
+
+    Lob getLob(int row, int column);
+}
+</pre>
+<p>A simple implementation would look something like this:</p>
+<pre class="literal-block">
+TableLob.Table table = new TableLob.Table() {
+    public int getRowCount() { return 4; }
+    public int getColumnCount() { return 4; }
+    
+    public Lob getLob(int row, int column) {
+        return piece(board.getPiece(row, column));
+    }
+};
+</pre>
+<p>This ignores that <tt class="docutils literal"><span class="pre">Table</span></tt> extends the <tt class="docutils literal"><span class="pre">Realtime</span></tt> interface, though.</p>
+<p>The actual code we use looks more like this:</p>
+<pre class="literal-block">
+TableLob.Table table = new &#64;realtime-i TableLob.Table(PuzzleBoard board) {
+    public int getRowCount() { return 4; }
+    public int getColumnCount() { return 4; }
+    
+    public Lob getLob(int row, int column) {
+        return piece(board.getPiece(row, column));
+    }
+};
+</pre>
+<p>This uses the special <a class="reference" href="mailto:'&#64;realtime-i">'&#64;realtime-i</a>' syntax, which is transformed
+into proper Java by a preprocessor we have written. Preprocessing
+the above generates the following convoluted code at the end of the Java file
+(you don't need to understand what it does, at this time, this is just
+meant to explain why preprocessing is needed in this case):</p>
+<pre class="literal-block">
+private static class _TableLob_Table_2 extends RealtimeObject implements TableLob.Table {
+
+    private _TableLob_Table_2() {}
+
+    PuzzleBoard board;
+
+    
+    public int getRowCount() { return 4; }
+    public int getColumnCount() { return 4; }
+
+    public Lob getLob(int row, int column) {
+        Lob lob = piece(board.getPiece(row, column));
+
+        lob = Lobs.clickController(lob, 1, new_Action_3(board,row,column));
+
+        return lob;
+    }
+
+
+    public boolean move(ObjectSpace os) {
+        if(super.move(os)) {
+            if(((Object)board) instanceof Realtime) ((Realtime)((Object)board)).move(os); 
+            return true;
+        }
+        return false;
+    }
+}
+
+private static final RealtimeObject.Factory _TableLob_Table_2_FACTORY =
+    new RealtimeObject.Factory() {
+        protected Object create() { return new _TableLob_Table_2(); }
+    };
+
+private static _TableLob_Table_2 new_TableLob_Table_2(PuzzleBoard board) {
+    _TableLob_Table_2 the_new_TableLob_Table_2 = (_TableLob_Table_2)_TableLob_Table_2_FACTORY.object();
+    the_new_TableLob_Table_2.board = board;
+    return the_new_TableLob_Table_2;
+}
+</pre>
+<p>The code in <tt class="docutils literal"><span class="pre">lob()</span></tt> gets transformed to:</p>
+<pre class="literal-block">
+TableLob.Table table = new_TableLob_Table_2(board);
+</pre>
+<p>What the convoluted code does is to create a class of objects
+that can be re-used by the Javolution library<a class="footnote-reference" href="#id2" id="id1" name="id1">[1]</a>. Javolution
+provides facilities for re-using Java objects in order to avoid
+garbage collection overhead.</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1" name="id2">[1]</a></td><td><a class="reference" href="http://javolution.org/">http://javolution.org/</a></td></tr>
+</tbody>
+</table>
+<p>Let's look a bit more closely at the syntax accepted by the preprocessor.</p>
+<pre class="literal-block">
+TableLob.Table table = new &#64;realtime-i TableLob.Table(PuzzleBoard board) {
+    // ...
+};
+</pre>
+<p>This is meant to look similar to the declaration of an anonymous
+inner class. Unfortunately, however, the syntax isn't completely analogous,
+because the preprocessor isn't very sophisticated.</p>
+<p>First, there are two different tags that can be put before
+the class name: &#64;realtime for extending classes, and &#64;realtime-i
+for implementing interfaces. The difference is there because
+the preprocessor needs to generate different code in each case.</p>
+<p>Second, the preprocessor doesn't recognize variables declared 'final'
+in the outer scope. To pass variables from the surrounding method
+and class into the 'inner class,' they must be put in the brackets
+after the class name; in this case, the variable 'board' is passed
+to the inner class.</p>
+<p>The actual <tt class="docutils literal"><span class="pre">Table</span></tt> implementation in the demo adds a handler
+for interpreting mouse clicks as the command to move the clicked puzzle piece
+into the gap:</p>
+<pre class="literal-block">
+TableLob.Table table = new &#64;realtime-i TableLob.Table(PuzzleBoard board) {
+    public int getRowCount() { return 4; }
+    public int getColumnCount() { return 4; }
+
+    public Lob getLob(int row, int column) {
+        Lob lob = piece(board.getPiece(row, column));
+
+        lob = Lobs.clickController(lob, 1, new &#64;realtime-i Action(PuzzleBoard board, int row, int column) {
+            public void run() {
+                board.movePiece(row, column);
+            }
+        });
+
+        return lob;
+    }
+};
+</pre>
+</div>
+</div>
+</body>
+</html>
