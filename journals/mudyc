@@ -1,0 +1,40 @@
+============
+Plan:
+============
+
+Teaching
+========
+
+- Create a homepage
+
+
+Research and thesis
+===================
+
+- Arrange a meeting with ajk about thesis.
+    - but before that *do* something for it!
+
+
+=============
+Past:
+=============
+
+2005-02-08: 
+    - Start journals again.
+    - Implement with Benja [5h]
+        - unitSq for AWT
+            - This was quite a fun since it was buggy 
+              and the AWTVobCoorder had some crap from 
+              history.
+            - Btw. always use non symmetric rectangle 
+              to test something! It took quite long to 
+              found the bug.
+        - between cs
+        - translate polar
+    - Discussion with Benja about views. [2-3h]
+        - I enjoyed after selling my idea to Benja who tried 
+          to sell like fury his idea to me :)
+
+2005-02-07:
+    - Ported buoy cs from C++ side to AWT. [5h]
+
