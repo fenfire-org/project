@@ -366,11 +366,8 @@ Fenfire technologies into practical use.
 
 .. ALREADY ANSWERED ABOVE -- release of open-source product
 
-  
-And what additional resources are needed for further developement?
-------------------------------------------------------------------
-
-XXX
+Further development depends on the formation of an open-source community
+around Fenfire.
 
 
 How the results can be utilized -- commercial, social or scientific?
@@ -386,46 +383,60 @@ How soon?
 .. Partly ALREADY ANSWERED ABOVE -- within the scope of this project,
    we will release software for SemWeb people and experienced users
 
-XXX cannot say exactly when we can have full desktop environment
-for end-users; depends on community involvement
+It is very hard to estimate how soon an end-user version of Fenfire
+can be produced; this depends very much on the level of involvement
+we can obtain from the open-source community, and on the needs
+of individual contributors.
 
 
-Which are the aims of project parties to utilize the results? 
-=============================================================
+Which are the aims of project parties to utilize the results? Who owns IPR?
+===========================================================================
 
-XXX
+The results of the project will be published as open-source code.
+We believe that we will be able to build a community that will use
+the product and continue its development.
 
-- foundation will release software
+The only IPR created in this project are the copyrights to the
+Fenfire code. These are currently held by the individual authors.
 
-- development will continue
+We are in the process of founding a non-profit association which,
+in the future, will hold the Fenfire copyrights and publish the software.
 
+All Fenfire code is and will continue to be licensed under the
+open-source GNU General Public License. Both companies and private users
+will thus be able to use Fenfire without charge. The license allows for
+arbitrary modification and redistribution of the source code,
+but does not allow for proprietary derivative works.
 
-Who owns IPR of the project, what's the contract?
--------------------------------------------------
-
-- copyrights will be owned by non-profit association
-
-- all software published under GPL, both companies and private users
-  are free to use without fees
-
-- ISVs wishing to develop proprietary software based on the Fenfire framework
-  will be able to buy a license from the association; income will be used
-  to fund further research and development (quid-pro-quo model
-  successfully used by companies like Trolltech and MySQL)
+Similar to successful open-source companies like Trolltech and
+MySQL AB, the association will sell licenses to vendors wishing
+to use Fenfire in proprietary systems. As the association is not for profit,
+all revenue will be used to fund further development of Fenfire.
 
 
 What are the duties in utilizing for projects parties? 
 ======================================================
 
-.. further study, lisencing, standarding, manufacturing, sales, marketing, etc
+The non-profit association being set up will distribute the software,
+license it to proprietary software vendors, and, if it is able
+to collect sufficient funds, employ programmers 
+to continue software development. It may also offer support
+and other services related to the product.
 
-- foundation will release software, maintain copyrights, do development
-  if it has funds
-
-- research group is planning to do follow-up project re multi-user Fenfire
+If the release of a single-user version of Fenfire is successful,
+the university research group is planning to continue research
+into multi-user environments, addressing issues of versioning
+and collaborative work in the Fenfire environment. While
+the single-user version will be helpful for individual early adopters,
+useful deployment of Fenfire across a larger organization will likely
+require more advanced collaboration support. We believe this effort
+may take approximately one to two years.
 
 
 Does the utilizing need support from outside of the project?
 ============================================================
 
-- needs involvement from open-source community
+Creating the first public release of Fenfire, as outlined above,
+will not need support from outside the project. However, continued development
+of Fenfire into a stable end-user product crucially depends on our ability
+to create an open-source community around the software.
