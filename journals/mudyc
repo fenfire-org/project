@@ -14,10 +14,58 @@ Research and thesis
 - Arrange a meeting with ajk about thesis.
     - but before that *do* something for it!
 
+- 2005-03-15 Deadline of the Fenix application
+   - Signature from someone in the University - This has to be done in 2005-03-12.
+
 
 =============
 Past:
 =============
+
+2005-02-19:
+    - Finally got the mouse events to focused spatial lob
+        - Use StructView as THE structure lob :)
+        - Buoy events are still hard to fix.
+        - The problem is buoy coordinates - I think.
+
+2005-02-16/17: 
+    - Sleep and rest.
+
+2005-02-15:
+    - siksak moved to a mouse hole.
+
+2005-02-13/16:
+    - Tried to change the structure thing to lob system during night and 
+      daylight. No success. [3d]
+
+2005-02-12:
+    - Read "Programming Environments Based on Structured 
+      Editors: The MENTOR Experience" [2h]
+
+    - There was two modes but not clear what they meant with those.
+    - p7. """Furthermore we intended this environment to be realistic enough 
+      to help in implementing large software developments, and provide a programming
+      team with tools for specifying a design, enforcing a programming
+      methodology and verifying interfaces."""
+    - p14. """One of the most commonly heard criticism of MENTOR is that it should
+      be possible to edit programs on yout screen in the same way as for
+      instance with EMACS editor. We do not believe that this would be an
+      easy task, and we do not even think such a facility is really
+      desirable."""
+    - p15. """Finally, a major drawback of mixing structured editing and 
+      display editing is that the user would have to learn hot to use 
+      two command languages instead of one."""
+    - p15. """It seems that in the average a PASCAL programmer need 
+      about a week to get accusted to this new world of trees."
+      ..."Past this period, few return to the standard tools."""
+    - p15. """However, it is very important that the user may correspond 
+      to the system trough the concrete syntax he is used to: he should be 
+      able to visualise his tree with unparsing, and conversely input 
+      his program text with parsing."""
+
+2005-02-09:
+    - With Benja:
+        - Started The Fenfire! [3h]
 
 2005-02-08: 
     - Start journals again.
