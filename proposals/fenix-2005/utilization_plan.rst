@@ -121,20 +121,20 @@ What are the goals and intended results?
 The ultimate goal of the Fenfire project is to create a desktop environment
 for knowledge workers in which 
 
-a) information is structured as relationships between real-world things
+1. information is structured as relationships between real-world things
    such as people and projects, rather than through artificial concepts 
    like applications and folders;
 
-b) the user can easily extend the available relationships and views, 
+2. the user can easily extend the available relationships and views, 
    creating their own "applications";
 
-c) information is easily exchanged between different users with support
+3. information is easily exchanged between different users with support
    for versioning and collaborative work.
 
 The goals of the proposed Fenix project are
 
 - to complete a first version of a single-user Fenfire system implementing
-  points a) and b), above;
+  points 1 and 2, above;
 - to publish this software as open source, build a community around it
   and evaluate the results of real-world use of the software.
 
