@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+  <title>Introduction to Storm - Issues - TIE363</title>
+</head>
+<body>
+<p>
+<a href="index.fi.html">fi</a> en 
+</p>
+
+<p>
+Written by Matti Katila.
+</p>
+
+<h1>Introduction to Information Storm - Storm: Storage Module</h1>
+
+<p>
+As a response to web's content fast falling apart, problem with
+versioning and in general to better management of information has
+Tuomas Lukka come up with the idea of Storm, that is information
+storage. Short and compact presentation of pros and problems of
+current web is described in 
+<a
+href="http://himalia.it.jyu.fi/darcs/storm/doc/why.rst">
+"why"</a> document written by benja or in the short 
+<a
+href="http://portal.acm.org/citation.cfm?id=900084"> 
+article</a>.
+</p>
+
+<p>
+What is storm and how it uses identities? The first idea is to use
+same kind of technology as used in current peer to peer
+technologies. A hash is created for a file (with Storm there's no
+splitting of the file because it's not designed for sharing big
+files). With hash string also content type is used in Storm.
+
+These two forms a identity of the file, that is a Storm <em> block
+</em>. An example of the dientity is given here:  
+vnd-storm-hash:image/png,pbqrtu42fqpm2zgceea7kzukwiaej5hi.6ikqbro4lk7yf6yrhlw6xutvcpc45u2qodebmzy
+</p>
+
+<p>
+Additional to file block a owner of the file may be needed, for
+example a person or organisation, which has a cryptographic key and
+access to electronical signature. For this an <em>owner block </em> is
+created which has not to be public but which contains information
+which identifies the person or the organisation.
+</p>
+
+<p>
+For next a Storm pointer is introduced. The meaning of pointer is to
+point permamently to information, and thus with them a current web can
+be replaced - wouldn't it be too difficult if helsinginsanomat.fi
+couldn't refer more than one day paper. A Storm pointer is also storm
+block but as a content it has a reference to owner block, public key,
+and reference to reference block. Storm pointers point to
+information but not to file block itself.
+</p>
+
+<p>
+Reference block is a small RDF graph which itself is also a Storm
+block. In this graph there is - finally - a reference to file block
+itself or actually to identity which identities the block, and a
+signature of the owner. 
+</p>
+
+<p>
+The actual work - versioning - is done by above mentioned
+components. New version of file, that is a new block identity, is put
+into the system by creating a new reference which obsoletes previous
+reference blocks.
+</p>
+
+<pre>
+          
+Storm-ptr     --->  owner block    
+ (pub key)    --->  Referenssi - versio 1  --->  A - file block
+
+                        *
+                       /|\
+                        |
+                     obsoletes
+                        |
+
+                    Referenssi - versio 2  --->  B - file block
+
+                        *
+                       /|\
+                        |
+                     obsoletes
+                        |
+
+                    Referenssi - versio 3  --->  A - file block
+
+                        *
+                       /|\
+                        |
+                     obsoletes
+                        |
+                    Referenssi - versio 4  --->  C - file block
+
+</pre>
+
+
+<p>
+<a href="http://validator.w3.org//check?uri=http%3A%2F%2Fhimalia.it.jyu.fi%2Fdarcs%2Fproject%2Fteaching%2FTIE363%2Fwww%2Flectures%2Fissues%2Fintro-to-storm%2F;ss=1;outline=1;verbose=1">
+<img
+          src="http://www.w3.org/Icons/valid-xhtml10"
+          alt="Valid XHTML 1.0!" height="31" width="88" /></a>
+</p>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <title>Introduction to Xanalogical Media - Issues - TIE363</title>
+</head>
+<body>
+<p>
+<a href="index.fi.html">fi</a> en 
+</p>
+
+<p>
+Written by Matti Katila.
+</p>
+
+<h1>Introduction to Xanalogical Media</h1>
+
+<h2> Xanalogical Content </h2>
+
+
+<p>
+<a href="http://www.ibiblio.org/pioneers/nelson.html"> Theodor (Ted) Holm 
+Nelson</a> had an idea in the year 1960 of <a
+href="http://xanadu.com/xuTheModel/"> xanalogical media</a> which
+can be a huge revolution in computing in the future.
+What does this technology mean?
+Let's imagine that every key stroke in computer is identified, and
+thus when Pekka presses A-letter it's not the same A-letter that Jukka
+presses in his computer. At the beginning this may sound 
+impossible but it isn't - we just need to forget ASCII for the moment.
+</p>
+
+<p>
+Xanalogical media can be implemented as follows. Instead of storing a
+letter, for example A-letter (0x41), a identity is constructed which
+refers to pressed A-letter. To programmer this can be expressed as
+reference, pointer and such. After constructing the identity, the real
+content shall be stored to refereed place.
+</p>
+
+<p>
+Xanalogical media which in this example is text, gives significant
+advantage compared to common text. Every citation of the text is a
+real citation and original media can be easily seen as well as the
+author. For example if you cut text from Keskisuomalainen from the
+year 1983 on January sencond Sunday, the user interface can show not
+only the citated tex but also the whole news paper.
+</p>
+
+<p>
+Xanalogic media is not only about text or invidual key strokes even if
+xanalogic text is still the first idea which pops out from the
+idea. For example in Fenfire we use to show (scientific) articles with
+images from each page. Other media might be sound and video. It's
+noticed that even if you can speak of many medias, there's only few
+which can be realised.
+</p>
+
+<p>
+In the following example there is xanalogic text used in the Fenfire
+system. In practise xanalogic media is orthogonally expressed in 
+<a href="../intro-to-rdf/"> RDF graph</a> by putting an XML information
+in typed literal.
+</p>
+
+<pre>
+
+# An example of use of xanalogical text with TIML implementation.
+
+
+import org.nongnu.alph as alph
+
+textMerkki = alph.TString.newRICC("merkki")
+textEsi = alph.TString.newRICC("Esi")
+
+
+text = textEsi.plus(textMerkki)
+print text
+print text.toXML()
+
+text = textMerkki.plus(textEsi)
+print text
+print text.toXML()
+
+>>>>>>>>>>>>>>>>
+
+Esimerkki 
+
+&#60;timl:tstring
+xmlns:timl="http://fenfire.org/xmlns/2003/09/tstring#"&#62;
+&#60;timl:tspan timl:offs="33" timl:uri="urn:urn-5:q5Vve18HwsOQcz2nl9xW4sfcb2Vg:1"&#62;Esi&#60;/timl:tspan&#62;&#60;timl:tspan
+timl:offs="27" timl:uri="urn:urn-5:q5Vve18HwsOQcz2nl9xW4sfcb2Vg:1"&#62;merkki&#60;/timl:tspan&#62;&#60;/timl:tstring&#62;
+
+merkkiEsi
+
+&#60;timl:tstring
+xmlns:timl="http://fenfire.org/xmlns/2003/09/tstring#"&#62;&#60;timl:tspan
+timl:offs="27" timl:uri="urn:urn-5:q5Vve18HwsOQcz2nl9xW4sfcb2Vg:1"&#62;merkkiEsi&#60;/timl:tspan&#62;&#60;/timl:tstring&#62;
+
+
+</pre>
+
+
+<h2> Xanalogic Link </h2>
+
+<p>
+Xanalogic link is the original idea behind current web systems. As it
+turns out web uses one way links where xanalogic link is two way. In
+short xanalogic link is two points and between those is a line
+segment where points are references to xanalogic media.
+</p>
+
+<p>
+If we imitate the example above we could say:
+</p>
+
+<pre>
+textMerkki = alph.TString.newRICC("merkki")
+textEsi = alph.TString.newRICC("Esi")
+
+xuLink = createXuLink(textMerkki, textEsi)
+
+</pre>
+
+
+<p>
+<a href="http://validator.w3.org//check?uri=http%3A%2F%2Fhimalia.it.jyu.fi%2Fdarcs%2Fproject%2Fteaching%2FTIE363%2Fwww%2Flectures%2Fissues%2Fintro-to-xanalogical-media%2F;ss=1;outline=1;verbose=1">
+<img
+          src="http://www.w3.org/Icons/valid-xhtml10"
+          alt="Valid XHTML 1.0!" height="31" width="88" /></a>
+</p>
+
+</body>
+</html>
