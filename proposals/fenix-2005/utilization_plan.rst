@@ -261,6 +261,9 @@ The goals of the currently proposed project are
 - to publish this software as open source, build a community around it
   and evaluate the results of real-world use of the software.
 
+The single-user Fenfire system will also act as a general, extensible
+browser and editor for Semantic Web data.
+
 Additionally, ... [we will produce] the following deliverables ...
 
 - (working libvob/lob system)
@@ -270,6 +273,45 @@ Additionally, ... [we will produce] the following deliverables ...
 
 What is the demand for such goals and results?
 ==============================================
+
+Information management is an important concern in many organizations today.
+
+The need for higher integration between desktop applications is underscored
+by the investment of a large company like Microsoft in a technology like
+WinFS, which provides a common, extensible data store to be used by
+applications running on the next generation of Windows. (While not directly
+compatible with RDF, WinFS is based on a very similar data structure.)
+
+Allowing the *user* to arbitrarily extend the data schemas and applications,
+and making this a normal part of the user's activity, is an unusual approach.
+However, users do this already, only without tool support; a user
+creating a list of club members in a word processor is creating 
+a data structure, only without tool support. We believe that allowing users
+to extend and relate information from different applications will be
+an important improvement in information management for knowledge workers.
+
+Additionally, the Semantic Web, still in a research and development phase,
+is growing in importance. On the Semantic Web, semantic information
+forms a big network of interlinked graphs. Enough early adopters publish
+information in Semantic Web formats today for it to be of interest,
+but while there are many tools that make use of data in specific schemas,
+only few tools allow the user to browse Semantic Web data in general.
+Such tools are, however, needed to make use of the core advantage
+of the semantic representation of data: the extensibility with new types
+of items and relationships.
+
+Fenfire, providing a way to browse any Semantic Web data, can help users
+and developers to start taking advantage of the interlinked structured data
+already published on the Semantic Web, and show the usefulness of
+providing all sorts of data and extensions in semantic graphs. This can
+help to show users the usefulness of Semantic Web data already on-line,
+provide an incentive to users to put more data on-line (as they can see
+an actual use for it), and help researchers in their use of the Semantic Web.
+
+We have demonstrated components of Fenfire at international workshops
+and conferences, and there has been substantial interest from members
+of the hypertext and Semantic Web communities in our tools.
+
 
 What are the potential applications?
 ====================================
