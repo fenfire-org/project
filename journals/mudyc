@@ -5,7 +5,11 @@ Plan:
 Teaching
 ========
 
-- Create a homepage
+- Start working on lecture material
+    - Divide the content to lecturers.
+
+- Add more information to course homepage
+    - Lectures and smushing
 
 
 Research and thesis
@@ -21,6 +25,17 @@ Research and thesis
 =============
 Past:
 =============
+
+2005-02-24/25
+    - Got darcsbot running. It's not polling private darc(s)hive yet.
+    - Create a simple homepage for course (not translated yet)
+
+2005-02-23:
+    - Started darcsbot
+
+2005-02-22:
+    - Very simple and sophisticated calendar view.
+        - How to fix it?
 
 2005-02-19:
     - Finally got the mouse events to focused spatial lob
