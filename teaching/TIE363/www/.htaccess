@@ -1,0 +1,17 @@
+# Tehd‰‰n var-p‰‰tteisist‰ tiedostoista tyyppikartta-tiedosto,
+# joka kertoo mik‰ tiedosto sis‰lt‰‰ mit‰kin kielt‰
+AddHandler type-map .var
+
+# K‰ytet‰‰n kansion indeksitiedostona index.var-tiedostoa
+# tavallisen index.shtml-tiedoston sijaan
+# M‰‰r‰t‰‰n indeksitiedostovaihtoehdot:
+DirectoryIndex index.var index.html index.shtml
+
+# M‰‰r‰t‰‰n kielten oletusj‰rjetys, ensin englanti ja sitten suomi.
+# T‰t‰ j‰rjestyst‰ k‰ytet‰‰n jos selain ei itse ilmoita selke‰‰ paremmuusj‰rjestyst‰
+LanguagePriority fi en
+
+# Varmistetaan, ett‰ selaimelle tarjotaan dokumentti myˆs jos selaimen haluamia
+# kielivaihtoehtoja ei lˆydy
+ForceLanguagePriority Prefer Fallback
+
