@@ -1,0 +1,58 @@
+==================================================
+New methods for information management and sharing
+==================================================
+
+- About Fenfire technologies
+- Central idea: "identity" [and relations]
+- Course: Lectures about Fenfire technologies; XXX
+- How to pass the course:
+
+  - students are free to select a subject related to FF;
+  - do something practical, e.g. port part of a program,
+    or part the OpenGL code to Win/Mac
+  - also mailing list discussions about the lectures,
+    which can be substituted by doing exercises
+    (writing an essay or piece of code)
+
+    - encourage to mailing list discussion, i.e., you don't feel
+      like you're doing an exercise 
+
+    1) We send topics for discussion to the list:
+       open questions, points that were raised in the lectures,
+       code that would be nice to have
+    2) Students participate by mails and/or writing code
+    3) If we cannot grade students' understanding
+       based on their contributions, we give them 
+       questions to answer / a topic for a short essay /
+       code to write
+    4) goto 1)
+
+  - grade is 50% weekly exercises and 50% practical project
+  - the project needs to be done to pass
+
+
+
+Why take this course?
+=====================
+
+* free software;
+* non-traditional computing;
+* practical experience [with coding in a free software project];
+* and, of course, *because*.
+
+- to get a new POV on the "virtuality" presented by a computer
+- to learn Fenfire so that you can use it and contribute to it
+
+
+Korppi questions
+================
+
+- current evernts
+- timetable
+- contents
+- literature
+- prerequisites
+- mode of study
+- assessment
+- target
+- selection technique
