@@ -75,6 +75,17 @@ Needed parts or another document (utilization plan)
 
 
 
+
+Abstract
+========
+
+The goal of this project is twofold: First, to create a Semantic Web
+browser and editor developers, to further Semantic Web research
+and development; and second, to create a tool for knowledge workers
+allowing them to store information in structures useful for their work,
+rather than in those provided by fixed applications...
+
+
 Introduction
 ============
 
@@ -88,11 +99,44 @@ The goal of the proposed project is to complete and release
 a first version of Fenfire as an open source project.
 
 
+The goal of this project is to wrap up basic research done
+by the Fenfire project over the last few years, and to
+make an open-source product available that can be used
+by the general public.
+
+...to create an open-source tool for knowledge workers...
+...make available to the general public...
+
+The goals of this project are:
+
+- provide an open-source tool to Semantic Web developers to further
+  research and development
+- complete basic research on a framework for applitudes
+- based on this, create an open-source tool for knowledge workers
+  in general
+- maintain these tool and build an open-source community around them...
+
+
+
+
 Demand for goals and results
-===========================
+============================
 
 - We have shown Fenfire at various international conferences
   and there has been substantial interest
+
+- many ppl in the sw community have said 'the tools will save us,'
+  but the tools are crappy ;-)
+
+- there *is* no editor for rdf structure that's anywhere as fast to use
+  as a text editor is for text
+
+- rdf is too often write-only, need general graph-based tool so that
+  developers can browse what's there already and make use of it
+
+- knowledge workers need more powerful tools that allow them to
+  structure data in their computers to suit the intrinsic structure
+  of their work
 
 Potential applications
 ======================
@@ -113,6 +157,12 @@ More questions... :-)
 basic research on the scope of this project mostly done? or not?
 
 release open source software [try out in real world]
+
+   - The project aims to complete software application which would be
+     freely available for users. 
+   - There's additional need to build the Fenfire to share information
+     between multiple users that can be done approx. in one to two
+     years.
 
 
 - How the results can be utilized -- commercial, social ot scientific?
