@@ -76,6 +76,36 @@ asetetaan järjestelmään luomalla uusi referenssi, jonka sanotaan
 kumoavan edellinen tai edelliset (merkityt) referenssit.
 </p>
 
+<pre>
+          
+Storm-ptr     --->  owner block    
+ (pub key)    --->  Referenssi - versio 1  --->  A - tiedosto block
+
+                        *
+                       /|\
+                        |
+                     obsoletes
+                        |
+
+                    Referenssi - versio 2  --->  B - tiedosto block
+
+                        *
+                       /|\
+                        |
+                     obsoletes
+                        |
+
+                    Referenssi - versio 3  --->  A - tiedosto block
+
+                        *
+                       /|\
+                        |
+                     obsoletes
+                        |
+                    Referenssi - versio 4  --->  C - tiedosto block
+
+</pre>
+
 
 <p>
 <a href="http://validator.w3.org//check?uri=http%3A%2F%2Fhimalia.it.jyu.fi%2Fdarcs%2Fproject%2Fteaching%2FTIE363%2Fwww%2Flectures%2Fissues%2Fintro-to-storm%2F;ss=1;outline=1;verbose=1">
