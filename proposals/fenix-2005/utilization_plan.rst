@@ -31,6 +31,8 @@ as the Liisa Mattilainen in Bob's Mozilla Thunderbird contact list.
 They also allow the computer to detect this automatically, for example
 by noting that the two Liisas have the same homepage and e-mail address.
 
+.. XXX "they" below = the Semantic Web techs, i.e. RDF. write better
+
 Additionally, they are easy to extend; on the level of the data model,
 it would be trivial to add a "comment" relationship between a presentation
 and an e-mail commenting on it, which would itself automatically be linked
