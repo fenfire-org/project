@@ -72,3 +72,85 @@ Needed parts or another document (utilization plan)
 - Does the utilizing need support from outside of the project?
 
    - Not really. 
+
+
+
+Introduction
+============
+
+- Over the last few years, the Fenfire project has...
+
+
+Goals and intended results
+==========================
+
+The goal of the proposed project is to complete and release
+a first version of Fenfire as an open source project.
+
+
+Demand for goals and results
+===========================
+
+- We have shown Fenfire at various international conferences
+  and there has been substantial interest
+
+Potential applications
+======================
+
+- use in companies and organizations
+- private users
+
+- rdf browser and editor for semantic web research & development
+
+More questions... :-)
+=====================
+
+- Which level of developement the project aims to?
+  (basic research, prototyping, pilots...)
+  And what additional resources are needed for further developement?
+
+
+basic research on the scope of this project mostly done? or not?
+
+release open source software [try out in real world]
+
+
+- How the results can be utilized -- commercial, social ot scientific?
+  How soon?
+
+first semantic web developers -- as soon as we can 
+solve the patent issue enough (we believe 3rd quarter 2005)
+
+there seems to be a need for this type of product
+
+for information workers in general, needs more applitude code
+and more polishing of user interface -> involvement of open source community
+
+we believe our product can be useful for early adopers this year (?)
+
+- Which are the aims of project parties to utilize the results? Who
+  owns IPR of the project, what's the contract?
+
+copyrights will be owned by non-profit association
+
+all software published under GPL, both companies and private users
+are free to use without fees
+
+ISVs wishing to develop proprietary software based on the Fenfire framework
+will be able to buy a license from the association; income will be used
+to fund further research and development (quid-pro-quo model
+successfully used by companies like Trolltech and MySQL)
+
+- What are the duties in utilizing for projects parties (further
+  study, lisencing, standarding, manufacturing, sales, marketing, etc.)?
+
+- Does the utilizing need support from outside of the project?
+
+need involvement of open source community
+
+given the existing interest in the community and the need for such a product
+we believe we will get this involvement
+
+
+
+XXX mention patent above (where is the right place?)
