@@ -316,10 +316,45 @@ of the hypertext and Semantic Web communities in our tools.
 What are the potential applications?
 ====================================
 
+We believe that in the future, Fenfire or a similar system may become
+the desktop environment for any computer user dealing with information.
+Engineers may use it to keep track of ideas they have explored,
+experiments they have conducted, and regulations they must follow;
+analysts may use it to categorize and rate information they have gathered,
+and to relate it to reports they are writing; artists may use it
+to keep track of ideas and relate them to digital works exploring them.
+
+The software we will release as part of this project will be usable
+in these ways. However, as a first version, it will be aimed at
+expert users. We believe that technically versatile early adopters
+will be able to make use of this software. Following the first release,
+we will improve the software in an open-source process to make
+it easier for non-experts to learn.
+
+As the first target group for the software released in this project, we see
+
+- Semantic Web researchers and developers, who will make use of the
+  Semantic Web browsing and RDF editing functionality we provide; and
+- technically experienced knowledge workers who need better tools
+  for information management badly enough to use early versions of Fenfire
+  for their work.
+
+We believe that our tool will be immediately useful for enough
+Semantic Web developers to quickly build a user community around it.
+As they become more familiar with Fenfire, we believe that some users
+from this community will want to start using it for information management
+in general, providing the core of an open source community for this use
+of Fenfire.
+
+
 Which level of developement the project aims to?
 ================================================
 
 .. (basic research, prototyping, pilots...)
+
+The main goal of this project is to bring five years of research on
+Fenfire technologies into practical use.
+
   
 And what additional resources are needed for further developement?
 ------------------------------------------------------------------
