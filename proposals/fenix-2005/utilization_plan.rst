@@ -335,7 +335,8 @@ As the first target group for the software released in this project, we see
 
 - Semantic Web researchers and developers, who will make use of the
   Semantic Web browsing and RDF editing functionality we provide; and
-- technically experienced knowledge workers who need better tools
+
+- Technically experienced knowledge workers who need better tools
   for information management badly enough to use early versions of Fenfire
   for their work.
 
@@ -346,6 +347,14 @@ from this community will want to start using it for information management
 in general, providing the core of an open source community for this use
 of Fenfire.
 
+The second user community may use Fenfire in conjunction with
+Gnowsis, an open-source project developed by a German research institute,
+which provides interoperability with existing desktop applications
+by making data from these applications available in a Semantic Web format.
+For example, using Gnowsis, users will be able to continue using 
+their existing Outlook database and e-mail client, and make use
+of the data in these applications through Fenfire.
+
 
 Which level of developement the project aims to?
 ================================================
@@ -355,26 +364,68 @@ Which level of developement the project aims to?
 The main goal of this project is to bring five years of research on
 Fenfire technologies into practical use.
 
+.. ALREADY ANSWERED ABOVE -- release of open-source product
+
   
 And what additional resources are needed for further developement?
 ------------------------------------------------------------------
 
+XXX
+
+
 How the results can be utilized -- commercial, social or scientific?
 ====================================================================
+
+.. ALREADY ANSWERED ABOVE -- semantic web research, information workers'
+   desktop environment
+
 
 How soon?
 ---------
 
+.. Partly ALREADY ANSWERED ABOVE -- within the scope of this project,
+   we will release software for SemWeb people and experienced users
+
+XXX cannot say exactly when we can have full desktop environment
+for end-users; depends on community involvement
+
+
 Which are the aims of project parties to utilize the results? 
 =============================================================
 
+XXX
+
+- foundation will release software
+
+- development will continue
+
+
 Who owns IPR of the project, what's the contract?
 -------------------------------------------------
+
+- copyrights will be owned by non-profit association
+
+- all software published under GPL, both companies and private users
+  are free to use without fees
+
+- ISVs wishing to develop proprietary software based on the Fenfire framework
+  will be able to buy a license from the association; income will be used
+  to fund further research and development (quid-pro-quo model
+  successfully used by companies like Trolltech and MySQL)
+
 
 What are the duties in utilizing for projects parties? 
 ======================================================
 
 .. further study, lisencing, standarding, manufacturing, sales, marketing, etc
 
+- foundation will release software, maintain copyrights, do development
+  if it has funds
+
+- research group is planning to do follow-up project re multi-user Fenfire
+
+
 Does the utilizing need support from outside of the project?
 ============================================================
+
+- needs involvement from open-source community
