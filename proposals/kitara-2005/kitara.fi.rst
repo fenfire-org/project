@@ -48,6 +48,10 @@ tarjoaa voimallisen, joustavan ja rikkaan ympäristön esittää
 tietoa. Useissa tapauksissa se mahdollistaa tiedon mallintamisen juuri
 käyttäjän mieltämällä tavalla, paljon lähempänä itse tarpeita, kuin
 kiinteisiin malleihin luodut sovellukset ja ohjelmistot pystyvät.
+Ratkaisu ei kuitenkaan ole sidottu keskitettyyn palvelimeen, vaan eri 
+käyttäjät voivat tehdä muutoksia rakennusta koskeviin tietoihin 
+toisistaan riippumatta omalla tietokoneella, kämmenmikrolla tai 
+kännykällään.
 
 
 Yhteenveto
