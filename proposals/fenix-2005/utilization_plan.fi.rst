@@ -1,9 +1,18 @@
-============================================================
-Fenfire Fenix -projektin tutkimus- ja hyödyntämissuunnitelma
-============================================================
 
-Johdanto
-========
+=====================================
+Tiedonhallintamenetelmät Fenfire 2005
+=====================================
+
+
+
+------------------------------------------------------------
+Fenix / tietämyksen hallinta
+------------------------------------------------------------
+
+
+
+Lähtökohta
+==========
 
 Nykypäivän tietokone ympäristöineen rajoittaa tietotyöläisiä, jotka
 joutuvat tyytymään niihin tiedon esitysmalleihin jotka suunnittelija
@@ -24,17 +33,17 @@ säilyttää tätä tietoa osoitekirja- tai sähköpostisovellukseensa;
 mieluumminkin hän luo uuden tekstidokumentin tarkoitusta varten,
 jota ei myöskään voi mitenkään liittää mainittuihin sovelluksiin.
 
-Semanttisen vepin teknologiat lupaavat tarjota ratkaisun
+Semanttisen webin teknologiat lupaavat tarjota ratkaisun
 ongelmaan. Toisin kuin tiedon mallintamiseen suunnitellut edeltävät
-teknologiat: tietokannat, XML tai olio-ohjelmointi, semanttinen veppi
+teknologiat: tietokannat, XML tai olio-ohjelmointi, semanttinen webbi
 rakentuu identiteeteistä jotka vastaavat reaalimaailman
-asioita. Semanttisella vepillä on siis luonnollista kuvata Maijan
+asioita. Semanttisella webillä on siis luonnollista kuvata Maijan
 Outlookissa listattu Liisa Nieminen samaiseksi Liisaksi, joka asustaa
 myös Matin Mozilla Thunderbirdissä. Teknologia mahdollistaa tämän
 päättelyn automaattisesti, esimerkiksi jos heille on annettu sama
 kotisivu ja sähköpostiosoite.
 
-Lisäksi semanttinen veppi mahdollistaa tietomallien laajentamisen
+Lisäksi semanttinen webbi mahdollistaa tietomallien laajentamisen
 huoletta. Palataksemme aikaisempaan esimerkkiin esitelmästä, olisi
 mitäänsanomattoman helppoa lisätä annettu kommentti esitelmän
 yhteyteen sekä liittää tähän kommenttiin kommentoijan
@@ -52,16 +61,16 @@ muistista.
 Fenfire
 =======
 
-Semanttiseen veppiin perustuva järjestelmä tarjoaisi voimallisen ja
+Semanttiseen webbiin perustuva järjestelmä tarjoaisi voimallisen ja
 joustavan ympäristön tietotyöläisille. Useissa tapauksissa se
 mahdollistaisi tiedon mallintamisen juuri käyttäjän mieltämällä
 tavalla, paljon lähempänä itse tietotyön tarpeita, kuin kiinteisiin
 malleihin luodut sovellukset ja ohjelmistot ikinä
-pystyvät. Rakenteettomat Excell-taulukot tai tekstidokumentit
+pystyvät. Rakenteettomat Excel-taulukot tai tekstidokumentit
 korvikkeena ohjelmistolle joka vastaisi käyttäjän tarpeita, eivät
 olisi enää tarpeellisia.
 
-On suorastaan luonnollista löytää yrityksiä käyttää semanttisen vepin
+On suorastaan luonnollista löytää yrityksiä käyttää semanttisen webin
 teknologiaa "Semanttisen työpöydän" rakentamiseksi. Fenfire-projekti
 on pyrkimys täyttäää tämä yritys. Fenfiren lisäksi olemme tietoisia
 kahdesta muusta projektista, jotka työskentelevät asian hyväksi.
@@ -69,7 +78,7 @@ kahdesta muusta projektista, jotka työskentelevät asian hyväksi.
 - *Gnowsis*, vapaaohjelmisto jota kehittää saksalainen
    tutkimus-instituutti, jonka kanssa meillä on yhteistyötä. Heidän
    näkemyksensä on integroida nykyisten ohjelmistojen
-   tietojärjestelmät semanttisen vepin muotoon, ja näin mahdollistaa
+   tietojärjestelmät semanttisen webin muotoon, ja näin mahdollistaa
    käyttäjän luoda yhteyksiä tietojen välille.
 
    Gnowsisilla on konservatiivinen näkemys käyttöliittymästä, sillä se
@@ -80,9 +89,9 @@ kahdesta muusta projektista, jotka työskentelevät asian hyväksi.
 - *Haystack*, on myös vapaaohjelmisto. Se on kehitetty
    tutkimusprojektissa Massachusetts Institute of Technology:n
    tutkimuslaitoksessa. Haystack tarjoaa käyttöliittymän joka
-   muistuttaa veppiselainta, ja jossa on laajennettava joukko näkymiä
+   muistuttaa webbiselainta, ja jossa on laajennettava joukko näkymiä
    jotka sopivat erilaisten tietojen tarkasteluun. Haystackin näkymät
-   ovat samankaltaisia kuin nykyisen vepin lomakkeet, ja jotka on
+   ovat samankaltaisia kuin nykyisen webin lomakkeet, ja jotka on
    luotu ohjelmoijien tai kokeneiden käyttäjien toimesta erillisellä
    kuvauskielellä. Toisin kuin tavanomaiset lomakkeet, Haystackin eri
    näkymät voivat kuvata samaa lomaketta samaan aikaan.
@@ -91,8 +100,8 @@ Kaikesta huolimatta meidän tietojemme mukaan kumpikaan projekteista ei
 aseta tavoitteekseen käyttäjän luoda omia integroituja "sovelluksiaan"
 käyttämällä paloja toisista ohjelmista ja laajentamalla niitä käyttäen
 uusia yhteystyyppejä eri asioiden välillä. Tämä tavoite, jonka me
-näemme täysin heijastavan semanttisen vepin laajamittaisesti
-käyttöliittymässä, ja näin tuoden semanttisen vepin *käyttäjälle*
+näemme täysin heijastavan semanttisen webin laajamittaisesti
+käyttöliittymässä, ja näin tuoden semanttisen webin *käyttäjälle*
 toisin kuin pelkästään *ohjelmoijalle*, on asia joka tekee
 Fenfire-projektista yksilöllisen. (Sana "sovellukset" on
 lainausmerkeissä, koska kuvaamassamme järjestelmässä ne eivät tule
@@ -150,10 +159,10 @@ Tavoitellut päämäärät Fenix projektille ovat:
   jokapäiväisestä käytöstä 
 
 Yhden käyttäjän Fenfire järjestelmä toimii myös yleisenä,
-laajennettavana selaimena ja editorina semanttisen vepin tiedoille.
+laajennettavana selaimena ja editorina semanttisen webin tiedoille.
 
 Osana yhden käyttäjän Fenfire-järjestelmän julkaisun tavoitetta
-jatkamme tutkimustyötä toteusmenetelmistä semanttisen vepin
+jatkamme tutkimustyötä toteusmenetelmistä semanttisen webin
 käyttöliittymälle. 
 
 
@@ -167,7 +176,7 @@ huomattu myös suuryritysten taholta kuten Microsoftin WinFS
 teknologiassa, joka tarjoaa yleisen, laajennettavan tietovarasto
 ohjelmille ajettavaksi seuraavan sukupolven Windows
 käyttöjärjestelmässä. (Vaikkei suoraan yhteensopiva RDF:n kanssa, jota
-semanttinen veppi käyttää, WinFS peustuu samankaltaiseen
+semanttinen webbi käyttää, WinFS peustuu samankaltaiseen
 tietorakenteeseen.)
 
 Mahdollistaen *käyttäjän* mielivaltaisesti laajentaa tietomalleja ja
@@ -179,28 +188,28 @@ annettaessa käyttäjälle mahdollisuus laajentaa ja yhdistellä tietoa
 eri sovelluksien välillä tulee siitä merkittävä parannus
 tietotyöläisten tiedonhallinnan apuvälineeksi.
 
-Lisäksi semanttinen veppi, joka on vielä tutkimus- ja
-kehitysvaiheessa, kasvaa merkittävyydessään. Semanttisessa vepissä
+Lisäksi semanttinen webbi, joka on vielä tutkimus- ja
+kehitysvaiheessa, kasvaa merkittävyydessään. Semanttisessa webissä
 semanttinen tieto muodostaa suuren verkon toisiinsakiinnittyvistä
 graafeista, eli pienemmistä verkoista. Riittävästi aikaisia käyttäjiä
-julkaisee tietoa semanttisessa vepissä tänäpäivänä tehdäkseen sen
+julkaisee tietoa semanttisessa webissä tänäpäivänä tehdäkseen sen
 kiinnostavaksi, mutta huolimatta useista työkaluista erityisillä
 aloilla, vain muutamat työkalut mahdollistavat semanttisen tiedon
 selaamisen yleisesti. Tälläisiä työkaluja kuitenkin tarvitaan, jotta
-semanttisen vepin ydinhyöty tiedonkuvauksesta tulee ilmi:
+semanttisen webin ydinhyöty tiedonkuvauksesta tulee ilmi:
 laajennettavuus uusien asioiden ja yhteyksien muodostamisessa.
 
-Fenfire, tarjoten selausmahdollisuuden kaikkeen semanttisen vepin
+Fenfire, tarjoten selausmahdollisuuden kaikkeen semanttisen webin
 tietoon, voi auttaa käyttäjiä ja kehittäjiä hyödyntämäään toisiinsa
 liittyvää rakenteellista tietoa, joka jo nyt on julkaistu
 tietoverkossa. Tämä voi auttaa käyttäjiä ymmärtämäään semanttisen
-vepin tarjoaman hyödyn, joka jo nyt on saatavilla, tarjoten
+webin tarjoaman hyödyn, joka jo nyt on saatavilla, tarjoten
 käyttäjälle kannustimen lisätä tietoa entisestään, ja näin auttaa
-tutkijoita saamaan lisää tietoa semanttisesta vepistä.
+tutkijoita saamaan lisää tietoa semanttisesta webistä.
 
 Olemme esitelleet osia Fenfirestä kansainvälisissä workshopeissa ja
 konferensseissa, ja näissä vastaanottona on ollut huomattava
-kiinnostus hyperrakenteen ja semanttisen vepin yhteisöjen keskuudessa.
+kiinnostus hyperrakenteen ja semanttisen webin yhteisöjen keskuudessa.
 
 
 Tulosten hyödyntäminen ja potentiaaliset sovellukset
@@ -217,8 +226,8 @@ tällä tavoin käyttää tietoja kirjoittamissaan raporteissa; taiteilijat
 voivat käyttää Fenfireä kirjoittaessaan ylös ideoitaan digitöistään.
 
 
-Projektin kehitystaso ja aikataulu
-==================================
+Projektin toimenpiteet, aikataulu ja resurssit
+==============================================
 
 Projektin yhteydessä julkaisemamme ohjelmisto on hyödyllinen monin
 tavoin. Kuitenkin, ensimmäisenä versiona, se on suunnattu asiantuntija
@@ -230,8 +239,8 @@ olisi helpompi omaksua myös tavallisten käyttäjien keskuudessa.
 Lähinpänä käyttäjäryhmänä projektin saatossa julkaistavalle
 ohjelmistolle näemme olevan:
 
-- semanttisen vepin tutkijat ja kehittäjät, jotka selaavat semanttista
-  veppiä ja editoivat sen RDF rakennetta mahdollistamillamme tavoilla;
+- semanttisen webin tutkijat ja kehittäjät, jotka selaavat semanttista
+  webbiä ja editoivat sen RDF rakennetta mahdollistamillamme tavoilla;
   ja
 
 - teknisesti suuntautuneet tietotyöläiset jotka tarvitsevat parempia
@@ -239,7 +248,7 @@ ohjelmistolle näemme olevan:
   siihen ensimmäisiä Fenfiren versioita.
 
 Uskomme tarjoamamme työkalun olevan heti niin kiinnostava semanttisen
-vepin kehittäjille, että yhteisö Fenfiren ympärille muodostuu. Kun
+webin kehittäjille, että yhteisö Fenfiren ympärille muodostuu. Kun
 nämä kehittäjät tarkemmin tutustuvat Fenfireen, jotkut näistä
 alkavat käyttää sitä yleisesti tietotyönsä hallintaan, tarjoten
 ydinjoukon Fenfire vapaaohjelman käytölle ja kehitykselle.
@@ -247,7 +256,7 @@ ydinjoukon Fenfire vapaaohjelman käytölle ja kehitykselle.
 Toinen käyttäjäryhmä saattaa käyttää Fenfireä yhdessä Gnowsiksen
 kanssa, joka tarjoaa integroidun liittymän olemassaoleviin
 työpöytäsovelluksiin hyödyntäen näiden kolmansien sovellusten
-tietovarantoja semanttisen vepin muodossa. Esimerkiksi käyttäessään
+tietovarantoja semanttisen webin muodossa. Esimerkiksi käyttäessään
 Gnowsista käyttäjät voivat jatkaa edelleen Outlookin käyttäjinä, mutta
 samalla hyödyntää näiden tietoja Fenfire järjestelmässä.
 
@@ -256,6 +265,22 @@ ympärille. On hyvin vaikea arvioida kuinka pian loppukäyttäjälle
 tähtäävä versio Fenfirestä voidaan tehdä; tämä riippuu paljon muiden
 kehittäjien osallistumisesta yhteisöstä, ja näiden kehittäjien omista
 tarpeista.
+
+
+Henkilöresurssit
+
++------------------------+------------------+------------+-----------+
+| Henkilö                |   tehtävä        |vuosi 2005  | vuosi 2006|
++========================+==================+============+===========+
+| Janne Kujala           | johtaminen       |  120h      | 40h       |
++------------------------+------------------+------------+-----------+
+| Benja Fallenstein      | tutkija          | 750h       | 250h      |
++------------------------+------------------+------------+-----------+
+| Matti Katila           | tutkija          | 750h       | 250h      |
++------------------------+------------------+------------+-----------+
+
+
+
 
 
 Projektiin osallistujien aikomukset tulosten hyödyntämisessä ja immateriaalioikeudet
