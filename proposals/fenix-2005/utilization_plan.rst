@@ -264,11 +264,11 @@ The goals of the currently proposed project are
 The single-user Fenfire system will also act as a general, extensible
 browser and editor for Semantic Web data.
 
-Additionally, ... [we will produce] the following deliverables ...
+.. Additionally, ... [we will produce] the following deliverables ...
 
-- (working libvob/lob system)
-- (research on magic potion)
-- XXX what else
+   - (working libvob/lob system)
+   - (research on magic potion)
+   - XXX what else
 
 
 What is the demand for such goals and results?
@@ -313,8 +313,8 @@ and conferences, and there has been substantial interest from members
 of the hypertext and Semantic Web communities in our tools.
 
 
-What are the potential applications?
-====================================
+What are the potential applications? How the results can be utilized?
+=====================================================================
 
 We believe that in the future, Fenfire or a similar system may become
 the desktop environment for any computer user dealing with information.
@@ -323,6 +323,12 @@ experiments they have conducted, and regulations they must follow;
 analysts may use it to categorize and rate information they have gathered,
 and to relate it to reports they are writing; artists may use it
 to keep track of ideas and relate them to digital works exploring them.
+
+XXX more
+
+
+Which level of developement the project aims to? What is the time-scale?
+========================================================================
 
 The software we will release as part of this project will be usable
 in these ways. However, as a first version, it will be aimed at
@@ -355,38 +361,10 @@ For example, using Gnowsis, users will be able to continue using
 their existing Outlook database and e-mail client, and make use
 of the data in these applications through Fenfire.
 
-
-Which level of developement the project aims to?
-================================================
-
-.. (basic research, prototyping, pilots...)
-
-The main goal of this project is to bring five years of research on
-Fenfire technologies into practical use.
-
-.. ALREADY ANSWERED ABOVE -- release of open-source product
-
 Further development depends on the formation of an open-source community
-around Fenfire.
-
-
-How the results can be utilized -- commercial, social or scientific?
-====================================================================
-
-.. ALREADY ANSWERED ABOVE -- semantic web research, information workers'
-   desktop environment
-
-
-How soon?
----------
-
-.. Partly ALREADY ANSWERED ABOVE -- within the scope of this project,
-   we will release software for SemWeb people and experienced users
-
-It is very hard to estimate how soon an end-user version of Fenfire
-can be produced; this depends very much on the level of involvement
-we can obtain from the open-source community, and on the needs
-of individual contributors.
+around Fenfire. It is very hard to estimate how soon an end-user version 
+of Fenfire can be produced; this depends very much on the level of involvement
+we can obtain from the community, and on the needs of individual contributors.
 
 
 Which are the aims of project parties to utilize the results? Who owns IPR?
