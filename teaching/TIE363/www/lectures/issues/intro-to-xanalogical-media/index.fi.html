@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fi">
+<head>
+  <title>Johdatus xanalogiseen mediaan - Issues - TIE363</title>
+</head>
+<body>
+<p>
+fi <a href="index.en.html">en</a>
+</p>
+
+<p>
+Kirjoittanut Matti Katila.
+</p>
+
+<h1>Johdatus xanalogiseen mediaan</h1>
+
+<p>
+<a href="http://www.ibiblio.org/pioneers/nelson.html"> Ted
+Nelssonin</a> jo vuonna 1960 ideoima <a
+href="http://xanadu.com/xuTheModel/"> xanaloginen media</a> saattaa
+tuoda tulevaisuudessa suuren murroksen tietokoneiluun. Mistä
+tekniikassa on oikeasti kysymys? Kuvitellaan jokaisen näppäiniskun
+tietokoneella olevan identifioitu, eli Pekan naputtelema A-kirjain
+eroaa merkittävästi Jukan näppäilemästä A-kirjaimesta. Tämä saattaa
+kuulostaa aluksi hyvinkin mahdottomalta, mutta ei sitä suinkaan ole -
+kunhan unohdetaan ainakin jossain mielessä ASCII merkistö aluksi.
+</p>
+
+<p>
+Xanaloginen media voidaan toteuttaa seuraavasti. Talletetaan käyttäjän
+näppäilyn sijaan, esim. A-kirjain (0x41), sitä kuvaava identiteetti,
+joka viittaa ko. kirjaimeen. Ohjelmoijille sama voidaan ilmaista
+viitteellä, pointterilla, referenssillä tms. Tämän jälkeen talletetaan
+kirjain talteen kyseisen viitteen osoittamaan paikkaan.
+</p>
+
+<p>
+Xanaloginen media, joka tässä esimerkkitapauksesa on tekstiä, antaa
+huomattavat edut verrattuna tavanomaiseen tekstiin. Kaikki lainaukset
+tekstistä sisältävät itsessään viitteen alkuperäiseen materiaaliin ja
+kirjoittajaan. Esimerkiksi lainattaessa tekstiä Keskisuomalaisesta
+vuodelta 1983 tammikuun toiselta sunnuntailta, voidaan
+käyttöliittymässä esittää viitattu artikkeli ja lehti.
+</p>
+
+<p>
+Xanaloginen media ei pidä sisällään ainoastaan tekstiä, tai
+yksittäisiä näppäilyjä. Xanaloginen teksti on kuitenkin monesti
+ensimmäinen ajatus, joka xanalogisesta mediasta tulee
+mieleen. Esimerkiksi Fenfire käyttää (tieteellisten) dokumenttien
+tarkasteluun kuvia kustakin sivusta. Muita medioita voi olla
+esim. ääni ja video. On huomattu, että vaikka puhutaan useista
+medioista, niitä oikeasti on huomattavan vähän kongretisoitavissa.
+</p>
+
+<p>
+Seuraavassa on esimerkki xanalogisesta tekstistä Fenfire
+ympäristössä. Käytännössä xanaloginen media esitetään ortogonaalisesti
+<a href="../intro-to-rdf/"> RDF graafissa</a> laittamalla XML tieto
+tyypitetyn literaalin sisälle.
+</p>
+
+<pre>
+
+# An example of use of xanalogical text with TIML implementation.
+
+
+import org.nongnu.alph as alph
+
+textMerkki = alph.TString.newRICC("merkki")
+textEsi = alph.TString.newRICC("Esi")
+
+
+text = textEsi.plus(textMerkki)
+print text
+print text.toXML()
+
+text = textMerkki.plus(textEsi)
+print text
+print text.toXML()
+
+>>>>>>>>>>>>>>>>
+
+Esimerkki
+&#60;timl:tstring xmlns:timl="http://fenfire.org/xmlns/2003/09/tstring#"&#62;&#60;timl:tspan timl:offs="33" timl:uri="urn:urn-5:q5Vve18HwsOQcz2nl9xW4sfcb2Vg:1"&#62;Esi&#60;/timl:tspan&#62;&#60;timl:tspan timl:offs="27" timl:uri="urn:urn-5:q5Vve18HwsOQcz2nl9xW4sfcb2Vg:1"&#62;merkki&#60;/timl:tspan&#62;&#60;/timl:tstring&#62;
+
+merkkiEsi
+&#60;timl:tstring xmlns:timl="http://fenfire.org/xmlns/2003/09/tstring#"&#62;&#60;timl:tspan timl:offs="27" timl:uri="urn:urn-5:q5Vve18HwsOQcz2nl9xW4sfcb2Vg:1"&#62;merkkiEsi&#60;/timl:tspan&#62;&#60;/timl:tstring&#62;
+
+
+</pre>
+
+
+
+
+<p>
+<a href="http://validator.w3.org//check?uri=http%3A%2F%2Fhimalia.it.jyu.fi%2Fdarcs%2Fproject%2Fteaching%2FTIE363%2Fwww%2Flectures%2Fissues%2Fintro-to-xanalogical-media%2F;ss=1;outline=1;verbose=1">
+<img
+          src="http://www.w3.org/Icons/valid-xhtml10"
+          alt="Valid XHTML 1.0!" height="31" width="88" /></a>
+</p>
+
+</body>
+</html>
