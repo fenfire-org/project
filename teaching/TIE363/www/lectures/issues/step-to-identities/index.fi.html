@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fi">
+<head>
+  <title>Askel identiteetteihin - Issues - TIE363</title>
+</head>
+<body>
+<p>
+fi <a href="index.en.html">en</a>
+</p>
+
+<p>
+Kirjoittanut Matti Katila.
+</p>
+
+<h1>Askel identiteetteihin</h1>
+
+<p>
+Mikä on identiteetti? Identiteetistä puhuttaessa saattaa ajatukset
+pyöriä oman identiteetin ympärillä. Emme nyt kuitenkaan pyri
+suoranaisesti puhumaan tästä identiteetistä, vaan tietokoneelle
+määritellyistä identiteeteistä, joilla on oma
+esitysmuotonsa. Kuitenkin ihmisen identiteetti on rinnastettavissa
+monin tavoin virtuaaliseen, tietokoneella olevaan
+identiteettiin. Nimittäin - 
+
+    <em> identiteetti on yksilöllinen</em>.
+</p>
+
+<p>
+Yksilöllinen, ainutlaatuinen identiteetti tarkoittaa käytännössö sitä,
+ettei maailmassa löydy toista itseäni. Saman näköisiä ihmisiä saattaa
+olla, muttei minunlaistani.
+</p>
+
+<p>
+Edellä mainittu pohdinta tietysti herättää kysymyksiä, kuten:
+
+<ul>
+<li> mikä on identiteetin sovittu esitysmuoto? 
+</li>
+<li> miten vältytään maailmanlaajuisesti törmäämästä samaan
+identiteettiin?
+</li>
+<li> meillähän on jo veppi ja sehän käyttää yksilöllisiä identiteettejä? 
+</li>
+</ul>
+</p>
+
+<p>
+On totta, että nykyinen veppi käyttää <a
+href="http://www.gbiv.com/protocols/uri/rfc/rfc3986.html">URIa</a>,
+eli universaalia resurssin identifioimista. Vepillä on kuitenkin
+erinäisiä heikkouksia, kuten heikko säilyvyys, paikallisuus ja
+olematon versiointi. Hyviä puolia on dynaaminen sisältö ja nykyinen
+toimivuus.
+
+Mikä olisi parempi ratkaisu vepin rinnalle? Tietysti aina voi <em>puhua</em> 
+paremmista ratkaisuista, esitetään muutama ajatus tähän liittyen tuonnempana.
+Lyhyesti ilmaistuna paremmat ratkaisut eivät kuvaa paikkaa, kuten
+nykyinen veppi tekee, vaan itse informaatiota.
+</p>
+
+<p>
+Vaihtoehtoiset tavat identifiointiin ovat yllättävän helposti
+ajateltavissa.  Voidaanko esimerkiksi ajatella nimen olevan parempi
+tunniste. Yksinkertainen vastaesimerkki käy tähän, sillä tiedän yhden
+toisen ihmisen kuin itseni jonka nimi on "Matti Katila", eli ei voi.
+</p>
+
+<p>
+Tietokone on hyvä numeroissa ja siksi identiteetti kannattaa esitellä
+tietokoneelle numerokokonaisuutena. Voidaan aloittaa
+ykkösestä tai nollasta ja jatkaa kokonaisluvuin, mutta olisi
+sopimuskysymys kuka saa ykkösen, kuka kakkosen jne. On parempi lyödä
+useampi kärpänen yhdellä iskulla ja keksiä käytäntö, jossa sopimuksin
+jaettava osoitusmuoto korvataan.
+</p>
+
+<p>
+Järjestelmä joka ei käytä keskitettyä osoitteenjakoa on esimerkiksi
+tiiviste(hash) funktio. Esimerkkejä näistä on MD5 ja SHA-(1,2)
+muutamia mainitakseni. Itseasiassa Fenfire tekniikoista <a
+href="../intro-to-storm/">Storm</a> käyttää juurikin kyptograafisiin
+tiivistysfunktioihin perustuvia menetelmiä.
+</p>
+
+<p>
+Asian ydin on syvällä todennäköisyyslaskennassa ja <a
+href="http://mathworld.wolfram.com/BirthdayProblem.html">
+syntymäpäivä-ongelmassa</a>.  Esimerkkinä oletetaan ihmisiä
+maapallolla 10 miljardia ja heistä jokainen käyttää 5 miljardia
+identifikaatiota, sekä käytetään 256 bittistä tietokoneella
+esitettävää identiteettiä. Todennäköisyys sille, että kaksi ihmistä
+saisi niin huonon arpaonnen, että heidän koneissaan <em>eri asiaa</em> kuvaa
+<em>sama identiteetti</em> on hillittömän pieni.
+</p>
+
+
+<p>
+<a href="http://validator.w3.org//check?uri=http%3A%2F%2Fhimalia.it.jyu.fi%2Fdarcs%2Fproject%2Fteaching%2FTIE363%2Fwww%2Flectures%2Fissues%2Fstep-to-identities%2F;ss=1;outline=1;verbose=1">
+<img
+          src="http://www.w3.org/Icons/valid-xhtml10"
+          alt="Valid XHTML 1.0!" height="31" width="88" /></a>
+</p>
+
+</body>
+</html>
