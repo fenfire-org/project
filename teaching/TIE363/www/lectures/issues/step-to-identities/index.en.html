@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+  <title>Step to identities - Issues - TIE363</title>
+</head>
+<body>
+<p>
+<a href="fi">index.fi.html</a> en 
+</p>
+
+<p>
+Written by Matti Katila.
+</p>
+
+<h1>A Step to Identities</h1>
+
+<p>
+What is identity? As speaking of identities you may think of your own
+identity. Now we are not speaking of human identity but rather an
+identity which is defined and represented in computer. However, human
+identity equates with virtual computer identity in many ways. Since -
+<em> identity is unique </em>.
+
+</p>
+
+<p>
+Unique, matchless identity means that you can not find another yourself
+in the world. You can find people who look the same but they are not
+you exactly.
+</p>
+
+<p>
+Above thinking raises questions  like:
+</p>
+<ul>
+<li> what is the agreed form to represent identity in computer? 
+</li>
+<li> how to avoid collisions to same identity in global?
+</li>
+<li> we have a web and it uses unique identities already?
+</li>
+</ul>
+
+<p>
+It's true that current web uses <a
+href="http://www.gbiv.com/protocols/uri/rfc/rfc3986.html">URIs</a>,
+that is universal resourcen identifier. One has to said that web has
+certain weaknesses, for example weak permanence, locality and very
+small versioning. Pros are dynamic content and current use.
+
+What would be a better solution for web?`Of course one can always <em>talk</em> 
+about better solutions. We will get back to some ideas later.
+In short better solutions do not represent a place, like current web
+does but the information itself.
+</p>
+
+<p>
+Alternative choices are very easy to think. You can think whether a
+name would be a better solution. Simple antithesis invalidate this
+naming proposal since I know another people, other than myself, who
+has a name "Matti Katila".
+</p>
+
+<p>
+Instead of names computer is good in numbers and therefore identity is
+better to represent as a one number. We can start from one or zero and
+continue with whole numbers but it would need an agreement who can
+have the one, who can have the two and so on. It is better to kill two
+flies with one attack and come up with a solution which doesn't need
+agreement to have addressing in used information space.
+</p>
+
+<p>
+A system that doesn't use central contract to address identity is 
+(cryptographic) hash function. Examples are MD5 and SHA-1 to say
+few. As a matter of thing  <a
+href="../intro-to-storm/"> Storm</a> of Fenfire technologies is based
+on hash function to build a global information storage.
+</p>
+
+<p>
+The heart of global identities in computing is deep in probability
+math and <a href="http://mathworld.wolfram.com/BirthdayProblem.html">
+birthday problem </a>.  For example if assume that there is 10 billion
+people in worl and everyone of them uses 5 billion representation of
+identities in computer. The probability that two same people would get
+so bad lucky in lottery that in their computers 
+<em> different thing </em> 
+is represented with <em> same identity </em> is inordinate
+small. 
+</p>
+
+
+<p>
+<a href="http://validator.w3.org//check?uri=http%3A%2F%2Fhimalia.it.jyu.fi%2Fdarcs%2Fproject%2Fteaching%2FTIE363%2Fwww%2Flectures%2Fissues%2Fstep-to-identities%2F;ss=1;outline=1;verbose=1">
+<img
+          src="http://www.w3.org/Icons/valid-xhtml10"
+          alt="Valid XHTML 1.0!" height="31" width="88" /></a>
+</p>
+
+</body>
+</html>

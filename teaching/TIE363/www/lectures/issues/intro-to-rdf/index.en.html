@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
 "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fi">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 
 <head>
-  <title>Johdatus RDF teknologiaan - Issues - TIE363</title>
+  <title>Introduction to RDF technology - Issues - TIE363</title>
 </head>
 <body>
 <p>
-fi <a href="index.en.html">en</a>
+<a href="fi">index.fi.html</a> en 
 </p>
 
 <p>
-Kirjoittanut Matti Katila.
+Written by Matti Katila.
 </p>
 
-<h1>Johdatus RDF teknologiaan</h1>
+<h1>Introduction to RDF technologies</h1>
 
 <p>
-Semanttinen web, tai metadata on oivallinen tekniikka hyperrakenteen
-kuvaamisessa. <a href="http://www.w3.org/RDF/#specs"> RDF</a>, eli
-Resource Description Framework mahdollistaa graafien rakentamisen
-triploista. Triplat koostuvat kolmesta identiteetistä: subjektista,
-predikaatista ja objektista. Tähän sääntöön on kuitenkin poikkeus -
-literaali, joka voidaan asettaa objektin asemaan ja jota ei voi
-käyttää predikaattina tai subjektina. Literaalit ovat tavallaan
-primitiivivejä, eli merkkijonoja, lukuja ja sen sellaisia.
+Semanttic web is excellent technology to represent hyperstructure.
+<a href="http://www.w3.org/RDF/#specs"> RDF</a> alias
+Resource Description Framework makes it possible to contruct graphs
+from triples. Triples consist of three identities: subject, predicate
+and object. There's an exception to this rule - literal, which can be
+set as object and which can not be used as predicate nor
+subject. Literals are kind of primitive objects: strings, integers,
+floats and such.
 </p>
 
 <p>
-<em>RDF mahdollistaa myös anonyymi-identiteettien käytön, jota ei
-tässä käsitellä</em>. Verkko on pullollaan täynnä parempaa
-johdatusmateriaalia: kehoitetaan kaikkia tutustumaan niihin (esim. <a
+<em>In RDF it's able to use anonym identities which are not covered in
+here.</em>. Internet is full of better introduction material: go fish
+and use web. (For example <a
 href="http://www.w3.org/TR/rdf-primer/"> RDF Primer</a>).
 </p>
 
 <p>
-Olkoon olemassa identiteetti-tehdas ja graafi. Nyt seuraavassa
-on esimerkki kuvitteellisen järjestelmän käyttäytymisestä:
+Let it be identity-factor and graph. In the following example there is
+a fictitious example of system behaviour:
 </p>
 
 <pre>
@@ -64,7 +64,7 @@ print graph >> RDFgraph[ (B,C,A) ]
 </pre>
 
 <p>
-Literaaleilla järjestelmä käyttäytyisi seuraavasti:
+With literals the system would behave as:
 </p>
 
 <pre>
@@ -92,20 +92,22 @@ print graph >> RDFgraph[ (A,B, PlainLit("merkkijono")),
 
 
 <p>
-Rakenteen hyödyllisyys ilmenee parhaiten, kun sitä käytetään kuvaamaan
-käytännön asioita. Otetaan esimerkki nykyajan tietotyöläisestä, joka
-juoksee kokouksesta toiseen: RDF rakenteella kokoukseen liittyvät
-sähköiset dokumentit ja asiakirjat, ihmiset yhteystietoineen, sekä
-kalenterimerkinnät pysyvät yhtenä kokonaisuutena.
+The usefulnes of structure is better seen when it's used to represent
+real life things. Let's take an example of nowadays knowledge worker,
+who runs from a meeting to another: with RDF structure the meeting
+agenda, related electronical documents, people with contact
+information, and marks to calendar stays in one completeness.
 </p>
 
 <p>
-Käytännön asioiden kuvaamisen helpottamiseksi on muodostettu
-sanavarastoja (vocabularies), joista esim. <a
-href="http://http://xmlns.com/foaf/0.1/"> foaf </a> ja <a
-href="http://purl.org/dc/elements/1.1/"> dublin core</a>. Seuraavassa
-eräs ratkaisu tietotyöläiselle kuvattuun kokousongelmaan. Ensin
-kuvataan ratkaisuun liittyvä sanavarasto.
+To make it easier to describe and represent real life things there are
+defined vocabularies, e.g.,  <a
+href="http://http://xmlns.com/foaf/0.1/"> foaf </a> and <a
+href="http://purl.org/dc/elements/1.1/"> dublin core</a>. 
+
+In the following example there is one solution to given problem of
+knowledge worker. First there is a vocabulary which is used in the
+solution. 
 </p>
 
 <pre>
@@ -162,17 +164,17 @@ graph.add(meeting, meetingDate, idFactory.newTypedLiteral("2005-03-17T10/12", da
 </pre>
 
 <p>
-idFactory, jota edellisessä esimerkissä käytettiin, on yleensä
-olemassa kanoonisen kuvauksen aikaansaamiseksi. Näin saman merkkijonon
-kuvaamiseen eri paikoissa käytetään vain yhtä muistipaikkaa. Esimerkkinä
-Javan <a
-href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/String.html#intern()">String.intern()</a>.
-
+The idFactory, which is used in previous example exists usually to
+have a canonical represenation of objects. Thus there is a no need to 
+have many objects for different strings and therefor a lot of
+memory. As an example Java's <a
+href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/String.html#intern()">
+String.intern()</a>. 
 </p>
 
 <p>
-Mitä kone sitten näkee edellisessä esimerkissä? Seuraavassa sama
-esimerkki muutettuna Fenfire järjestelmään:
+What does the machine see in previous example? For next we convert the
+example to Fenfire system:
 </p>
 
 <pre>
