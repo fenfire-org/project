@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+  <title>Introduction to Lobs (Layout Objects) - Issues - TIE363</title>
+</head>
+<body>
+<p>
+<a href="index.fi.html">fi</a> en
+</p>
+
+<p>
+Written by Matti Katila.
+</p>
+
+<h1>Introduction to Lobs (Layout Objects)</h1>
+
+<p>
+Lobs alias Layout Objects is area in Fenfire project which is <em>work in
+progress</em>. We aim to have it <a href "../one-idea-is/">ready</a> for
+use shortly after this lecture to help you to start your <a
+href="../../../conduct/">programming project</a>.
+</p>
+
+<p>
+The need for yet another layouting system was obivious since:
+</p>
+
+<ul>
+
+<li> swing has not free implementation. </li>
+
+<li> awt is not enough. </li>
+
+<li> we were not interested in java2d which many libraries depend on. </li>
+
+<li> we had already choosen to use Java as the programming
+language. </li>
+
+<li> none of the above do the proper thing we wanted - system good
+looking as latex output, conservative PUI toolkit with animation
+support, more flexibility to make changes than vobs provide, and small
+memory print. </li>
+
+<li> libvob and thus visual objects are a powerful system with its
+coordinate systems and keys but it needs too much care to handle and
+for example event handling is not easy - as prooved with FenPDF
+prototype. </li>
+
+</ul>
+
+<p>
+Therefore Benja started to design and construct layouting system which
+used the power of libvob's visual objects but formalized them more
+easier and object oriented way. 
+</p>
+
+<p>
+Those who are too keen to wait to see it in use can check <a
+href="http://himalia.it.jyu.fi/darcs/libvob/org/nongnu/libvob/demo/BossBuzzle.java">
+an example of boss buzzle </a> (and if you are interested to see how
+it differs from a one that uses too powerful visual objects you can
+see <a
+href="http://himalia.it.jyu.fi/darcs/libvob/vob/demo/lob/boss_buzzle.py">
+this example</a> written in jython).
+</p>
+
+<p>
+The basic idea with Lobs is KISS - do one thing and do it well.  This
+idea is from <a
+href="http://www.fresco.org/reading.html">InterViews/Fresco</a> which
+has been the main inspiration source for Lobs.  These "do one thing
+well" objects can be combained to create components, e.g., button
+consist of frame, click controller and content lob which may be a
+label containing text.
+</p>
+
+
+<p>
+<a href="http://validator.w3.org//check?uri=http%3A%2F%2Fhimalia.it.jyu.fi%2Fdarcs%2Fproject%2Fteaching%2FTIE363%2Fwww%2Fle
+ctures%2Fissues%2Fintro-to-lobs%2F;ss=1;outline=1;verbose=1">
+<img
+          src="http://www.w3.org/Icons/valid-xhtml10"
+          alt="Valid XHTML 1.0!" height="31" width="88" /></a>
+</p>
+
+</body>
+</html>
