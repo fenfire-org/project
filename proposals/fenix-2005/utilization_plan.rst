@@ -239,22 +239,136 @@ XXX mention patent above (where is the right place?)
 
 And another try ...
 
+Introduction
+============
+
+In today's mainstream computing environments, knowledge workers
+are limited in their work to the schemas of information supported
+by applications designed by others, and with information being scattered
+across these applications.
+
+For example, the same person may exist as six different "objects" 
+in six different applications, such as address books, e-mail clients,
+and project managers, and additionally appear in countless 
+text documents, without any connections between these instances.
+
+When the information schemas provided by the applications do not suffice,
+the user cannot extend them. For example, when they need to remember 
+who commented how on a particular presentation, they can not store this 
+new type of information in either their address book or their e-mail client;
+rather, they may create a new text document that is connected to neither.
+
+The Semantic Web technologies promise to provide a solution to this problem.
+Unlike previous technologies for data representation, such as 
+relational databases, XML, or object-oriented programming, the Semantic Web
+technologies have a built-in concept of the identity of real-world things,
+such as people; they naturally allow the fact to be expressed that
+the Liisa Mattilainen in Alice's Outlook database is the same entity
+as the Liisa Mattilainen in Bob's Mozilla Thunderbird contact list.
+They also allow the computer to detect this automatically, for example
+by noting that the two Liisas have the same homepage and e-mail address.
+
+Additionally, they are easy to extend; on the level of the data model,
+it would be trivial to add a "comment" relationship between a presentation
+and an e-mail commenting on it, which would itself automatically be linked
+to the person who sent the e-mail. 
+
+Thus, instead of creating an unstructured text document, 
+our hypothetical knowledge worker would merely add a single new
+type of relationship, and proceed to connect entities already present
+in the system. Instead of having, without connections, the information
+that Liisa Mattilainen sent a particular comment on the presentation,
+they have at their fingertips all replies to the e-mail containing the comment,
+and all other information about Liisa Mattilainen that is available 
+in the system.
+
+
+Fenfire
+=======
+
+A system based on Semantic Web technologies could provide a much more powerful 
+and flexible environment for knowledge workers, in many cases allowing them
+to model the information they deal with closer to the way they think about it,
+closer to the structure of their work, than applications with fixed data models
+ever could. The unstructured spreadsheet or text document as a surrogate
+for an application meeting the user's needs would no longer be necessary.
+
+It is thus natural that there are efforts to use Semantic Web technologies
+on the client, to create a "semantic desktop." The Fenfire project
+is such an effort. Besides Fenfire, we are aware of two other projects
+working on this problem.
+
+- *Gnowsis*, an open-source project developed by a German research institute
+  that we collaborate with, takes the approach of integrating existing
+  desktop applications by exposing the data contained in their databases
+  in a Semantic Web format, and allowing the user to create relationships
+  between items from different applications and follow these relationships.
+
+  Gnowsis takes a conservative approach to the user interface, adding only
+  two toolbar buttons to compliant applications ("browse," which opens
+  the selected item in Gnowsis to explore its relationships, and "link,"
+  to create a new relationship).
+
+- *Haystack*, also an open-source project, is developed by a research project
+  at the Massachusetts Institute of Technology. Haystack provides an interface
+  reminiscent of a Web browser, with an extensible set of views 
+  for different kinds of data. Haystack views are similar to Web forms
+  and forms-based desktop applications, and are created by programmers
+  or experienced users, using a specialized description language.
+  Unlike conventional forms, different Haystack views of the same "object"
+  can be shown at the same time.
+
+However, to our knowledge, neither of these projects make it a goal
+to allow the user to create their own integrated "applications" by
+using pieces of third-party applications and extending them with
+new relationships and item types. This goal, which we see as fully reflecting
+the extensibility of the Semantic Web at the user interface, thus
+bringing it to the *user* rather than only the *programmer*,
+is what makes the Fenfire project unique. (We put "application"
+in quotation marks because in the system we envision, they will be nothing
+like the walled-off zones of functionality that applications are today.)
+
+In order to achieve this, Fenfire visualizes the connections between items
+and makes this a fundamental part of the user interface. When looking
+at a particular item, Fenfire will show around it the other items
+related to it, connected through lines to the item in the center.
+
+Whenever a Fenfire "application" needs to relate two items -- for example,
+an e-mail and its sender -- or show an annotation to an item -- for example,
+the priority of an e-mail -- the simplest way to do so will be
+simply to make the Fenfire framework show it as a connection.
+
+As relationship types created by the user will be shown the same way,
+unless specified otherwise, they will not appear as out-of-place,
+external additions to the "application," but will look exactly the same way
+as any relationship that is an integral part of the application.
+Even a link between two items from different "applications" will be 
+in no way different than a link between two items from the same "app."
+
+Therefore, there will be ideally no border between different "applications,"
+and little limits to users to create "applications" of their own.
+
+For details on how Fenfire works, as well as mock-ups and screenshots, 
+please refer to the attached articles.
+
+
 What are the goals and intended results?
 ========================================
 
 The ultimate goal of the Fenfire project is to create a desktop environment
 for knowledge workers in which 
 
-a) information is structured as relationships between real-world things,
-   rather than through artificial concepts like applications and folders;
+a) information is structured as relationships between real-world things
+   such as people and projects, rather than through artificial concepts 
+   like applications and folders;
 
-b) the user can easily extend the available relationships, creating
-   their own "applications";
+b) the user can easily extend the available relationships and views, 
+   creating their own "applications";
 
 c) information is easily exchanged between different users with support
    for versioning and collaborative work.
 
-The goals of the currently proposed project are
+The goals of the proposed Fenix project are
 
 - to complete a first version of a single-user Fenfire system implementing
   points a) and b), above;
@@ -264,11 +378,9 @@ The goals of the currently proposed project are
 The single-user Fenfire system will also act as a general, extensible
 browser and editor for Semantic Web data.
 
-.. Additionally, ... [we will produce] the following deliverables ...
-
-   - (working libvob/lob system)
-   - (research on magic potion)
-   - XXX what else
+As part of the goal of finishing and releasing a single-user version
+of Fenfire, we will continue our research into implementation methods
+for Semantic Web-based user interfaces.
 
 
 What is the demand for such goals and results?
@@ -324,8 +436,6 @@ analysts may use it to categorize and rate information they have gathered,
 and to relate it to reports they are writing; artists may use it
 to keep track of ideas and relate them to digital works exploring them.
 
-XXX more
-
 
 Which level of developement the project aims to? What is the time-scale?
 ========================================================================
@@ -354,8 +464,7 @@ in general, providing the core of an open source community for this use
 of Fenfire.
 
 The second user community may use Fenfire in conjunction with
-Gnowsis, an open-source project developed by a German research institute,
-which provides interoperability with existing desktop applications
+Gnowsis, which provides interoperability with existing desktop applications
 by making data from these applications available in a Semantic Web format.
 For example, using Gnowsis, users will be able to continue using 
 their existing Outlook database and e-mail client, and make use
