@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fi">
+<head>
+  <title>Johdatus RDF teknologiaan - Issues - TIE363</title>
+</head>
+<body>
+<p>
+fi <a href="index.en.html">en</a>
+</p>
+
+<p>
+Kirjoittanut Matti Katila.
+</p>
+
+<h1>Johdatus RDF teknologiaan</h1>
+
+<p>
+Semanttinen web, tai metadata on oivallinen tekniikka hyperrakenteen
+kuvaamisessa. <a href="http://www.w3.org/RDF/#specs"> RDF</a>, eli
+Resource Description Framework mahdollistaa graafien rakentamisen
+triploista. Triplat koostuvat kolmesta identiteetistä: subjektista,
+predikaatista ja objektista. Tähän sääntöön on kuitenkin poikkeus -
+literaali, joka voidaan asettaa objektin asemaan ja jota ei voi
+käyttää predikaattina tai subjektina.
+</p>
+
+<p>
+<em>RDF mahdollistaa myös anonyymi-identiteettien käytön, jota ei
+tässä käsitellä</em>. Verkko on pullollaan täynnä parempaa johdatus
+materiaalia: kehoitetaan kaikkia tutustumaan niihin (esim. <a
+href="http://www.w3.org/TR/rdf-primer/"> RDF Primer</a>).
+</p>
+
+<p>
+Olkoon olemassa identiteetti-tehdas ja graafi. Nyt seuraavassa
+on esimerkki kuvitteellisen järjestelmän käyttäytymisestä:
+
+<pre>
+
+idFactory = new IdentityFactory()
+graph = new RDFgraph()
+
+A = idFactory.newId()
+B = idFactory.newId()
+C = idFactory.newId()
+
+tripleOne = graph.add(A,B,C)
+print graph >> RDFgraph[ (A,B,C) ]
+
+tripleTwo = graph.add(B,C,A)
+print graph >> RDFgraph[ (A,B,C), (B,C,A) ]
+
+gaph.remove(A,B,C)
+print graph >> RDFgraph[ (B,C,A) ]
+
+
+</pre>
+
+Literaaleilla järjestelmä käyttäytyisi seuraavasti:
+
+<pre>
+
+idFactory = new IdentityFactory()
+graph = new RDFgraph()
+
+A = idFactory.newId()
+B = idFactory.newId()
+literalC = idFactory.newPlainLiteral("merkkijono")
+literalD = idFactory.newTypedLiteral("2005-03-17T", XSD.Date)
+
+tripleOne = graph.add(A,B,literalC)
+print graph >> RDFgraph[ (A,B, PlainLit("merkkijono")) ]
+
+tripleTwo = graph.add(B,literalC, A)
+>>>>>  ERROR
+
+tripleThree = graph.add(A,B,literalD)
+print graph >> RDFgraph[ (A,B, PlainLit("merkkijono")),
+                         (A,B, TypedLit("2005-03-17T","...date")) ]
+
+
+</pre>
+
+
+</p>
+
+<p>
+Rakenteen hyödyllisyys ilmenee parhaiten, kun sitä käytetään kuvaamaan
+käytännön asioita. Otetaan esimerkki nykyajan tietotyöläisestä, joka
+juoksee kokouksesta toiseen: RDF rakenteella kokoukseen liittyvät
+sähköiset dokumentit ja asiakirjat, ihmiset yhteystietoineen, sekä
+kalenterimerkinnät pysyvät yhtenä kokonaisuutena.
+</p>
+
+<p>
+Käytännön asioiden kuvaamisen helpottamiseksi on muodostettu
+sanavarastoja (vocabularies), joista esim. <a
+href="http://http://xmlns.com/foaf/0.1/"> foaf </a> ja <a
+href="http://purl.org/dc/elements/1.1/"> dublin core</a>. Seuraavassa
+eräs ratkaisu tietotyöläiselle kuvattuun kokousongelmaan. Ensin
+kuvataan ratkaisuun liittyvä sanavarasto.
+
+
+<pre>
+
+## Vocabulary
+
+# predicates
+type = idFactory.create("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")
+meetingUses = idFactory.create("http://example.org/meeting-vocab/2005/meetingUses")
+hasMember = idFactory.create("http://example.org/meeting-vocab/2005/hasMember")
+meetingDate = idFactory.create("http://example.org/meeting-vocab/2005/meetingDate")
+date = idFactory.create("http://www.w3.org/2001/XMLSchema#date")
+
+# Objects
+Meeting = idFactory.create("http://example.org/mmeting-vocab/2005/Meeting")
+Document = idFactory.create("http://example.org/mmeting-vocab/2005/Document")
+
+
+
+
+
+
+## The meeting graph
+
+# Connect documents to meeting
+
+meeting = idFactory.newIdWithType(Meeting)
+print graph >> [ (meeting, type, Meeting) ]
+
+domument1 = idFactory.newIdWithType(Document)
+print graph >> [ (meeting, type, Meeting) , (document1, type, Document) ]
+document2 = idFactory.newId(Document)
+
+graph.add(meeting, uses, document1)
+graph.add(meeting, uses, document2)
+
+# Add members of the meeting
+
+Matti = idFactory.newId()
+Maija = idFactory.newId()
+
+graph.add(Matti, hasEmailAddr, idFactory.newPlainLiteral("matti@virtanen.fi"))
+graph.add(Maija, hasEmailAddr, idFactory.newPlainLiteral("maija@koskinen.fi"))
+
+graph.add(meeting, hasMember, Matti)
+graph.add(meeting, hasMember, Maija)
+
+
+# Mark meeting to calendar
+
+graph.add(meeting, meetingDate, idFactory.newTypedLiteral("2005-03-17T10/12", date))
+
+
+</pre>
+</p>
+
+<p>
+idFactory, jota edellisessä esimerkissä käytettiin, on yleensä
+olemassa kanoonisen kuvauksen aikaansaamiseksi. Näin saman merkkijonon
+kuvaamiseen eri paikoissa käytetään vain yhtä muistipaikkaa. Esimerkkinä
+Javan <a
+href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/String.html#intern()">String.intern()</a>.
+
+</p>
+
+<p>
+Mitä kone sitten näkee edellisessä esimerkissä? Seuraavassa sama
+esimerkki muutettuna Fenfire järjestelmään:
+
+<pre>
+# (c): Matti J. Katila
+# An example of RDF to use it to descripe a meeting.
+
+import org.fenfire as ff
+from org.fenfire.swamp import Nodes as N
+
+
+## Vocabulary
+
+# predicates
+type = N.get("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")
+meetingUses = N.get("http://example.org/meeting-vocab/2005/meetingUses")
+hasMember = N.get("http://example.org/meeting-vocab/2005/hasMember")
+meetingDate = N.get("http://example.org/meeting-vocab/2005/meetingDate")
+hasEmailAddr = N.get("http://xmlns.com/foaf/0.1/mbox")
+date = N.get("http://www.w3.org/2001/XMLSchema#date")
+
+
+
+# Objects
+Meeting = N.get("http://example.org/mmeting-vocab/2005/Meeting")
+Document = N.get("http://example.org/mmeting-vocab/2005/Document")
+
+
+## create graph
+graph = ff.swamp.impl.HashGraph()
+
+
+
+## The meeting graph
+
+# Connect documents to meeting
+
+meeting = N.N()
+graph.add(meeting, type, Meeting)
+
+
+#print graph >> [ (meeting, type, Meeting) ]
+
+document1 = N.N()
+graph.add(document1, type, Document)
+document2 = N.N()
+graph.add(document2, type, Document)
+
+graph.add(meeting, meetingUses, document1)
+graph.add(meeting, meetingUses, document2)
+
+# Add members of the meeting
+
+Matti = N.N()
+Maija = N.N()
+
+graph.add(Matti, hasEmailAddr, ff.swamp.PlainLiteral("matti@virtanen.fi"))
+graph.add(Maija, hasEmailAddr, ff.swamp.PlainLiteral("maija@koskinen.fi"))
+
+graph.add(meeting, hasMember, Matti)
+graph.add(meeting, hasMember, Maija)
+
+
+# Mark meeting to calendar
+
+graph.add(meeting, meetingDate, ff.swamp.TypedLiteral("2005-03-17T10/12", date))
+ff.swamp.Graphs.writeTurtle(graph, None, java.io.PrintWriter(java.lang.System.out, 1))
+
+>>>>>>>>>>>>>>>>>>
+
+&#60;urn:urn-5:YnN2CcULtSW3eXfPfjaGdzZEW0xo:_25&#62;
+  &#60;http://xmlns.com/foaf/0.1/mbox&#62;
+    "maija@koskinen.fi".
+
+&#60;urn:urn-5:YnN2CcULtSW3eXfPfjaGdzZEW0xo:_24&#62;
+  &#60;http://xmlns.com/foaf/0.1/mbox&#62;
+    "matti@virtanen.fi".
+
+&#60;urn:urn-5:YnN2CcULtSW3eXfPfjaGdzZEW0xo:_23&#62;
+  &#60;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&#62;
+    &#60;http://example.org/mmeting-vocab/2005/Document&#62;.
+
+&#60;urn:urn-5:YnN2CcULtSW3eXfPfjaGdzZEW0xo:_22&#62;
+  &#60;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&#62;
+    &#60;http://example.org/mmeting-vocab/2005/Document&#62;.
+
+&#60;urn:urn-5:YnN2CcULtSW3eXfPfjaGdzZEW0xo:_21&#62;
+  &#60;http://example.org/meeting-vocab/2005/meetingDate&#62;
+    "2005-03-17T10/12"^^&#60;http://www.w3.org/2001/XMLSchema#date&#62;;
+  &#60;http://example.org/meeting-vocab/2005/hasMember&#62;
+    &#60;urn:urn-5:YnN2CcULtSW3eXfPfjaGdzZEW0xo:_25&#62;,
+    &#60;urn:urn-5:YnN2CcULtSW3eXfPfjaGdzZEW0xo:_24&#62;;
+  &#60;http://example.org/meeting-vocab/2005/meetingUses&#62;
+    &#60;urn:urn-5:YnN2CcULtSW3eXfPfjaGdzZEW0xo:_23&#62;,
+    &#60;urn:urn-5:YnN2CcULtSW3eXfPfjaGdzZEW0xo:_22&#62;;
+  &#60;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&#62;
+    &#60;http://example.org/mmeting-vocab/2005/Meeting&#62;.
+
+</pre>
+</p>
+
+
+
+<p>
+<a href="http://validator.w3.org//check?uri=http%3A%2F%2Fhimalia.it.jyu.fi%2Fdarcs%2Fproject%2Fteaching%2FTIE363%2Fwww%2Flectures%2Fissues%2Fintro-to-rdf%2F;ss=1;outline=1;verbose=1">
+<img
+          src="http://www.w3.org/Icons/valid-xhtml10"
+          alt="Valid XHTML 1.0!" height="31" width="88" /></a>
+</p>
+
+</body>
+</html>
