@@ -34,3 +34,32 @@ In today's mainstream computing environments, knowledge workers
 
 - Fenfire allows the user to do this on a deeper level and *create their own
   applications*.
+
+
+
+Is this relevant?
+=================
+
+- computer programs are mostly created with activity centered design
+
+- use one program to do one thing.
+
+- activity centered design is short-term solution to one particular
+  problem
+
+- in long run users can not remember the related stuff anymore.
+
+- users' mind doesn't work with hierarchies that current computing
+  offers.
+
+- For example, why should users use search engines to find
+  documents that are referred by the document they are reading?
+
+- Fenfire has a very simple idea - everything can be connected to
+  anything else.
+
+- It's not intended to replace activity based computing but make the
+  production with these programs to be easier for user and support
+  both long- and short-term operations with computers.
+
+
