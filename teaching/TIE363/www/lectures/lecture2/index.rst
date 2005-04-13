@@ -3,6 +3,10 @@ Lecture notes for the second lecture of the identities course
 =============================================================
 
 :Lecture date: 2005-03-31
+:Written by: Benja Fallenstein
+
+First, these's a thesis of one `idea <../issues/one-idea-is/>`_ .
+That's why we didn't get all done for this lecture.
 
 There are two main topics in this lecture. First, we want to
 talk about our vision for the Fenfire project. Second, we want
@@ -61,6 +65,6 @@ One thing needed in order to realize this plan is a flexible view architecture
 that allows us to use use views together that were created independently
 by different programmers.
 
-XXX intro to lobs
+`XXX intro to lobs <../issues/intro-to-lobs/>`_
 
-- will give example demo
+- will give `example demo <puzzle-waltrough.html>`_
