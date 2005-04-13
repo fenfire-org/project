@@ -67,7 +67,7 @@ b:The Javolution preprocessor (10 minutes)
 b:Programming a representation view (30 minutes)
 ================================================
 
-    - what are representation view
+    - what is a representation view
     - example ReprView we're going to do: person with nickname
     - (explain how it is done in FOAF)
     - skeleton of the repr view java file
