@@ -64,14 +64,14 @@ b:The Javolution preprocessor (10 minutes)
     - how to use it (no time to explain the concepts in Javolution itself)
 
 
-b:Programming a "viewlet" (30 minutes)
-======================================
+b:Programming a representation view (30 minutes)
+================================================
 
-    - what are viewlets
-    - example viewlet we're going to do: date of birth, formatted in a
-      nice way (dd. mm. yyyy)
-    - (explain how it is done in FOAF with the biography vocabulary)
-    - skeleton of the viewlet java file
+    - what are representation view
+    - example ReprView we're going to do: person with nickname
+    - (explain how it is done in FOAF)
+    - skeleton of the repr view java file
     - getting the data we need through Swamp
     - display it with lobs
+    - add to Main.rj
     - compile, run
