@@ -321,6 +321,16 @@ Which has a screenshot like below:
 .. image:: ../../../../../../libvob/org/nongnu/libvob/lob/doc/Example_Scale.png
 
 
+Image lob
+~~~~~~~~~
+
+Images with awt is a bit pain in a neck. I try to come up with good
+solution in anytime soon or you can propose your ideas acording to
+subject.  The problem with images is that you may often run out of
+memory and storing the images in pool of memory would lead us to
+converting many images for different LODs perhaps.
+
+
 Lobs composed to full components
 --------------------------------
 
@@ -334,7 +344,33 @@ basic lobs that do only one thing. For example a button component has
 controller for click events, lob that is used to present the button
 thing, a label with text for instance, and is put inside a margin.
 
+As an example we can use Components.label(String text) which composes
+a new hbox containing the text and ending glue.
 
+
+Interactions
+~~~~~~~~~~~~
+
+The interaction with layoutable objects, that is, handling events and
+such is not fun thanks to small memory print. Lobs are themselv *kind
+of* immutable but to decrease creating a lot of objects, caching
+library called javolution is used. But isn't immutable something to do
+with final attributes and thus if something is immutable it can not be
+mutable? Not really, but there's no public attributes or methods with
+lobs that would change the state of a lob. So what this mean we can
+have an example of constructing 1000x1000 sized table filled with
+glue. Only one glue instance is used in the whole operation -- that's
+really nice. 
+
+The problem comes when there are objects that needs to be binded but
+not reused. For such a object there might be actions for different
+keys. Ok, if this kind of action object would be reused, only the last
+used binding would survive but that's not exactly what we want.
+
+With javolution we need a special way to keep something to not being
+reused. An example code of such is coded below::
+
+   
 
 
 
