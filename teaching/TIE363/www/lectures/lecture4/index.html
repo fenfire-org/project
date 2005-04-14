@@ -60,14 +60,265 @@ and develop your own similar small view based on it.</p>
 </div>
 <div class="section" id="m-lobs-25-minutes">
 <h1><a name="m-lobs-25-minutes">m:Lobs (25 minutes)</a></h1>
-<blockquote>
+<div class="section" id="basic-layoutable-objects">
+<h2><a name="basic-layoutable-objects">Basic layoutable objects</a></h2>
+<div class="section" id="text-boxes-and-glue">
+<h3><a name="text-boxes-and-glue">Text, boxes and glue</a></h3>
 <ul class="simple">
-<li>What are lobs -- <a class="reference" href="../issues/intro-to-lobs/">intro to lobs</a></li>
-<li>Lob text handling as needed in 'viewlets': Labels, formatted text,
-hbox, glue, linebreaker-lob</li>
-<li>Mention image lob</li>
+<li>What are lobs? -- <a class="reference" href="../issues/intro-to-lobs/">intro to lobs</a></li>
 </ul>
-</blockquote>
+<p>Lobs, alias layoutable objects are something you layout into rectangle
+area and then render it. The same idea is behind TeX -- thus it does
+work pretty well. With Fenfire we add animation and interaction to the
+consept. But let's start with basics:</p>
+<pre class="literal-block">
+package org.nongnu.libvob.lob.doc;
+import org.nongnu.libvob.lob.*;
+
+// class is run by screenshot util.
+public class Example_Text {
+
+    public Lob getLob() {
+        return Lobs.hbox(Components.font().text(&quot;H e l l o !&quot;));
+    }
+
+}
+</pre>
+<p>It generates the following output in (160x128 sized window):</p>
+<div class="image"><img alt="../../../../../../libvob/org/nongnu/libvob/lob/doc/Example_Text.png" src="../../../../../../libvob/org/nongnu/libvob/lob/doc/Example_Text.png" /></div>
+<p>As you can see the spaces between letters are not exactly what you
+would expect but more wider. So, what's wrong, why it show text like
+that? To answer that you need to understand what's going on.</p>
+<ul class="simple">
+<li>There is text with font</li>
+<li>And the text is inside of box</li>
+</ul>
+<p>hbox is a box or a list, a layoutable thing that is being placed
+horizontally, i.e., it has width. Things inside the box are placed as
+well as the system can layout them. To go back to text, text is
+letters and letters are boxes that has rectangular shape. When the
+layouting is done the box is told to layout to certain width. That's
+why the virtual boxes inside hbox are stretched to make it look as
+requested by layout.</p>
+<p>You might think that why to brother with badly rendered text but let's
+fix the example easily:</p>
+<pre class="literal-block">
+package org.nongnu.libvob.lob.doc;
+import org.nongnu.libvob.lob.*;
+
+// class is run from printter util to 
+// generate visual printout.
+public class Example_TextWithGlue {
+
+    public Lob getLob() {
+        return Lobs.hbox(Components.font().textLn(&quot;Hello world!&quot;));
+    }
+
+}
+</pre>
+<p>The following output is seen in screen:</p>
+<div class="image"><img alt="../../../../../../libvob/org/nongnu/libvob/lob/doc/Example_TextWithGlue.png" src="../../../../../../libvob/org/nongnu/libvob/lob/doc/Example_TextWithGlue.png" /></div>
+<p>As you can see it looks different than the previous example. But why?
+First, a new method is used to construct the text, i.e., textLn(String
+text). It adds <em>glue</em> at the end of the list of boxes that represent
+letters. Glue is something that you don't render at all, but has an
+affect to layouting, e.g., in the example it is infitely stretchable
+but at least zero sized &quot;hole&quot; in the screen. A better name for the
+glue might be spring but of course as the term is already used with
+TeX it is easier to use the same name for same functionality.</p>
+<p>Next you will see more glue in use vertical box and more glue:</p>
+<pre class="literal-block">
+package org.nongnu.libvob.lob.doc;
+import org.nongnu.libvob.lob.*;
+import java.util.*;
+
+// class is run from printter util to 
+// generate visual screenshot.
+public class Example_TextBoxesAndGlue {
+
+    public Lob getLob() {
+    
+        LobFont font = Components.font();
+    
+        // vertical box or list
+        Lob vbox = Lobs.vbox();
+    
+        vbox.add(Lobs.hbox(font.textLn(&quot;Hello world!&quot;)));
+        vbox.add(Lobs.hbox(font.text(&quot;Hello world!&quot;)));
+
+        List l1 = font.text(&quot;Hello&quot;);
+        List l2 = Lists.list(Lobs.glue(Axis.X, 1));
+        List l3 = font.text(&quot;world!&quot;);
+        List l4 = Lists.list(Lobs.hglue());
+        vbox.add(Lobs.hbox(Lists.concat(l1,l2,l3,l4)));
+    
+        l1 = Lists.list(Lobs.hglue());
+        l2 = font.text(&quot;Hello&quot;);
+        l3 = font.text(&quot;world!&quot;);
+        l4 = Lists.list(Lobs.hglue());
+        vbox.add(Lobs.hbox(Lists.concat(l1,l2,l3,l4)));
+
+        l1 = Lists.list(Lobs.hglue());
+        l2 = font.text(&quot;Hello world&quot;);
+        l3 = Lists.list(Lobs.hglue());
+        vbox.add(Lobs.hbox(Lists.concat(l1,l2,l3)));
+             
+        l1 = Lists.list(Lobs.hglue());
+        l2 = font.text(&quot;Hello&quot;);
+        l3 = font.text(&quot; &quot;);
+        l4 = font.text(&quot;world!&quot;);
+        vbox.add(Lobs.hbox(Lists.concat(l1,l2,l3,l4)));
+
+        return vbox;
+    }
+}
+</pre>
+<p>Which provides the following output in screen:</p>
+<div class="image"><img alt="../../../../../../libvob/org/nongnu/libvob/lob/doc/Example_TextBoxesAndGlue.png" src="../../../../../../libvob/org/nongnu/libvob/lob/doc/Example_TextBoxesAndGlue.png" /></div>
+<p>The new thing was to use also vertical box for layouting.
+Another points are:</p>
+<ul class="simple">
+<li>The space letter in the first and second line are actually replaced
+with glue. That's why the second line has such a wide space; that was
+the only place where stretching can be done (there's no glue between
+lettesrs).</li>
+<li>The space can be replaced with smaller glue as within third line, though
+this is not encouragable.</li>
+<li>Centering can be easily made with two glues and a lob between them. 
+It shall be mentioned that the space glue between two words is
+different than the &quot;fill the hole&quot; glue before and after text.</li>
+<li>Align to right can be done as easily as centering (well, there's no
+shortcut for brText(String text), as in textLn(String text) =)</li>
+</ul>
+</div>
+<div class="section" id="linebreaked-lob-and-text-handling">
+<h3><a name="linebreaked-lob-and-text-handling">Linebreaked lob and text handling</a></h3>
+<p>To make text handling easier, we have linebreaking as TeX has too. The
+linebreaker eats given list of breakable objects and constructs
+h(orizontal)boxes as lines which are added to one v(ertical)box. The
+given text should contain the trailing glue or the last line may look
+too stretched as expressed in the first example in current chapter.</p>
+<p>There's an example code:</p>
+<pre class="literal-block">
+package org.nongnu.libvob.lob.doc;
+import org.nongnu.libvob.lob.*;
+import java.util.*;
+
+public class Example_LineBreakedText {
+
+    public Lob getLob() {
+        String [] texts = {
+            &quot;Abc&quot;, &quot;cat&quot;, &quot;walks&quot;, &quot;to&quot;, &quot;some&quot;, &quot;tree&quot;, &quot;which&quot;,
+            &quot;has&quot;, &quot;ugly&quot;, &quot;green&quot;, &quot;tea&quot;, &quot;next&quot;, &quot;to&quot;, &quot;see.&quot;, 
+        };
+
+        Random r = new Random(0);
+        LobFont[] fonts = new LobFont[texts.length];
+        for (int i=0; i&lt;texts.length; i++)
+            fonts[i] = Components.font(new Color(r.nextInt(255),
+                                                 r.nextInt(255),
+                                                 r.nextInt(255)));
+
+        List textList = Lists.list();
+        for (int i=0; i&lt;texts.length; i++) {
+             textList = Lists.concat(textList, 
+                                    fonts[i%fonts.length].text(texts[i]+&quot; &quot;));
+        }
+        Lob l = Lobs.linebreaker(textList);
+        l = Lobs.margin(l, 10);
+        return l;
+    }
+}
+</pre>
+<p>Will produce the screenshot available as here:</p>
+<div class="image"><img alt="../../../../../../libvob/org/nongnu/libvob/lob/doc/Example_LineBreakedText.png" src="../../../../../../libvob/org/nongnu/libvob/lob/doc/Example_LineBreakedText.png" /></div>
+<p>New thing with the linebreaking is the margin used in the example.</p>
+</div>
+<div class="section" id="coordinate-lobs">
+<h3><a name="coordinate-lobs">Coordinate lobs</a></h3>
+<p>Because lobs are build on top of Libvob, which has a powerful
+coordinating system, there exists also following lob methods:
+translate and scale.</p>
+<p>We get into example and stop talking now:</p>
+<pre class="literal-block">
+package org.nongnu.libvob.lob.doc;
+import org.nongnu.libvob.lob.*;
+
+public class Example_Translate {
+
+    public Lob getLob() {
+    
+        Lob l = Lobs.filledRect(java.awt.Color.red);
+        float 
+            minWidth = 20,
+            naturalWidth = 20,
+            maxWidth = 20;
+        float 
+            minHeight = 50,
+            naturalHeight = 50,
+            maxHeight = 50;
+
+        l = Lobs.request(l,
+                         minWidth, naturalWidth, maxWidth,
+                         minHeight, naturalHeight, maxHeight);
+
+    
+        l = Lobs.translate(l, 34, 56); // x=34, y=56
+
+        return l;
+    }
+}
+</pre>
+<p>We get the output as:</p>
+<div class="image"><img alt="../../../../../../libvob/org/nongnu/libvob/lob/doc/Example_Translate.png" src="../../../../../../libvob/org/nongnu/libvob/lob/doc/Example_Translate.png" /></div>
+<p>New thing in this example is request lob which requests a certain size
+for the child lob, that is a filled rectangle. The translation itself
+is quite a simple.</p>
+<p>Next is scaling:</p>
+<pre class="literal-block">
+package org.nongnu.libvob.lob.doc;
+import org.nongnu.libvob.lob.*;
+
+public class Example_Scale {
+
+    public Lob getLob() {
+        LobFont font = Components.font();
+        Lob vbox = Lobs.vbox();
+    
+        int N = 5;
+        float scale = 1;
+        for (int i=0; i&lt;N; i++) {
+            Lob l = Lobs.hbox(font.textLn(&quot;Hello!&quot;));
+            l = Lobs.scale(l, scale, scale); // scaleX, scaleY
+            scale *= 1.2;
+            vbox.add(l);
+            if ((i+1) != N)
+                vbox.add(Lobs.vglue());
+        }
+        return vbox;
+    }
+}
+</pre>
+<p>Which has a screenshot like below:</p>
+<div class="image"><img alt="../../../../../../libvob/org/nongnu/libvob/lob/doc/Example_Scale.png" src="../../../../../../libvob/org/nongnu/libvob/lob/doc/Example_Scale.png" /></div>
+</div>
+</div>
+<div class="section" id="lobs-composed-to-full-components">
+<h2><a name="lobs-composed-to-full-components">Lobs composed to full components</a></h2>
+<div class="section" id="look-and-feel">
+<h3><a name="look-and-feel">Look and feel</a></h3>
+<p>The org.nongnu.libvob.lob.Components class has static methods for
+different components, which are lobs that are composed together with
+basic lobs that do only one thing. For example a button component has
+controller for click events, lob that is used to present the button
+thing, a label with text for instance, and is put inside a margin.</p>
+<!-- :
+
+- Lob text handling as needed in 'viewlets': Labels, formatted text,
+  hbox, glue, linebreaker-lob 
+- Mention image lob -->
+</div>
+</div>
 </div>
 <div class="section" id="b-the-javolution-preprocessor-10-minutes">
 <h1><a name="b-the-javolution-preprocessor-10-minutes">b:The Javolution preprocessor (10 minutes)</a></h1>
