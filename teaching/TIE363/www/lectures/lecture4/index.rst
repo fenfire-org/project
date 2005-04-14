@@ -44,8 +44,17 @@ and develop your own similar small view based on it.
 b:The public Fenfire (10-15 minutes)
 ====================================
 
-    - how to install it
-    - how to use it -- show FOAF/DOAP data
+- how to install it
+
+Get it from
+
+    http://himalia.it.jyu.fi/~benja/fenfire-2005-04-14.zip
+
+Unzip, change into the ``fenfire-2005-04-14`` directory, and run::
+
+    java -jar fenfire-snapshot-2005-04-14.jar demo.turtle
+
+- how to use it -- show FOAF/DOAP data
 
 
 m:Lobs (25 minutes)
