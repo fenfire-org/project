@@ -35,7 +35,7 @@ on a course project. ;-) You should be able to
 
 .. _applitude: http://fenfire.org/manuscripts/2004/hyperstructure/#an-item-based-user-interface
 
-The topic of this lecture will be to create a small view ("viewlet")
+The topic of this lecture will be to create a small view ("representation view")
 for some RDF data that can be used in Fenfire. We hope that
 during the next week you will install the public version of Fenfire
 and develop your own similar small view based on it.
@@ -43,8 +43,6 @@ and develop your own similar small view based on it.
 
 b:The public Fenfire (10-15 minutes)
 ====================================
-
-- how to install it
 
 Get it from
 
@@ -54,7 +52,67 @@ Unzip, change into the ``fenfire-2005-04-14`` directory, and run::
 
     java -jar fenfire-snapshot-2005-04-14.jar demo.turtle
 
-- how to use it -- show FOAF/DOAP data
+You should see something like this (`big version <screen1.png>`_):
+
+.. image:: screen1-small.png
+
+In the middle, you see a box with information about the thing
+identified by on RDF node, in this case the Fenfire project:
+
+.. image:: screen2.png 
+
+(The overlapping text on the second line is a bug, sorry.)
+
+The first line ("Fenfire project") tells you the thing you are looking at.
+The smaller lines below it tell you the relationships between this thing
+and other things; the column in the middle tells you the relationship name,
+the column on the left tells you which things are related to this one,
+and the column on the right tells you which things this thing is related to.
+
+Without the bug, the table here would look like this:
+
++-------------------------+--------------+------------------------------------------+
+| http://example.org/DEMO | sl:linkedTo  | http://fenfire.org/irc/fenfire/index.rst |
++-------------------------+--------------+------------------------------------------+
+| <no value>              | rdfs:seeAlso | http://fenfire.org/doap.turtle           |
++-------------------------+--------------+------------------------------------------+
+| <no value>              | rdfs:label   | "Fenfire-projekti"@fi                    |
+|                         |              |                                          |
+|                         |              | "Fenfire project"                        |
++-------------------------+--------------+------------------------------------------+
+
+This shows you the following triples:
+
+- (http://example.org/DEMO, sl:linkedTo, http://fenfire.org/#project)
+- (http://fenfire.org/#project, sl:linkedTo, 
+  http://fenfire.org/irc/fenfire/index.rst)
+- (http://fenfire.org/#project, rdfs:seeAlso, http://fenfire.org/doap.turtle)
+- (http://fenfire.org/#project, rdfs:label, "Fenfire-projekti"@fi)
+- (http://fenfire.org/#project, rdfs:label, "Fenfire project")
+
+Here, "http://fenfire.org/#project" is the node representing 
+the Fenfire project; you can tell by looking at the location bar
+in the upper left corner of the window: 
+
+.. image:: screen3.png
+
+Let us load some more information about the Fenfire project.
+To do this, press Ctrl-G. This will load <http://fenfire.org/doap.turtle>,
+which contains more information about the project, because of the
+rdfs:seeAlso link. After a moment, you should see something like this:
+
+.. image:: screen4.png
+
+Let's now move to a different node -- let's say, Matti J. Katila,
+one of the developers of the project (relationship 'doap:developer').
+To do this, we simply click on "Matti J. Katila". You should see
+something like this:
+
+.. image:: screen5.png
+
+This shows basically everything you can do with the public Fenfire
+right now: move around, and load more data from the Web. You can't really
+edit the RDF. It's a pity, but it's a first version...
 
 
 m:Lobs (25 minutes)
@@ -390,13 +448,6 @@ reused. An example code of such is coded below::
   - Mention image lob
 
 
-
-
-b:The Javolution preprocessor (10 minutes)
-==========================================
-
-    - where you need it
-    - how to use it (no time to explain the concepts in Javolution itself)
 
 
 b:Programming a representation view (30 minutes)

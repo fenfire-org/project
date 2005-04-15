@@ -44,16 +44,13 @@ on a course project. ;-) You should be able to</p>
 <li>publish this information as RDF and allow other people
 to download and view it, for example through Fenfire</li>
 </ul>
-<p>The topic of this lecture will be to create a small view (&quot;viewlet&quot;)
+<p>The topic of this lecture will be to create a small view (&quot;representation view&quot;)
 for some RDF data that can be used in Fenfire. We hope that
 during the next week you will install the public version of Fenfire
 and develop your own similar small view based on it.</p>
 </div>
 <div class="section" id="b-the-public-fenfire-10-15-minutes">
 <h1><a name="b-the-public-fenfire-10-15-minutes">b:The public Fenfire (10-15 minutes)</a></h1>
-<ul class="simple">
-<li>how to install it</li>
-</ul>
 <p>Get it from</p>
 <blockquote>
 <a class="reference" href="http://himalia.it.jyu.fi/~benja/fenfire-2005-04-14.zip">http://himalia.it.jyu.fi/~benja/fenfire-2005-04-14.zip</a></blockquote>
@@ -61,9 +58,67 @@ and develop your own similar small view based on it.</p>
 <pre class="literal-block">
 java -jar fenfire-snapshot-2005-04-14.jar demo.turtle
 </pre>
+<p>You should see something like this (<a class="reference" href="screen1.png">big version</a>):</p>
+<div class="image"><img alt="screen1-small.png" src="screen1-small.png" /></div>
+<p>In the middle, you see a box with information about the thing
+identified by on RDF node, in this case the Fenfire project:</p>
+<div class="image"><img alt="screen2.png" src="screen2.png" /></div>
+<p>(The overlapping text on the second line is a bug, sorry.)</p>
+<p>The first line (&quot;Fenfire project&quot;) tells you the thing you are looking at.
+The smaller lines below it tell you the relationships between this thing
+and other things; the column in the middle tells you the relationship name,
+the column on the left tells you which things are related to this one,
+and the column on the right tells you which things this thing is related to.</p>
+<p>Without the bug, the table here would look like this:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="17%" />
+<col width="52%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><a class="reference" href="http://example.org/DEMO">http://example.org/DEMO</a></td>
+<td>sl:linkedTo</td>
+<td><a class="reference" href="http://fenfire.org/irc/fenfire/index.rst">http://fenfire.org/irc/fenfire/index.rst</a></td>
+</tr>
+<tr><td>&lt;no value&gt;</td>
+<td>rdfs:seeAlso</td>
+<td><a class="reference" href="http://fenfire.org/doap.turtle">http://fenfire.org/doap.turtle</a></td>
+</tr>
+<tr><td>&lt;no value&gt;</td>
+<td>rdfs:label</td>
+<td><p class="first">&quot;Fenfire-projekti&quot;&#64;fi</p>
+<p class="last">&quot;Fenfire project&quot;</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This shows you the following triples:</p>
 <ul class="simple">
-<li>how to use it -- show FOAF/DOAP data</li>
+<li>(<a class="reference" href="http://example.org/DEMO">http://example.org/DEMO</a>, sl:linkedTo, http://fenfire.org/#project)</li>
+<li>(<a class="reference" href="http://fenfire.org/#project">http://fenfire.org/#project</a>, sl:linkedTo, 
+http://fenfire.org/irc/fenfire/index.rst)</li>
+<li>(<a class="reference" href="http://fenfire.org/#project">http://fenfire.org/#project</a>, rdfs:seeAlso, http://fenfire.org/doap.turtle)</li>
+<li>(<a class="reference" href="http://fenfire.org/#project">http://fenfire.org/#project</a>, rdfs:label, &quot;Fenfire-projekti&quot;&#64;fi)</li>
+<li>(<a class="reference" href="http://fenfire.org/#project">http://fenfire.org/#project</a>, rdfs:label, &quot;Fenfire project&quot;)</li>
 </ul>
+<p>Here, &quot;<a class="reference" href="http://fenfire.org/#project">http://fenfire.org/#project</a>&quot; is the node representing 
+the Fenfire project; you can tell by looking at the location bar
+in the upper left corner of the window:</p>
+<div class="image"><img alt="screen3.png" src="screen3.png" /></div>
+<p>Let us load some more information about the Fenfire project.
+To do this, press Ctrl-G. This will load &lt;<a class="reference" href="http://fenfire.org/doap.turtle">http://fenfire.org/doap.turtle</a>&gt;,
+which contains more information about the project, because of the
+rdfs:seeAlso link. After a moment, you should see something like this:</p>
+<div class="image"><img alt="screen4.png" src="screen4.png" /></div>
+<p>Let's now move to a different node -- let's say, Matti J. Katila,
+one of the developers of the project (relationship 'doap:developer').
+To do this, we simply click on &quot;Matti J. Katila&quot;. You should see
+something like this:</p>
+<div class="image"><img alt="screen5.png" src="screen5.png" /></div>
+<p>This shows basically everything you can do with the public Fenfire
+right now: move around, and load more data from the Web. You can't really
+edit the RDF. It's a pity, but it's a first version...</p>
 </div>
 <div class="section" id="m-lobs-25-minutes">
 <h1><a name="m-lobs-25-minutes">m:Lobs (25 minutes)</a></h1>
@@ -360,15 +415,6 @@ hbox, glue, linebreaker-lob</li>
 </blockquote>
 </div>
 </div>
-</div>
-<div class="section" id="b-the-javolution-preprocessor-10-minutes">
-<h1><a name="b-the-javolution-preprocessor-10-minutes">b:The Javolution preprocessor (10 minutes)</a></h1>
-<blockquote>
-<ul class="simple">
-<li>where you need it</li>
-<li>how to use it (no time to explain the concepts in Javolution itself)</li>
-</ul>
-</blockquote>
 </div>
 <div class="section" id="b-programming-a-representation-view-30-minutes">
 <h1><a name="b-programming-a-representation-view-30-minutes">b:Programming a representation view (30 minutes)</a></h1>
