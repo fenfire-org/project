@@ -415,33 +415,37 @@ As an example we can use Components.label(String text) which composes
 a new hbox containing the text and ending glue.
 
 
-Interactions
-~~~~~~~~~~~~
 
-The interaction with layoutable objects, that is, handling events and
-such is not fun thanks to small memory print. Lobs are themselv *kind
-of* immutable but to decrease creating a lot of objects, caching
-library called javolution is used. But isn't immutable something to do
-with final attributes and thus if something is immutable it can not be
-mutable? Not really, but there's no public attributes or methods with
-lobs that would change the state of a lob. So what this mean we can
-have an example of constructing 1000x1000 sized table filled with
-glue. Only one glue instance is used in the whole operation -- that's
-really nice. 
 
-The problem comes when there are objects that needs to be binded but
-not reused. For such a object there might be actions for different
-keys. Ok, if this kind of action object would be reused, only the last
-used binding would survive but that's not exactly what we want.
+..
 
-With javolution we need a special way to keep something to not being
-reused. An example code of such is coded below::
+   Interactions
+   ~~~~~~~~~~~~
+
+   The interaction with layoutable objects, that is, handling events and
+   such is not fun thanks to small memory print. Lobs are themselv *kind
+   of* immutable but to decrease creating a lot of objects, caching
+   library called javolution is used. But isn't immutable something to do
+   with final attributes and thus if something is immutable it can not be
+   mutable? Not really, but there's no public attributes or methods with
+   lobs that would change the state of a lob. So what this mean we can
+   have an example of constructing 1000x1000 sized table filled with
+   glue. Only one glue instance is used in the whole operation -- that's
+   really nice. 
+
+   The problem comes when there are objects that needs to be binded but
+   not reused. For such a object there might be actions for different
+   keys. Ok, if this kind of action object would be reused, only the last
+   used binding would survive but that's not exactly what we want.
+
+   With javolution we need a special way to keep something to not being
+   reused. An example code of such is coded below::
 
    
 
 
 
-.. :
+..
 
   - Lob text handling as needed in 'viewlets': Labels, formatted text,
     hbox, glue, linebreaker-lob 
@@ -453,11 +457,216 @@ reused. An example code of such is coded below::
 b:Programming a representation view (30 minutes)
 ================================================
 
-    - what is a representation view
-    - example ReprView we're going to do: person with nickname
-    - (explain how it is done in FOAF)
-    - skeleton of the repr view java file
-    - getting the data we need through Swamp
-    - display it with lobs
-    - add to Main.rj
-    - compile, run
+In this section we'll look at programming a simple view for Fenfire.
+A view is a piece of code that visualizes some RDF structure on the screen.
+Look again at the screenshot with information about the Fenfire project:
+
+.. image:: screen4.png
+
+Several views work together to create this visualization. The kind
+of view that we will look at in this section takes an RDF node,
+such as <http://fenfire.org/#project> -- that's the node whose description
+we see in the screenshot above -- and render something that represents
+this node -- in the screenshot above, the text "Fenfire" at the top
+of the screen. 
+
+The same view takes the RDF node representing Matti, and renders
+"Matti J. Katila" under the heading "doap:developer," in the same screenshot.
+
+This kind of view is called a *representation view*, or ReprView for short, 
+because it renders a representation of a particular thing.
+
+In the information about Matti, we do not only have the name
+(which is shown above), but also the nickname:
+
+.. image:: screen5.png
+
+The view we'll write in this section will show a person by their name,
+plus their nickname(s) in brackets after it, for example
+"Matti J. Katila (mudyc, majukati)."
+
+To do this, we'll make a copy of another representation view, ::
+
+    org/fenfire/view/repr/CanvasNodeReprView.java
+
+and edit out the parts not relevant to our view. Call the new view
+``PersonReprView.java``. You should search-and-replace CanvasNodeReprView
+by PersonReprView, in the new file, and remove
+
+- the contents of the containsNode() function;
+- the contents of the getLobList() function.
+
+The first of the two tells Fenfire for which kinds of nodes this view
+is appropriate. In our case, that would be people who have both a name
+and a nickname. The code is ::
+
+    public ViewSettings.Type TYPE = new ViewSettings.AbstractType() {
+	    public boolean containsNode(Object node) {
+		return /* ... */;
+	    }
+	};
+
+    public Set getTypes() {
+	return Collections.singleton(TYPE);
+    }
+
+because a view may be render more than one type of thing, even though
+this is the exception. ``getTypes()`` thus ordinarily returns only
+a collection of only one thing.
+
+The RDF properties we will use are ``name`` and ``nick``, both in the 
+FOAF (friend of a friend) namespace. Their full URIs are::
+
+    http://xmlns.com/foaf/0.1/name
+    http://xmlns.com/foaf/0.1/nick
+
+To use these URIs with the RDF interface in Fenfire (called Swamp),
+we will turn them into Swamp node objects, through the following code
+at the beginning of the class::
+
+    static private Object
+        NAME = Nodes.get("http://xmlns.com/foaf/0.1/name"),
+        NICK = Nodes.get("http://xmlns.com/foaf/0.1/name");
+
+Now we have to find out whether the node we have been given
+as a parameter to ``containsNode()`` has at least one 'name'
+and at least one 'nick.' To get information like this out of
+a Swamp ``Graph`` object, we use functions following this pattern::
+
+    Iterator findN_<pattern>_Iter(<arguments>);
+
+The ``<pattern>`` part consists of three letters, 
+corresponding to the three parts of an RDF triple (subject, predicate, object).
+Each letter can be a 1, an X, or an A, with the following meanings:
+
+:1: We are giving this part of the triple in the ``<arguments>`` list.
+:X: This is the part of the triple we are looking for.
+:A: We don't care what this part of the triple is.
+
+For example, the call ::
+
+    findN_11X_Iter(a, b)
+
+will return an iterator over the objects of all triples whose subject is ``a``
+and whose predicate is ``b``; ::
+
+    findN_1X1_Iter(a, b)
+
+will return an iterator over the predicates of all triples whose subject
+is ``a`` and whose object is ``b``; and ::
+
+    findN_X1A_Iter(a)
+
+will return an iterator over the subjects of all triples whose predicate
+is ``a``.
+
+To get the values of the ``nick`` and ``name`` properties, we use::
+
+    findN_11X_Iter(node, NAME)
+    findN_11X_Iter(node, NICK)
+
+We then use ``hasNext()`` to see whether there are any values 
+for these properties at all:
+
+    public ViewSettings.Type TYPE = new ViewSettings.AbstractType() {
+	    public boolean containsNode(Object node) {
+		return graph.findN_11X_Iter(node, NAME).hasNext() &&
+		    graph.findN_11X_Iter(node, NICK).hasNext();
+	    }
+	};
+
+Now, let's look at ``getLobList(node)``. This method must return a list of lobs
+that can be made part of a longer text and fed into a linebreaker.
+
+In this method, we must first get (one of the) name(s) and nick(s)
+of the person node we are rendering::
+
+    Literal name = (Literal)graph.findN_11X_Iter(node, NAME).next();
+    Literal nick = (Literal)graph.findN_11X_Iter(node, NICK).next();
+
+We then get the default LobFont object-- ::
+
+    LobFont font = Components.font();
+    
+and use the string values of these literals::
+
+    List text = Lists.list(); // creates a new List object
+    text.add(font.text(name.getString()));
+    text.add(font.text(" ("));
+    text.add(font.text(nick.getString()));
+    text.add(font.text(")"));
+
+    return Lists.concatElements(text);
+
+The ``concatElements()`` function takes a list of lists, and returns
+a list containing the concatenation of the individual lists.
+The concatenated list is virtual, i.e., it does not store the
+individual objects, but stores the list of lists and gets the objects
+from the individual lists when necessary.
+
+The whole method should now look like this::
+
+    public List getLobList(Object node) {
+        Literal name = (Literal)graph.findN_11X_Iter(node, NAME).next();
+        Literal nick = (Literal)graph.findN_11X_Iter(node, NICK).next();
+
+        LobFont font = Components.font();
+    
+        List text = Lists.list(); // creates a new List object
+        text.add(font.text(name.getString()));
+        text.add(font.text(" ("));
+        text.add(font.text(nick.getString()));
+        text.add(font.text(")"));
+
+	return Lists.concatElements(text);
+    }
+
+
+We now have created a new representation view. We still need to tell Fenfire
+to use it. To do this, we add it to the file
+
+    org/fenfire/Main.rj
+
+This file is run through a preprocessor before it is compiled by Java,
+but it looks almost like a Java file. If we search for CanvasNodeReprView
+(the representation view we modified), we find these lines::
+
+    Set reprViews = new HashSet(Arrays.asList(new Object[] {
+	new ImageReprView(graph, IMAGE_TYPES),
+	new TextReprView(graph, cursor, nmap, textProps, 
+			 RDFS.label),
+	new CanvasNodeReprView(graph),
+    }));
+
+We simply add our view:
+
+    Set reprViews = new HashSet(Arrays.asList(new Object[] {
+	new ImageReprView(graph, IMAGE_TYPES),
+	new TextReprView(graph, cursor, nmap, textProps, 
+			 RDFS.label),
+	new CanvasNodeReprView(graph),
+	new PersonReprView(graph),
+    }));
+
+Now we just have to compile the whole thing and run it. For compiling,
+we first need to preprocess the file. If you are using the version
+directly from the ``darcs`` version control system, using ``make`` will
+do this for you, automatically. If you downloaded the ZIP file
+with the snapshot, you will have to install Python from http://python.org/
+(it has a standard Windows installer, don't worry), and run
+
+    python org/fenfire/Main.rj org/fenfire/Main.java
+
+Now you should be able to compile. Give the two files to compile,
+and put the JAR file in the classpath:
+
+    javac -cp fenfire.jar org/fenfire/Main.java org/fenfire/view/repr/PersonView.java
+
+Now, you should be able to run with the following commands (on Windows
+and Unix, respectively):
+
+    java -cp .;fenfire.jar org.fenfire.Main demo.turtle
+    java -cp .:fenfire.jar org.fenfire.Main demo.turtle
+
+You may want to try modifying the code to show more than one nickname,
+if available.
