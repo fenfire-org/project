@@ -417,9 +417,7 @@ a new hbox containing the text and ending glue.
 
 
 
-..
-
-   Interactions
+.. Interactions
    ~~~~~~~~~~~~
 
    The interaction with layoutable objects, that is, handling events and
@@ -439,17 +437,12 @@ a new hbox containing the text and ending glue.
    used binding would survive but that's not exactly what we want.
 
    With javolution we need a special way to keep something to not being
-   reused. An example code of such is coded below::
-
-   
+   reused. An example code of such is coded below
 
 
-
-..
-
-  - Lob text handling as needed in 'viewlets': Labels, formatted text,
-    hbox, glue, linebreaker-lob 
-  - Mention image lob
+.. - Lob text handling as needed in 'viewlets': Labels, formatted text,
+     hbox, glue, linebreaker-lob 
+   - Mention image lob
 
 
 
@@ -566,7 +559,7 @@ To get the values of the ``nick`` and ``name`` properties, we use::
     findN_11X_Iter(node, NICK)
 
 We then use ``hasNext()`` to see whether there are any values 
-for these properties at all:
+for these properties at all::
 
     public ViewSettings.Type TYPE = new ViewSettings.AbstractType() {
 	    public boolean containsNode(Object node) {
@@ -638,7 +631,7 @@ but it looks almost like a Java file. If we search for CanvasNodeReprView
 	new CanvasNodeReprView(graph),
     }));
 
-We simply add our view:
+We simply add our view::
 
     Set reprViews = new HashSet(Arrays.asList(new Object[] {
 	new ImageReprView(graph, IMAGE_TYPES),

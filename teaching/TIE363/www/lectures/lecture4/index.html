@@ -384,52 +384,238 @@ controller for click events, lob that is used to present the button
 thing, a label with text for instance, and is put inside a margin.</p>
 <p>As an example we can use Components.label(String text) which composes
 a new hbox containing the text and ending glue.</p>
-</div>
-<div class="section" id="interactions">
-<h3><a name="interactions">Interactions</a></h3>
-<p>The interaction with layoutable objects, that is, handling events and
-such is not fun thanks to small memory print. Lobs are themselv <em>kind
-of</em> immutable but to decrease creating a lot of objects, caching
+<!-- Interactions
+~~~~~~~~~~~~
+
+The interaction with layoutable objects, that is, handling events and
+such is not fun thanks to small memory print. Lobs are themselv *kind
+of* immutable but to decrease creating a lot of objects, caching
 library called javolution is used. But isn't immutable something to do
 with final attributes and thus if something is immutable it can not be
 mutable? Not really, but there's no public attributes or methods with
 lobs that would change the state of a lob. So what this mean we can
 have an example of constructing 1000x1000 sized table filled with
-glue. Only one glue instance is used in the whole operation -- that's
-really nice.</p>
-<p>The problem comes when there are objects that needs to be binded but
+glue. Only one glue instance is used in the whole operation - - that's
+really nice. 
+
+The problem comes when there are objects that needs to be binded but
 not reused. For such a object there might be actions for different
 keys. Ok, if this kind of action object would be reused, only the last
-used binding would survive but that's not exactly what we want.</p>
-<p>With javolution we need a special way to keep something to not being
-reused. An example code of such is coded below:</p>
-<pre class="literal-block">
-.. :
-</pre>
-<blockquote>
-<ul class="simple">
-<li>Lob text handling as needed in 'viewlets': Labels, formatted text,
-hbox, glue, linebreaker-lob</li>
-<li>Mention image lob</li>
-</ul>
-</blockquote>
+used binding would survive but that's not exactly what we want.
+
+With javolution we need a special way to keep something to not being
+reused. An example code of such is coded below -->
+<!-- - Lob text handling as needed in 'viewlets': Labels, formatted text,
+  hbox, glue, linebreaker-lob 
+- Mention image lob -->
 </div>
 </div>
 </div>
 <div class="section" id="b-programming-a-representation-view-30-minutes">
 <h1><a name="b-programming-a-representation-view-30-minutes">b:Programming a representation view (30 minutes)</a></h1>
-<blockquote>
+<p>In this section we'll look at programming a simple view for Fenfire.
+A view is a piece of code that visualizes some RDF structure on the screen.
+Look again at the screenshot with information about the Fenfire project:</p>
+<div class="image"><img alt="screen4.png" src="screen4.png" /></div>
+<p>Several views work together to create this visualization. The kind
+of view that we will look at in this section takes an RDF node,
+such as &lt;<a class="reference" href="http://fenfire.org/#project">http://fenfire.org/#project</a>&gt; -- that's the node whose description
+we see in the screenshot above -- and render something that represents
+this node -- in the screenshot above, the text &quot;Fenfire&quot; at the top
+of the screen.</p>
+<p>The same view takes the RDF node representing Matti, and renders
+&quot;Matti J. Katila&quot; under the heading &quot;doap:developer,&quot; in the same screenshot.</p>
+<p>This kind of view is called a <em>representation view</em>, or ReprView for short, 
+because it renders a representation of a particular thing.</p>
+<p>In the information about Matti, we do not only have the name
+(which is shown above), but also the nickname:</p>
+<div class="image"><img alt="screen5.png" src="screen5.png" /></div>
+<p>The view we'll write in this section will show a person by their name,
+plus their nickname(s) in brackets after it, for example
+&quot;Matti J. Katila (mudyc, majukati).&quot;</p>
+<p>To do this, we'll make a copy of another representation view,</p>
+<pre class="literal-block">
+org/fenfire/view/repr/CanvasNodeReprView.java
+</pre>
+<p>and edit out the parts not relevant to our view. Call the new view
+<tt class="docutils literal"><span class="pre">PersonReprView.java</span></tt>. You should search-and-replace CanvasNodeReprView
+by PersonReprView, in the new file, and remove</p>
 <ul class="simple">
-<li>what is a representation view</li>
-<li>example ReprView we're going to do: person with nickname</li>
-<li>(explain how it is done in FOAF)</li>
-<li>skeleton of the repr view java file</li>
-<li>getting the data we need through Swamp</li>
-<li>display it with lobs</li>
-<li>add to Main.rj</li>
-<li>compile, run</li>
+<li>the contents of the containsNode() function;</li>
+<li>the contents of the getLobList() function.</li>
 </ul>
-</blockquote>
+<p>The first of the two tells Fenfire for which kinds of nodes this view
+is appropriate. In our case, that would be people who have both a name
+and a nickname. The code is</p>
+<pre class="literal-block">
+public ViewSettings.Type TYPE = new ViewSettings.AbstractType() {
+        public boolean containsNode(Object node) {
+            return /* ... */;
+        }
+    };
+
+public Set getTypes() {
+    return Collections.singleton(TYPE);
+}
+</pre>
+<p>because a view may be render more than one type of thing, even though
+this is the exception. <tt class="docutils literal"><span class="pre">getTypes()</span></tt> thus ordinarily returns only
+a collection of only one thing.</p>
+<p>The RDF properties we will use are <tt class="docutils literal"><span class="pre">name</span></tt> and <tt class="docutils literal"><span class="pre">nick</span></tt>, both in the 
+FOAF (friend of a friend) namespace. Their full URIs are:</p>
+<pre class="literal-block">
+http://xmlns.com/foaf/0.1/name
+http://xmlns.com/foaf/0.1/nick
+</pre>
+<p>To use these URIs with the RDF interface in Fenfire (called Swamp),
+we will turn them into Swamp node objects, through the following code
+at the beginning of the class:</p>
+<pre class="literal-block">
+static private Object
+    NAME = Nodes.get(&quot;http://xmlns.com/foaf/0.1/name&quot;),
+    NICK = Nodes.get(&quot;http://xmlns.com/foaf/0.1/name&quot;);
+</pre>
+<p>Now we have to find out whether the node we have been given
+as a parameter to <tt class="docutils literal"><span class="pre">containsNode()</span></tt> has at least one 'name'
+and at least one 'nick.' To get information like this out of
+a Swamp <tt class="docutils literal"><span class="pre">Graph</span></tt> object, we use functions following this pattern:</p>
+<pre class="literal-block">
+Iterator findN_&lt;pattern&gt;_Iter(&lt;arguments&gt;);
+</pre>
+<p>The <tt class="docutils literal"><span class="pre">&lt;pattern&gt;</span></tt> part consists of three letters, 
+corresponding to the three parts of an RDF triple (subject, predicate, object).
+Each letter can be a 1, an X, or an A, with the following meanings:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">1:</th><td class="field-body">We are giving this part of the triple in the <tt class="docutils literal"><span class="pre">&lt;arguments&gt;</span></tt> list.</td>
+</tr>
+<tr class="field"><th class="field-name">X:</th><td class="field-body">This is the part of the triple we are looking for.</td>
+</tr>
+<tr class="field"><th class="field-name">A:</th><td class="field-body">We don't care what this part of the triple is.</td>
+</tr>
+</tbody>
+</table>
+<p>For example, the call</p>
+<pre class="literal-block">
+findN_11X_Iter(a, b)
+</pre>
+<p>will return an iterator over the objects of all triples whose subject is <tt class="docutils literal"><span class="pre">a</span></tt>
+and whose predicate is <tt class="docutils literal"><span class="pre">b</span></tt>;</p>
+<pre class="literal-block">
+findN_1X1_Iter(a, b)
+</pre>
+<p>will return an iterator over the predicates of all triples whose subject
+is <tt class="docutils literal"><span class="pre">a</span></tt> and whose object is <tt class="docutils literal"><span class="pre">b</span></tt>; and</p>
+<pre class="literal-block">
+findN_X1A_Iter(a)
+</pre>
+<p>will return an iterator over the subjects of all triples whose predicate
+is <tt class="docutils literal"><span class="pre">a</span></tt>.</p>
+<p>To get the values of the <tt class="docutils literal"><span class="pre">nick</span></tt> and <tt class="docutils literal"><span class="pre">name</span></tt> properties, we use:</p>
+<pre class="literal-block">
+findN_11X_Iter(node, NAME)
+findN_11X_Iter(node, NICK)
+</pre>
+<p>We then use <tt class="docutils literal"><span class="pre">hasNext()</span></tt> to see whether there are any values 
+for these properties at all:</p>
+<pre class="literal-block">
+public ViewSettings.Type TYPE = new ViewSettings.AbstractType() {
+        public boolean containsNode(Object node) {
+            return graph.findN_11X_Iter(node, NAME).hasNext() &amp;&amp;
+                graph.findN_11X_Iter(node, NICK).hasNext();
+        }
+    };
+</pre>
+<p>Now, let's look at <tt class="docutils literal"><span class="pre">getLobList(node)</span></tt>. This method must return a list of lobs
+that can be made part of a longer text and fed into a linebreaker.</p>
+<p>In this method, we must first get (one of the) name(s) and nick(s)
+of the person node we are rendering:</p>
+<pre class="literal-block">
+Literal name = (Literal)graph.findN_11X_Iter(node, NAME).next();
+Literal nick = (Literal)graph.findN_11X_Iter(node, NICK).next();
+</pre>
+<p>We then get the default LobFont object--</p>
+<pre class="literal-block">
+LobFont font = Components.font();
+</pre>
+<p>and use the string values of these literals:</p>
+<pre class="literal-block">
+List text = Lists.list(); // creates a new List object
+text.add(font.text(name.getString()));
+text.add(font.text(&quot; (&quot;));
+text.add(font.text(nick.getString()));
+text.add(font.text(&quot;)&quot;));
+
+return Lists.concatElements(text);
+</pre>
+<p>The <tt class="docutils literal"><span class="pre">concatElements()</span></tt> function takes a list of lists, and returns
+a list containing the concatenation of the individual lists.
+The concatenated list is virtual, i.e., it does not store the
+individual objects, but stores the list of lists and gets the objects
+from the individual lists when necessary.</p>
+<p>The whole method should now look like this:</p>
+<pre class="literal-block">
+public List getLobList(Object node) {
+    Literal name = (Literal)graph.findN_11X_Iter(node, NAME).next();
+    Literal nick = (Literal)graph.findN_11X_Iter(node, NICK).next();
+
+    LobFont font = Components.font();
+
+    List text = Lists.list(); // creates a new List object
+    text.add(font.text(name.getString()));
+    text.add(font.text(&quot; (&quot;));
+    text.add(font.text(nick.getString()));
+    text.add(font.text(&quot;)&quot;));
+
+    return Lists.concatElements(text);
+}
+</pre>
+<p>We now have created a new representation view. We still need to tell Fenfire
+to use it. To do this, we add it to the file</p>
+<blockquote>
+org/fenfire/Main.rj</blockquote>
+<p>This file is run through a preprocessor before it is compiled by Java,
+but it looks almost like a Java file. If we search for CanvasNodeReprView
+(the representation view we modified), we find these lines:</p>
+<pre class="literal-block">
+Set reprViews = new HashSet(Arrays.asList(new Object[] {
+    new ImageReprView(graph, IMAGE_TYPES),
+    new TextReprView(graph, cursor, nmap, textProps, 
+                     RDFS.label),
+    new CanvasNodeReprView(graph),
+}));
+</pre>
+<p>We simply add our view:</p>
+<pre class="literal-block">
+Set reprViews = new HashSet(Arrays.asList(new Object[] {
+    new ImageReprView(graph, IMAGE_TYPES),
+    new TextReprView(graph, cursor, nmap, textProps, 
+                     RDFS.label),
+    new CanvasNodeReprView(graph),
+    new PersonReprView(graph),
+}));
+</pre>
+<p>Now we just have to compile the whole thing and run it. For compiling,
+we first need to preprocess the file. If you are using the version
+directly from the <tt class="docutils literal"><span class="pre">darcs</span></tt> version control system, using <tt class="docutils literal"><span class="pre">make</span></tt> will
+do this for you, automatically. If you downloaded the ZIP file
+with the snapshot, you will have to install Python from <a class="reference" href="http://python.org/">http://python.org/</a>
+(it has a standard Windows installer, don't worry), and run</p>
+<blockquote>
+python org/fenfire/Main.rj org/fenfire/Main.java</blockquote>
+<p>Now you should be able to compile. Give the two files to compile,
+and put the JAR file in the classpath:</p>
+<blockquote>
+javac -cp fenfire.jar org/fenfire/Main.java org/fenfire/view/repr/PersonView.java</blockquote>
+<p>Now, you should be able to run with the following commands (on Windows
+and Unix, respectively):</p>
+<blockquote>
+java -cp .;fenfire.jar org.fenfire.Main demo.turtle
+java -cp .:fenfire.jar org.fenfire.Main demo.turtle</blockquote>
+<p>You may want to try modifying the code to show more than one nickname,
+if available.</p>
 </div>
 </div>
 </body>
