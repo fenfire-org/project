@@ -172,8 +172,6 @@ fix the example easily::
     package org.nongnu.libvob.lob.doc;
     import org.nongnu.libvob.lob.*;
 
-    // class is run from printter util to 
-    // generate visual printout.
     public class Example_TextWithGlue {
 
         public Lob getLob() {
@@ -190,7 +188,7 @@ As you can see it looks different than the previous example. But why?
 First, a new method is used to construct the text, i.e., textLn(String
 text). It adds *glue* at the end of the list of boxes that represent
 letters. Glue is something that you don't render at all, but has an
-affect to layouting, e.g., in the example it is infitely stretchable
+affect to layouting, e.g., in the example it is infinitely stretchable
 but at least zero sized "hole" in the screen. A better name for the
 glue might be spring but of course as the term is already used with
 TeX it is easier to use the same name for same functionality.
@@ -201,8 +199,6 @@ Next you will see more glue in use vertical box and more glue::
     import org.nongnu.libvob.lob.*;
     import java.util.*;
 
-    // class is run from printter util to 
-    // generate visual screenshot.
     public class Example_TextBoxesAndGlue {
 
         public Lob getLob() {
