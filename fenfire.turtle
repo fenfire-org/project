@@ -6,6 +6,50 @@
   ff:startNode
     <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_1>.
 
+<urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_10>
+  rdfs:label
+    "adding a new item to TODO is 10 key presses".
+
+<urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_11>
+  rdfs:label
+    "show unread blog posts".
+
+<urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_12>
+  rdfs:label
+    "more UI feedback: exceptions, typing errors, background tasks".
+
+<urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_2>
+  rdfs:label
+    "ISWC Semantic Desktop paper 2005-08-01".
+
+<urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_3>
+  rdfs:label
+    "ISWC UI paper 2005-07-30".
+
+<urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_4>
+  rdfs:label
+    "Ghostscript on Windows".
+
+<urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_5>
+  rdfs:label
+    "Importing PDFs (UI)".
+
+<urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_6>
+  rdfs:label
+    "HTML support: discover metadata from LINKs".
+
+<urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_7>
+  rdfs:label
+    "HTML support: show blogs without tags".
+
+<urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_8>
+  rdfs:label
+    "Adding canvases (UI)".
+
+<urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_9>
+  rdfs:label
+    "preserve blank nodes on save".
+
 <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_1>
   sl:linkedTo
     <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_2>,
@@ -30,6 +74,17 @@
 
 <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_6>
   sl:linkedTo
+    <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_10>,
+    <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_11>,
+    <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_12>,
+    <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_2>,
+    <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_3>,
+    <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_4>,
+    <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_5>,
+    <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_6>,
+    <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_7>,
+    <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_8>,
+    <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_9>,
     <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_7>;
   rdfs:label
     "TODO".
