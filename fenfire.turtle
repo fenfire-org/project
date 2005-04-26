@@ -1,0 +1,40 @@
+@prefix ff: <http://fenfire.org/rdf-v/2003/05/ff#>.
+@prefix sl: <http://fenfire.org/rdf-v/2003/05/structlink#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+<>
+  ff:startNode
+    <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_1>.
+
+<urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_1>
+  sl:linkedTo
+    <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_2>,
+    <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_6>;
+  rdfs:label
+    "Fenfire";
+  <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_2>
+    <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_3>,
+    <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_5>.
+
+<urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_2>
+  rdfs:label
+    "subproject".
+
+<urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_3>
+  rdfs:label
+    "Libvob".
+
+<urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_5>
+  rdfs:label
+    "Storm".
+
+<urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_6>
+  sl:linkedTo
+    <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_7>;
+  rdfs:label
+    "TODO".
+
+<urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_7>
+  rdfs:label
+    "Article ISWC 2005-04-30".
+
