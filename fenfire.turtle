@@ -1,95 +1,123 @@
 @prefix ff: <http://fenfire.org/rdf-v/2003/05/ff#>.
 @prefix sl: <http://fenfire.org/rdf-v/2003/05/structlink#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix I-would-like-to-be-able-to-discuss-about-TODO-things-on-mailing-list-and-have-links-to-these-discussions-monkey-B-: <urn:urn-5:SAXQUtecPCLxR897saKQXNcLVMEO:_4>.
+@prefix adding-a-new-item-to-TODO-is-10-key-presses: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_10>.
+@prefix show-unread-blog-posts: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_11>.
+@prefix more-UI-feedback-exceptions-typing-errors-background-tasks: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_12>.
+@prefix ISWC-Semantic-Desktop-paper-2005-08-01: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_2>.
+@prefix ISWC-UI-paper-2005-07-30: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_3>.
+@prefix Ghostscript-on-Windows: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_4>.
+@prefix Importing-PDFs-UI-: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_5>.
+@prefix HTML-support-discover-metadata-from-LINKs: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_6>.
+@prefix HTML-support-show-blogs-without-tags: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_7>.
+@prefix Adding-canvases-UI-: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_8>.
+@prefix preserve-blank-nodes-on-save: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_9>.
+@prefix Fenfire: <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_1>.
+@prefix subproject: <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_2>.
+@prefix Libvob: <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_3>.
+@prefix Storm: <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_5>.
+@prefix TODO: <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_6>.
+@prefix Article-ISWC-2005-04-30: <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_7>.
 
 <>
   ff:startNode
-    <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_1>.
+    Fenfire:.
 
-<urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_10>
+<urn:urn-5:SAXQUtecPCLxR897saKQXNcLVMEO:_2>
+  rdfs:label
+    "",
+    <urn:urn-5:SAXQUtecPCLxR897saKQXNcLVMEO:_3>.
+
+I-would-like-to-be-able-to-discuss-about-TODO-things-on-mailing-list-and-have-links-to-these-discussions-monkey-B-:
+  rdfs:label
+    "I would like to be able to discuss about TODO things on mailing list and have links to these discussions (monkey B)".
+
+adding-a-new-item-to-TODO-is-10-key-presses:
   rdfs:label
     "adding a new item to TODO is 10 key presses".
 
-<urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_11>
+show-unread-blog-posts:
   rdfs:label
     "show unread blog posts".
 
-<urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_12>
+more-UI-feedback-exceptions-typing-errors-background-tasks:
   rdfs:label
     "more UI feedback: exceptions, typing errors, background tasks".
 
-<urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_2>
+ISWC-Semantic-Desktop-paper-2005-08-01:
   rdfs:label
     "ISWC Semantic Desktop paper 2005-08-01".
 
-<urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_3>
+ISWC-UI-paper-2005-07-30:
   rdfs:label
     "ISWC UI paper 2005-07-30".
 
-<urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_4>
+Ghostscript-on-Windows:
   rdfs:label
     "Ghostscript on Windows".
 
-<urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_5>
+Importing-PDFs-UI-:
   rdfs:label
     "Importing PDFs (UI)".
 
-<urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_6>
+HTML-support-discover-metadata-from-LINKs:
   rdfs:label
     "HTML support: discover metadata from LINKs".
 
-<urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_7>
+HTML-support-show-blogs-without-tags:
   rdfs:label
     "HTML support: show blogs without tags".
 
-<urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_8>
+Adding-canvases-UI-:
   rdfs:label
     "Adding canvases (UI)".
 
-<urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_9>
+preserve-blank-nodes-on-save:
   rdfs:label
     "preserve blank nodes on save".
 
-<urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_1>
+Fenfire:
   sl:linkedTo
-    <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_2>,
-    <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_6>;
+    subproject:,
+    TODO:;
   rdfs:label
     "Fenfire";
-  <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_2>
-    <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_3>,
-    <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_5>.
+  subproject:
+    Libvob:,
+    Storm:.
 
-<urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_2>
+subproject:
   rdfs:label
     "subproject".
 
-<urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_3>
+Libvob:
   rdfs:label
     "Libvob".
 
-<urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_5>
+Storm:
   rdfs:label
     "Storm".
 
-<urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_6>
+TODO:
   sl:linkedTo
-    <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_10>,
-    <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_11>,
-    <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_12>,
-    <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_2>,
-    <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_3>,
-    <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_4>,
-    <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_5>,
-    <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_6>,
-    <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_7>,
-    <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_8>,
-    <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_9>,
-    <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_7>;
+    I-would-like-to-be-able-to-discuss-about-TODO-things-on-mailing-list-and-have-links-to-these-discussions-monkey-B-:,
+    adding-a-new-item-to-TODO-is-10-key-presses:,
+    show-unread-blog-posts:,
+    more-UI-feedback-exceptions-typing-errors-background-tasks:,
+    ISWC-Semantic-Desktop-paper-2005-08-01:,
+    ISWC-UI-paper-2005-07-30:,
+    Ghostscript-on-Windows:,
+    Importing-PDFs-UI-:,
+    HTML-support-discover-metadata-from-LINKs:,
+    HTML-support-show-blogs-without-tags:,
+    Adding-canvases-UI-:,
+    preserve-blank-nodes-on-save:,
+    Article-ISWC-2005-04-30:;
   rdfs:label
     "TODO".
 
-<urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_7>
+Article-ISWC-2005-04-30:
   rdfs:label
     "Article ISWC 2005-04-30".
 
