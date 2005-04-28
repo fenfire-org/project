@@ -21,58 +21,58 @@ Kirjoittanut Matti Katila.
 <h1>Johdatus tietomyrskyyn - Storm: Storage Module</h1>
 
 <p>
-Vastauksena vepin sisÃ¤llÃ¶n nopeaan murentumiseen, versiointi-ongelmaan
+Vastauksena vepin sisällön nopeaan murentumiseen, versiointi-ongelmaan
 ja yleisesti tiedon parempaan hallintaan on Tuomas Lukka alun perin
-ideoinut Stormin, eli tietovaraston. Lyhyt ja ytimekÃ¤s kuvaus eduista
+ideoinut Stormin, eli tietovaraston. Lyhyt ja ytimekäs kuvaus eduista
 ja nykyisen vepin ongelmista on kuvattu Benjan kirjoittamassa <a
 href="http://himalia.it.jyu.fi/darcs/storm/doc/why.rst">
-"vastauksessa"</a> tai julkaistussa, vaikkakin lyhyessÃ¤ <a
+"vastauksessa"</a> tai julkaistussa, vaikkakin lyhyessä <a
 href="http://portal.acm.org/citation.cfm?id=900084"> artikkelissa</a>.
 </p>
 
 <p>
-MikÃ¤ on Storm ja miten se kÃ¤yttÃ¤ identiteettejÃ¤? LÃ¤htÃ¶ajatus on
-kÃ¤yttÃ¤Ã¤ vastaavaa menetelmÃ¤Ã¤ kuin nykyisin tunnetut
-vertaisverkko-ohjelmatkin kÃ¤yttÃ¤vÃ¤t. Luodaan tiedostolle tiiviste(hash)
-(Stormin tapauksessa tiedostoa ei pilkota osiin, koska sitÃ¤ ei ole
+Mikä on Storm ja miten se käyttä identiteettejä? Lähtöajatus on
+käyttää vastaavaa menetelmää kuin nykyisin tunnetut
+vertaisverkko-ohjelmatkin käyttävät. Luodaan tiedostolle tiiviste(hash)
+(Stormin tapauksessa tiedostoa ei pilkota osiin, koska sitä ei ole
 suunniteltu ensisijaisesti isojen tiedostojen jakamiseen). Tiivisteen
-lisÃ¤ksi kuvataan tiedoston sisÃ¤ltÃ¶Ã¤ (content type).
+lisäksi kuvataan tiedoston sisältöä (content type).
 
-EsimerkkinÃ¤ tiedostoa, eli Storm <em>block</em>:ia kuvaava identiteetti:
+Esimerkkinä tiedostoa, eli Storm <em>block</em>:ia kuvaava identiteetti:
 vnd-storm-hash:image/png,pbqrtu42fqpm2zgceea7kzukwiaej5hi.6ikqbro4lk7yf6yrhlw6xutvcpc45u2qodebmzy
 </p>
 
 <p>
-TÃ¤mÃ¤n lisÃ¤ksi tarvitaan tiedostolle luoja, esim. henkilÃ¶ tai
+Tämän lisäksi tarvitaan tiedostolle luoja, esim. henkilö tai
 organisaatio, jolla on krytografinen avain ja madollisuus
-sÃ¤hkÃ¶iseen allekirjoitukseen. TÃ¤tÃ¤ varten luodaan kÃ¤yttÃ¤jÃ¤lle
-tunnustieto nk. <em> owner block </em>, jonka ei vÃ¤lttÃ¤mÃ¤ttÃ¤ tarvitse
-olla julkinen, mutta sisÃ¤ltÃ¤Ã¤ haltijastaan tietoja joiden avulla
-voidaan vakuuttua kyseisestÃ¤ henkilÃ¶stÃ¤ tai organisaatiosta.
+sähköiseen allekirjoitukseen. Tätä varten luodaan käyttäjälle
+tunnustieto nk. <em> owner block </em>, jonka ei välttämättä tarvitse
+olla julkinen, mutta sisältää haltijastaan tietoja joiden avulla
+voidaan vakuuttua kyseisestä henkilöstä tai organisaatiosta.
 </p>
 
 <p>
 Seuraavaksi on vuorossa Storm pointterit. Pointtereiden tarkoitus on
-osoittaa pysyvÃ¤sti tietoon, ja siten niillÃ¤ voidaan korvata
+osoittaa pysyvästi tietoon, ja siten niillä voidaan korvata
 vepin nykyinen malli - olisihan hankalaa jos helsinginsanomat.fi ei
-voisi viitata kuin yhden pÃ¤ivÃ¤n lukemistoon. Pointteri on myÃ¶s Storm
-block, mutta sisÃ¤llÃ¶ltÃ¤Ã¤n siinÃ¤ on viite tunnistetietoon, julkinen
-avain, sekÃ¤ viite referenssi blockiin. Pointterit siis
-osoittavat yhteen tietoon, joka ei kuitenkaan ole vielÃ¤ itse tiedostoblockin
-tiiviste, vaan nk. referenssi, josta lisÃ¤Ã¤ seuraavassa. 
+voisi viitata kuin yhden päivän lukemistoon. Pointteri on myös Storm
+block, mutta sisällöltään siinä on viite tunnistetietoon, julkinen
+avain, sekä viite referenssi blockiin. Pointterit siis
+osoittavat yhteen tietoon, joka ei kuitenkaan ole vielä itse tiedostoblockin
+tiiviste, vaan nk. referenssi, josta lisää seuraavassa. 
 </p>
 
 <p>
-Referenssi on pieni RDF graafi, joka sekin on Storm blocki.  TÃ¤ssÃ¤
-graafissa osoitetaan varsinaista tiedostoa tai oikeammin sitÃ¤ kuvaavaa
-tiiviste ja sisÃ¤ltÃ¶ identiteettiÃ¤, sekÃ¤ tekijÃ¤n allekirjoitus
+Referenssi on pieni RDF graafi, joka sekin on Storm blocki.  Tässä
+graafissa osoitetaan varsinaista tiedostoa tai oikeammin sitä kuvaavaa
+tiiviste ja sisältö identiteettiä, sekä tekijän allekirjoitus
 referenssin omistajuudesta.
 </p>
 
 <p>
-Varsinainen tyÃ¶ - versiointi - suoritetaan aiemmin mainituilla
+Varsinainen työ - versiointi - suoritetaan aiemmin mainituilla
 komponenteilla. Uusi versio tiedostosta, eli uusi block identiteetti,
-asetetaan jÃ¤rjestelmÃ¤Ã¤n luomalla uusi referenssi, jonka sanotaan
+asetetaan järjestelmään luomalla uusi referenssi, jonka sanotaan
 kumoavan edellinen tai edelliset (merkityt) referenssit.
 </p>
 

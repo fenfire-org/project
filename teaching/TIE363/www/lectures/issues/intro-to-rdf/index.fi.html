@@ -21,23 +21,23 @@ Kirjoittanut Matti Katila.
 Semanttinen web, tai metadata on oivallinen tekniikka hyperrakenteen
 kuvaamisessa. <a href="http://www.w3.org/RDF/#specs"> RDF</a>, eli
 Resource Description Framework mahdollistaa graafien rakentamisen
-triploista. Triplat koostuvat kolmesta identiteetistÃ¤: subjektista,
-predikaatista ja objektista. TÃ¤hÃ¤n sÃ¤Ã¤ntÃ¶Ã¶n on kuitenkin poikkeus -
+triploista. Triplat koostuvat kolmesta identiteetistä: subjektista,
+predikaatista ja objektista. Tähän sääntöön on kuitenkin poikkeus -
 literaali, joka voidaan asettaa objektin asemaan ja jota ei voi
-kÃ¤yttÃ¤Ã¤ predikaattina tai subjektina. Literaalit ovat tavallaan
-primitiivivejÃ¤, eli merkkijonoja, lukuja ja sen sellaisia.
+käyttää predikaattina tai subjektina. Literaalit ovat tavallaan
+primitiivivejä, eli merkkijonoja, lukuja ja sen sellaisia.
 </p>
 
 <p>
-<em>RDF mahdollistaa myÃ¶s anonyymi-identiteettien kÃ¤ytÃ¶n, jota ei
-tÃ¤ssÃ¤ kÃ¤sitellÃ¤</em>. Verkko on pullollaan tÃ¤ynnÃ¤ parempaa
+<em>RDF mahdollistaa myös anonyymi-identiteettien käytön, jota ei
+tässä käsitellä</em>. Verkko on pullollaan täynnä parempaa
 johdatusmateriaalia: kehoitetaan kaikkia tutustumaan niihin (esim. <a
 href="http://www.w3.org/TR/rdf-primer/"> RDF Primer</a>).
 </p>
 
 <p>
 Olkoon olemassa identiteetti-tehdas ja graafi. Nyt seuraavassa
-on esimerkki kuvitteellisen jÃ¤rjestelmÃ¤n kÃ¤yttÃ¤ytymisestÃ¤:
+on esimerkki kuvitteellisen järjestelmän käyttäytymisestä:
 </p>
 
 <pre>
@@ -64,7 +64,7 @@ print graph >> RDFgraph[ (B,C,A) ]
 </pre>
 
 <p>
-Literaaleilla jÃ¤rjestelmÃ¤ kÃ¤yttÃ¤ytyisi seuraavasti:
+Literaaleilla järjestelmä käyttäytyisi seuraavasti:
 </p>
 
 <pre>
@@ -92,20 +92,20 @@ print graph >> RDFgraph[ (A,B, PlainLit("merkkijono")),
 
 
 <p>
-Rakenteen hyÃ¶dyllisyys ilmenee parhaiten, kun sitÃ¤ kÃ¤ytetÃ¤Ã¤n kuvaamaan
-kÃ¤ytÃ¤nnÃ¶n asioita. Otetaan esimerkki nykyajan tietotyÃ¶lÃ¤isestÃ¤, joka
-juoksee kokouksesta toiseen: RDF rakenteella kokoukseen liittyvÃ¤t
-sÃ¤hkÃ¶iset dokumentit ja asiakirjat, ihmiset yhteystietoineen, sekÃ¤
-kalenterimerkinnÃ¤t pysyvÃ¤t yhtenÃ¤ kokonaisuutena.
+Rakenteen hyödyllisyys ilmenee parhaiten, kun sitä käytetään kuvaamaan
+käytännön asioita. Otetaan esimerkki nykyajan tietotyöläisestä, joka
+juoksee kokouksesta toiseen: RDF rakenteella kokoukseen liittyvät
+sähköiset dokumentit ja asiakirjat, ihmiset yhteystietoineen, sekä
+kalenterimerkinnät pysyvät yhtenä kokonaisuutena.
 </p>
 
 <p>
-KÃ¤ytÃ¤nnÃ¶n asioiden kuvaamisen helpottamiseksi on muodostettu
+Käytännön asioiden kuvaamisen helpottamiseksi on muodostettu
 sanavarastoja (vocabularies), joista esim. <a
 href="http://http://xmlns.com/foaf/0.1/"> foaf </a> ja <a
 href="http://purl.org/dc/elements/1.1/"> dublin core</a>. Seuraavassa
-erÃ¤s ratkaisu tietotyÃ¶lÃ¤iselle kuvattuun kokousongelmaan. Ensin
-kuvataan ratkaisuun liittyvÃ¤ sanavarasto.
+eräs ratkaisu tietotyöläiselle kuvattuun kokousongelmaan. Ensin
+kuvataan ratkaisuun liittyvä sanavarasto.
 </p>
 
 <pre>
@@ -162,17 +162,17 @@ graph.add(meeting, meetingDate, idFactory.newTypedLiteral("2005-03-17T10/12", da
 </pre>
 
 <p>
-idFactory, jota edellisessÃ¤ esimerkissÃ¤ kÃ¤ytettiin, on yleensÃ¤
-olemassa kanoonisen kuvauksen aikaansaamiseksi. NÃ¤in saman merkkijonon
-kuvaamiseen eri paikoissa kÃ¤ytetÃ¤Ã¤n vain yhtÃ¤ muistipaikkaa. EsimerkkinÃ¤
+idFactory, jota edellisessä esimerkissä käytettiin, on yleensä
+olemassa kanoonisen kuvauksen aikaansaamiseksi. Näin saman merkkijonon
+kuvaamiseen eri paikoissa käytetään vain yhtä muistipaikkaa. Esimerkkinä
 Javan <a
 href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/String.html#intern()">String.intern()</a>.
 
 </p>
 
 <p>
-MitÃ¤ kone sitten nÃ¤kee edellisessÃ¤ esimerkissÃ¤? Seuraavassa sama
-esimerkki muutettuna Fenfire jÃ¤rjestelmÃ¤Ã¤n:
+Mitä kone sitten näkee edellisessä esimerkissä? Seuraavassa sama
+esimerkki muutettuna Fenfire järjestelmään:
 </p>
 
 <pre>
