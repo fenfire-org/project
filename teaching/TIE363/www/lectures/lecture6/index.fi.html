@@ -15,10 +15,10 @@
 <p>Lyhyt <a class="reference" href="../issues/intro-to-xanalogical-media/">johdatus</a> xanalogiseen
 rakenteeseen ja mediaan. Alph on xanalogisen systeemin
 implementaatio. Alph-nimi on peräisin Xanaduun liittyvästä <a class="reference" href="http://www.metamed.com/culture/culture.htm">runosta</a>, jossa Alph on joki
-virtaamassa Xanadu-maailmassa. Xanadu itsessään on rekisteröity
+virtaamassa Xanadu-maailmassa. Xanadu itsessään on mm. rekisteröity
 tuotemerkki, jonka takia aiheesta kannattaa puhua xanalogisena
-rakenteena/mediana, joka itseasiassa kuvaakin aihetta paremmin; sekä
-Xanadu kuvaa myös jonkinlaista paratiisia.</p>
+rakenteena/mediana, joka itseasiassa kuvaakin aihetta paremmin.
+Xanadu on myös ilmaus paratiisista tai fantastisesta toiveesta.</p>
 </div>
 <div class="section" id="xanaloginen-rakenne-media">
 <h1><a name="xanaloginen-rakenne-media">Xanaloginen rakenne/media</a></h1>
@@ -28,7 +28,7 @@ linkki on toteutuksena hieman erilainen, kuin artikkelissa on kuvattu,
 mutta sitä voi tarkastella <a class="reference" href="../../../../../../fenfire/org/fenfire/index/">täältä</a>. Ero on lähinnä siinä
 että artikkelissa on linkissä mukana kolmas komponentti, jolla
 yhteyttä voidaan kuvata, jota ei Fenfire toteutuksesta löydy tällä
-hetkellä.</p>
+hetkellä. Toteutus on aika kehno tällä hetkellä.</p>
 </div>
 <div class="section" id="k-sitteet">
 <h1><a name="k-sitteet">Käsitteet</a></h1>
@@ -36,11 +36,20 @@ hetkellä.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field"><th class="field-name">Span:</th><td class="field-body">Pienin mahdollinen informaatiopala.</td>
+<tr class="field"><th class="field-name">Span:</th><td class="field-body">Pienin mahdollinen informaatiopala. Esimerkiksi kuvan yksi pikseli
+tai kirjain. Jokainen informaatio on yksilöllinen. Kirjaimissa
+pitää käyttää tunnistamiseen satunnaista tunnistessa identifioimiseen, 
+mutta kuvan tapauksessa voidaan käyttää kuvatiedostosta muodostettua
+hash-tunnistetta.</td>
 </tr>
-<tr class="field"><th class="field-name">Enfilade:</th><td class="field-body">Vektori spaneja, eli jono informaatiota. Esim. tekstijono.</td>
+<tr class="field"><th class="field-name">Enfilade:</th><td class="field-body">Vektori spaneja, eli jono
+informaatiota esim. (viite)tekstijono. Toteutuksena enfilade-teoriassa
+kuitenkin lisäys- ja poisto-operaatioiden on oltava O(log n), jossa n 
+on käytettyjen spanien määrä. Käytännössä tämä merkitsee balansoitua 
+puuta tietorakenteena.</td>
 </tr>
-<tr class="field"><th class="field-name">Linkki:</th><td class="field-body">Linkki kahden tai useamman enfiladen välillä.</td>
+<tr class="field"><th class="field-name">Linkki:</th><td class="field-body">Linkki kahden tai useamman sisällön(content) välillä. Sisältö
+voi olla enfilade tai span.</td>
 </tr>
 </tbody>
 </table>
