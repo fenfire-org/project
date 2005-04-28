@@ -21,23 +21,23 @@ Kirjoittanut Matti Katila.
 Semanttinen web, tai metadata on oivallinen tekniikka hyperrakenteen
 kuvaamisessa. <a href="http://www.w3.org/RDF/#specs"> RDF</a>, eli
 Resource Description Framework mahdollistaa graafien rakentamisen
-triploista. Triplat koostuvat kolmesta identiteetist‰: subjektista,
-predikaatista ja objektista. T‰h‰n s‰‰ntˆˆn on kuitenkin poikkeus -
+triploista. Triplat koostuvat kolmesta identiteetist√§: subjektista,
+predikaatista ja objektista. T√§h√§n s√§√§nt√∂√∂n on kuitenkin poikkeus -
 literaali, joka voidaan asettaa objektin asemaan ja jota ei voi
-k‰ytt‰‰ predikaattina tai subjektina. Literaalit ovat tavallaan
-primitiivivej‰, eli merkkijonoja, lukuja ja sen sellaisia.
+k√§ytt√§√§ predikaattina tai subjektina. Literaalit ovat tavallaan
+primitiivivej√§, eli merkkijonoja, lukuja ja sen sellaisia.
 </p>
 
 <p>
-<em>RDF mahdollistaa myˆs anonyymi-identiteettien k‰ytˆn, jota ei
-t‰ss‰ k‰sitell‰</em>. Verkko on pullollaan t‰ynn‰ parempaa
+<em>RDF mahdollistaa my√∂s anonyymi-identiteettien k√§yt√∂n, jota ei
+t√§ss√§ k√§sitell√§</em>. Verkko on pullollaan t√§ynn√§ parempaa
 johdatusmateriaalia: kehoitetaan kaikkia tutustumaan niihin (esim. <a
 href="http://www.w3.org/TR/rdf-primer/"> RDF Primer</a>).
 </p>
 
 <p>
 Olkoon olemassa identiteetti-tehdas ja graafi. Nyt seuraavassa
-on esimerkki kuvitteellisen j‰rjestelm‰n k‰ytt‰ytymisest‰:
+on esimerkki kuvitteellisen j√§rjestelm√§n k√§ytt√§ytymisest√§:
 </p>
 
 <pre>
@@ -64,7 +64,7 @@ print graph >> RDFgraph[ (B,C,A) ]
 </pre>
 
 <p>
-Literaaleilla j‰rjestelm‰ k‰ytt‰ytyisi seuraavasti:
+Literaaleilla j√§rjestelm√§ k√§ytt√§ytyisi seuraavasti:
 </p>
 
 <pre>
@@ -92,20 +92,20 @@ print graph >> RDFgraph[ (A,B, PlainLit("merkkijono")),
 
 
 <p>
-Rakenteen hyˆdyllisyys ilmenee parhaiten, kun sit‰ k‰ytet‰‰n kuvaamaan
-k‰yt‰nnˆn asioita. Otetaan esimerkki nykyajan tietotyˆl‰isest‰, joka
-juoksee kokouksesta toiseen: RDF rakenteella kokoukseen liittyv‰t
-s‰hkˆiset dokumentit ja asiakirjat, ihmiset yhteystietoineen, sek‰
-kalenterimerkinn‰t pysyv‰t yhten‰ kokonaisuutena.
+Rakenteen hy√∂dyllisyys ilmenee parhaiten, kun sit√§ k√§ytet√§√§n kuvaamaan
+k√§yt√§nn√∂n asioita. Otetaan esimerkki nykyajan tietoty√∂l√§isest√§, joka
+juoksee kokouksesta toiseen: RDF rakenteella kokoukseen liittyv√§t
+s√§hk√∂iset dokumentit ja asiakirjat, ihmiset yhteystietoineen, sek√§
+kalenterimerkinn√§t pysyv√§t yhten√§ kokonaisuutena.
 </p>
 
 <p>
-K‰yt‰nnˆn asioiden kuvaamisen helpottamiseksi on muodostettu
+K√§yt√§nn√∂n asioiden kuvaamisen helpottamiseksi on muodostettu
 sanavarastoja (vocabularies), joista esim. <a
 href="http://http://xmlns.com/foaf/0.1/"> foaf </a> ja <a
 href="http://purl.org/dc/elements/1.1/"> dublin core</a>. Seuraavassa
-er‰s ratkaisu tietotyˆl‰iselle kuvattuun kokousongelmaan. Ensin
-kuvataan ratkaisuun liittyv‰ sanavarasto.
+er√§s ratkaisu tietoty√∂l√§iselle kuvattuun kokousongelmaan. Ensin
+kuvataan ratkaisuun liittyv√§ sanavarasto.
 </p>
 
 <pre>
@@ -162,17 +162,17 @@ graph.add(meeting, meetingDate, idFactory.newTypedLiteral("2005-03-17T10/12", da
 </pre>
 
 <p>
-idFactory, jota edellisess‰ esimerkiss‰ k‰ytettiin, on yleens‰
-olemassa kanoonisen kuvauksen aikaansaamiseksi. N‰in saman merkkijonon
-kuvaamiseen eri paikoissa k‰ytet‰‰n vain yht‰ muistipaikkaa. Esimerkkin‰
+idFactory, jota edellisess√§ esimerkiss√§ k√§ytettiin, on yleens√§
+olemassa kanoonisen kuvauksen aikaansaamiseksi. N√§in saman merkkijonon
+kuvaamiseen eri paikoissa k√§ytet√§√§n vain yht√§ muistipaikkaa. Esimerkkin√§
 Javan <a
 href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/String.html#intern()">String.intern()</a>.
 
 </p>
 
 <p>
-Mit‰ kone sitten n‰kee edellisess‰ esimerkiss‰? Seuraavassa sama
-esimerkki muutettuna Fenfire j‰rjestelm‰‰n:
+Mit√§ kone sitten n√§kee edellisess√§ esimerkiss√§? Seuraavassa sama
+esimerkki muutettuna Fenfire j√§rjestelm√§√§n:
 </p>
 
 <pre>
