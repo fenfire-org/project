@@ -9,7 +9,6 @@
 @prefix deal-with-blank-nodes-when-linking-from-other-graphs-copy-inversefunctionalproperties-: <urn:urn-5:9-fT7xj9pev-t7-f9rbb-e1nXvqc:_2>.
 @prefix sure-you-can-discuss-what-s-stopping-you-what-kind-of-links-do-you-want-: <urn:urn-5:9-fT7xj9pev-t7-f9rbb-e1nXvqc:_3>.
 @prefix I-like-this-linked-nodes-thing-although-I-made-it-use-a-different-property-has-reply-instead-of-linkedTo-It-s-a-lot-like-discussions-in-text-files-journals-PEGs-stuff-but-since-it-s-in-the-structure-you-can-make-links-to-anything-else-in-the-graph-And-you-can-read-the-discussion-when-you-read-the-TODO-item-like-in-a-text-file-but-you-can-read-the-TODO-list-without-having-to-skip-over-the-discussions-unlike-in-a-text-file-: <urn:urn-5:C5vZcCW0Z7LZPQxBcWhR6Y3yMC3t:_2>.
-@prefix Benja-Fallenstein: <urn:urn-5:C5vZcCW0Z7LZPQxBcWhR6Y3yMC3t:_3>.
 @prefix Sounds-good-how-would-it-work-: <urn:urn-5:C5vZcCW0Z7LZPQxBcWhR6Y3yMC3t:_4>.
 @prefix Subprojects: <urn:urn-5:C5vZcCW0Z7LZPQxBcWhR6Y3yMC3t:_5>.
 @prefix Subprojects: <urn:urn-5:C5vZcCW0Z7LZPQxBcWhR6Y3yMC3t:_5>.
@@ -69,17 +68,20 @@ sure-you-can-discuss-what-s-stopping-you-what-kind-of-links-do-you-want-:
 
 I-like-this-linked-nodes-thing-although-I-made-it-use-a-different-property-has-reply-instead-of-linkedTo-It-s-a-lot-like-discussions-in-text-files-journals-PEGs-stuff-but-since-it-s-in-the-structure-you-can-make-links-to-anything-else-in-the-graph-And-you-can-read-the-discussion-when-you-read-the-TODO-item-like-in-a-text-file-but-you-can-read-the-TODO-list-without-having-to-skip-over-the-discussions-unlike-in-a-text-file-:
   dc:creator
-    Benja-Fallenstein:;
+    <urn:urn-5:C5vZcCW0Z7LZPQxBcWhR6Y3yMC3t:_3>;
   rdfs:label
     "I like this linked nodes thing (although I made it use a different property, 'has reply' instead of 'linkedTo'). It's a lot like discussions in text files (journals, PEGs, stuff), but since it's in the structure, you can make links to anything else in the graph. And you can read the discussion when you read the TODO item (like in a text file), but you can read the TODO list without having to skip over the discussions (unlike in a text file).".
 
-Benja-Fallenstein:
-  rdfs:label
+<urn:urn-5:C5vZcCW0Z7LZPQxBcWhR6Y3yMC3t:_3>
+  foaf:mbox
+    <mailto:b.fallenstein@gmx.de>,
+    <mailto:benja.fallenstein@gmail.com>;
+  foaf:name
     "Benja Fallenstein".
 
 Sounds-good-how-would-it-work-:
   dc:creator
-    Benja-Fallenstein:;
+    <urn:urn-5:C5vZcCW0Z7LZPQxBcWhR6Y3yMC3t:_3>;
   rdfs:label
     "Sounds good -- how would it work?".
 
@@ -201,17 +203,21 @@ has-reply:
 
 People:
   cat:item
-    Benja-Fallenstein:,
+    <urn:urn-5:C5vZcCW0Z7LZPQxBcWhR6Y3yMC3t:_3>,
     <urn:urn-5:rFhr06AKr6vR2Y0BkAOF6UifyIgp:_5>,
     <urn:urn-5:rFhr06AKr6vR2Y0BkAOF6UifyIgp:_6>;
   rdfs:label
     "People".
 
 <urn:urn-5:rFhr06AKr6vR2Y0BkAOF6UifyIgp:_5>
+  foaf:mbox
+    <mailto:Tuukka.Hastrup@iki.fi>;
   foaf:name
     "Tuukka Hastrup".
 
 <urn:urn-5:rFhr06AKr6vR2Y0BkAOF6UifyIgp:_6>
+  foaf:mbox_sha1sum
+    "6cd98902f9f6c5f7d2edf41176e746bb52262332";
   foaf:name
     "Matti Katila".
 
