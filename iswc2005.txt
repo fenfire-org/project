@@ -1,23 +1,24 @@
 
-http://iswc2005.semanticweb.org/
+..
+ http://iswc2005.semanticweb.org/
 
-April 30, 2005  	Research Track paper submissions due
+ April 30, 2005  	Research Track paper submissions due
 
-Title:
-Topics: (select applicable) user interfaces?
-Keywords:
-Abstract:
-
-
+ Title:
+ Topics: (select applicable) user interfaces?
+ Keywords:
+ Abstract:
 
 
+
+==============================
 An architecture for RDF editor
 ==============================
 
 
 
 Introduction
-------------
+============
 
 
 The Fenfire project has been working on an item-based information
@@ -36,7 +37,7 @@ concerns an architecture for RDF editor.
 
 
 Previous work
--------------
+=============
 
 
 SemNet has focus+context view. BrownSauce has a navigational view for
@@ -46,7 +47,7 @@ Desktop.
 
 
 General architecture
---------------------
+====================
 
 
 As a set of RDF triples is conventionally imaged as a graph of
@@ -73,6 +74,7 @@ for each type.
 
 
 Representation views
+--------------------
 
 The smallest view in the architecture under discussion is a
 *representation view*. These views are able to give a graphical
@@ -105,9 +107,10 @@ image data.
 
 
 Property views
+--------------
 
 The next smallest views after the representation views are the
-property views. These views give a user-interface element for the triples
+*property views*. These views give a user-interface element for the triples
 of a given node that have the same property as their predicate. 
 
 Our implementation of a general property view employs four columns to
@@ -128,7 +131,7 @@ full-width text area for the literal. It can be important to be able
 to view a long literal, so the text area has multiple lines if
 necessary. 
 
-One more viewlet implemented is the container viewlet. Instead of
+One more viewlet implemented is the *container property view*. Instead of
 using a representation view to show the container, it goes through the
 container to the elements and shows them as a list. To the reverse
 direction, for any of the elements it shows the node that has the
@@ -136,25 +139,26 @@ container as a property.
 
 
 Spatial views
+-------------
 
 The representation and property views are points in their spatial
 nature. With this we mean that they don't provide visual connections
 between views and they show a single location in the graph. For a
 representation view this is clear, and for a property view we ask the
 reader to take into consideration that a property view shows only a
-single property at a time. A spatial view in this architecture is a lot
+single property at a time. A *spatial view* in this architecture is a lot
 like a window that can be scrolled and that gives an arrangement of
 related information.
 
-One of the spatial views in our implementation is the property list
-view that builds on the property views of the previous section. It
+One of the spatial views in our implementation is the *property list
+view* that builds on the property views of the previous section. It
 provides a simple arrangement of the neighbourhood of a node by
 putting a representation view of the node to the top as a heading and
 below that a list of property views for each property of the node. The
 user can scroll the list if there are more properties than fit on the
 screen at a time.
 
-Another spatial view is the canvas view. It shows a two-dimensional
+Another spatial view is the *canvas view*. It shows a two-dimensional
 space around a node by interpreting an RDF vocabulary of canvases and
 items on it, where each item has x and y coordinates as
 properties. Each item on the canvas is displayed using a
@@ -169,6 +173,7 @@ comments or nodes about the document.
 
 
 Structure views
+---------------
 
 We have tried to make Fenfire useful as an RDF editor with the
 previous free view types. However, we want to discuss one more view
@@ -177,7 +182,7 @@ in particular. Unfortunately the intellectual property status of the
 view type is unclear because of granted patents on it, and thus we
 don't have a published implementation of these views. The type of view
 in question is a view that shows an item, and related items around
-it. We call this kind of a view a structural view.
+it. We call this kind of a view a *structure view*.
 
 The free implementation we would like to publish along our software
 shows for a node a spatial view of it. In a circle around are
@@ -193,5 +198,139 @@ think it is useful in providing the user with a better view of
 relations in the surroundings of the current focus. It also provides
 visual connections and integration between several spatial views, even
 those of different implementation.
+
+
+
+RDF considerations
+==================
+
+
+As our implementation has originally been independent of RDF, we have
+approached RDF and other semantic web technologies from the direction
+of general labelled graphs. As RDF is customized for the Semantic Web
+scenario, it provides good concepts to build a distributed graph of
+real-world items and connections between them. For implementors of RDF
+applications the following can provide considerations similar to those
+from XML appliers.
+
+
+URIs
+----
+
+URIs are pretty much just unique identifiers for nodes in our current
+implementation. In the user interface, we show the URI of the
+currently selected node in a location bar. If a node has a meaningful
+URI but no text property,
+we can use the URI as a textual representation of the node. If a node
+has an http URI, the user can request that document to be downloaded
+and added to the graph as RDF data if it's in a supported format.
+
+One URI that requires special treatment is the URI of the
+document. In many RDF documents that is used to embed metadata about
+the document. When we save an RDF graph to a file, we need to write it
+as the empty relative URI ``<>`` so that if the file is moved, the
+metadata talks of the document even in this new location.
+
+
+Namespaces
+----------
+
+In addition to the set of RDF triples itself, we keep a list of
+namespaces declared in each document, and a union of all these
+namespaces for user-interface purposes. Whenever a URI is to be
+displayed, such as a predicate node without a text property, the URI
+goes through the user-interface namespace map that tries to abbreviate
+the URI with the most specific namespace that is present. This is very
+important for usability, as the representation of the node is at least
+as clear as it was in the RDF documents that referred to it. We feel
+that particulary for predicate nodes the representation such as
+``rdfs:label`` or ``rss:items`` is the best for all if not the least
+technical users, and it keeps the representation exact with a direct
+mapping back to URIs.
+
+To ensure that certain central and well-known namespace abbreviations
+are always available, we seed the user-interface namespace list with
+them. 
+
+Whenever a document is written back to a file, any previous namespace
+declarations are put back with it, and we add any namespaces from the
+user-interface list that can be used to abbreviate a predicate we are
+writing.
+
+
+Schemas and ontologies
+----------------------
+
+Unlike many other Semantic Web applications, the RDF editor described
+here doesn't need or take advantage of higher level concepts such as
+schema descriptions or ontologies. They can probably provide
+additional user interface aids, but we hope that any RDF graph could
+be editable without the editor having knowledge about the properties
+of the resources. In this sense the situation is the same as in using
+a plain-text editor for a structured language such as RDF, XML or Java.
+
+Something little we have explicitly programmed the editor to notice
+are text properties, links to other resources, and properties that are
+defined as functional inverse properties.
+
+
+Blank nodes
+-----------
+
+Internally, we use a URI scheme ``bnode:`` for blank nodes, followed
+by a random indentifier for the graph of origin and a sequence number
+to distinguish separate blank nodes of that graph. Currently, we don't
+provide an interface to create new blank nodes. Any present blank
+nodes in external documents are a challenge too, as if the user
+describes something about such a node, they would intend the same
+blank node to be available in the document they later save. One
+possibilty for future work will be to try to create a new node when a
+blank node is referenced, and copy any functional inverse properties
+from the blank node to preserve resource identity.
+
+
+Literals
+--------
+
+Currently all new literals created in the editor are without a
+language designation and type declaration. When the user edits a
+literal, we actually make a new literal with the previous language or
+type information and new content. We remove the old literal from the
+selected property, and add the new one to it. 
+
+As RDF doesn't have explicit text content for resources, we show one
+of the literal values from a list of text properties as the textual
+representation of a node if available, or the URI of the node
+otherwise. If the user then edits this textual representation, the
+shown literal is edited instead. If a literal was not shown, a new one
+is created on a default property and is then edited and shown.
+
+
+
+Editor controls
+===============
+
+
+
+
+Mouse controls
+--------------
+
+
+
+Keyboard navigation
+-------------------
+
+
+
+Potions
+-------
+
+
+
+Unique property shortcuts
+-------------------------
+
+
 
 
