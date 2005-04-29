@@ -1,9 +1,18 @@
+@prefix cat: <http://fenfire.org/2005/04/categories#>.
 @prefix ff: <http://fenfire.org/rdf-v/2003/05/ff#>.
 @prefix sl: <http://fenfire.org/rdf-v/2003/05/structlink#>.
+@prefix dc: <http://purl.org/dc/elements/1.1/>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix I-need-to-use-my-pine-to-discuss-or-irc-In-fenfire-I-would-like-to-have-links-between-application-data-And-this-communication-with-linked-nodes-is-worthless-: <urn:urn-5:4p3+q-pdUybDjkiURxHPgEw0qTYw:_2>.
 @prefix deal-with-blank-nodes-when-linking-from-other-graphs-copy-inversefunctionalproperties-: <urn:urn-5:9-fT7xj9pev-t7-f9rbb-e1nXvqc:_2>.
+@prefix deal-with-blank-nodes-when-linking-from-other-graphs-copy-inversefunctionalproperties-: <urn:urn-5:9-fT7xj9pev-t7-f9rbb-e1nXvqc:_2>.
 @prefix sure-you-can-discuss-what-s-stopping-you-what-kind-of-links-do-you-want-: <urn:urn-5:9-fT7xj9pev-t7-f9rbb-e1nXvqc:_3>.
+@prefix I-like-this-linked-nodes-thing-although-I-made-it-use-a-different-property-has-reply-instead-of-linkedTo-It-s-a-lot-like-discussions-in-text-files-journals-PEGs-stuff-but-since-it-s-in-the-structure-you-can-make-links-to-anything-else-in-the-graph-And-you-can-read-the-discussion-when-you-read-the-TODO-item-like-in-a-text-file-but-you-can-read-the-TODO-list-without-having-to-skip-over-the-discussions-unlike-in-a-text-file-: <urn:urn-5:C5vZcCW0Z7LZPQxBcWhR6Y3yMC3t:_2>.
+@prefix Benja-Fallenstein: <urn:urn-5:C5vZcCW0Z7LZPQxBcWhR6Y3yMC3t:_3>.
+@prefix Sounds-good-how-would-it-work-: <urn:urn-5:C5vZcCW0Z7LZPQxBcWhR6Y3yMC3t:_4>.
+@prefix Subprojects: <urn:urn-5:C5vZcCW0Z7LZPQxBcWhR6Y3yMC3t:_5>.
+@prefix Subprojects: <urn:urn-5:C5vZcCW0Z7LZPQxBcWhR6Y3yMC3t:_5>.
 @prefix I-would-like-to-be-able-to-discuss-about-TODO-things-on-mailing-list-and-have-links-to-these-discussions-monkey-M-: <urn:urn-5:SAXQUtecPCLxR897saKQXNcLVMEO:_4>.
 @prefix adding-a-new-item-to-TODO-is-10-key-presses: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_10>.
 @prefix show-unread-blog-posts: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_11>.
@@ -17,29 +26,70 @@
 @prefix Adding-canvases-UI-: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_8>.
 @prefix preserve-blank-nodes-on-save: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_9>.
 @prefix Fenfire: <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_1>.
-@prefix subproject: <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_2>.
+@prefix Fenfire: <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_1>.
 @prefix Libvob: <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_3>.
 @prefix Storm: <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_5>.
-@prefix TODO: <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_6>.
+@prefix TODO-items: <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_6>.
 @prefix Article-ISWC-2005-04-30: <urn:urn-5:hvJZKr4aKAYQhAi45FAjG1Td4d5X:_7>.
+@prefix Properties: <urn:urn-5:rFhr06AKr6vR2Y0BkAOF6UifyIgp:_2>.
+@prefix has-reply: <urn:urn-5:rFhr06AKr6vR2Y0BkAOF6UifyIgp:_3>.
+@prefix People: <urn:urn-5:rFhr06AKr6vR2Y0BkAOF6UifyIgp:_4>.
 
 <>
   ff:startNode
-    Fenfire:.
+    Fenfire:;
+  dc:description
+    "A graph with notes about the Fenfire project (mostly for communication among the developers).".
+
+<http://fenfire.org/#project>
+  rdfs:label
+    "Fenfire";
+  rdfs:seeAlso
+    <http://fenfire.org/doap>.
 
 I-need-to-use-my-pine-to-discuss-or-irc-In-fenfire-I-would-like-to-have-links-between-application-data-And-this-communication-with-linked-nodes-is-worthless-:
+  dc:creator
+    <urn:urn-5:rFhr06AKr6vR2Y0BkAOF6UifyIgp:_6>;
   rdfs:label
-    "I need to use my pine to discuss or irc. In fenfire I would like to have links between application data. And this communication with linked nodes is worthless.".
+    "I need to use my pine to discuss or irc. In fenfire I would like to have links between application data. And this communication with linked nodes is worthless.";
+  has-reply:
+    I-like-this-linked-nodes-thing-although-I-made-it-use-a-different-property-has-reply-instead-of-linkedTo-It-s-a-lot-like-discussions-in-text-files-journals-PEGs-stuff-but-since-it-s-in-the-structure-you-can-make-links-to-anything-else-in-the-graph-And-you-can-read-the-discussion-when-you-read-the-TODO-item-like-in-a-text-file-but-you-can-read-the-TODO-list-without-having-to-skip-over-the-discussions-unlike-in-a-text-file-:.
 
 deal-with-blank-nodes-when-linking-from-other-graphs-copy-inversefunctionalproperties-:
   rdfs:label
-    "deal with blank nodes when linking from other graphs: copy inversefunctionalproperties?".
+    "deal with blank nodes when linking from other graphs: copy inverse functional properties?".
 
 sure-you-can-discuss-what-s-stopping-you-what-kind-of-links-do-you-want-:
-  sl:linkedTo
-    I-need-to-use-my-pine-to-discuss-or-irc-In-fenfire-I-would-like-to-have-links-between-application-data-And-this-communication-with-linked-nodes-is-worthless-:;
+  dc:creator
+    <urn:urn-5:rFhr06AKr6vR2Y0BkAOF6UifyIgp:_5>;
   rdfs:label
-    "sure you can discuss, what's stopping you? what kind of links do you want?".
+    "sure you can discuss, what's stopping you? what kind of links do you want?";
+  has-reply:
+    I-need-to-use-my-pine-to-discuss-or-irc-In-fenfire-I-would-like-to-have-links-between-application-data-And-this-communication-with-linked-nodes-is-worthless-:.
+
+I-like-this-linked-nodes-thing-although-I-made-it-use-a-different-property-has-reply-instead-of-linkedTo-It-s-a-lot-like-discussions-in-text-files-journals-PEGs-stuff-but-since-it-s-in-the-structure-you-can-make-links-to-anything-else-in-the-graph-And-you-can-read-the-discussion-when-you-read-the-TODO-item-like-in-a-text-file-but-you-can-read-the-TODO-list-without-having-to-skip-over-the-discussions-unlike-in-a-text-file-:
+  dc:creator
+    Benja-Fallenstein:;
+  rdfs:label
+    "I like this linked nodes thing (although I made it use a different property, 'has reply' instead of 'linkedTo'). It's a lot like discussions in text files (journals, PEGs, stuff), but since it's in the structure, you can make links to anything else in the graph. And you can read the discussion when you read the TODO item (like in a text file), but you can read the TODO list without having to skip over the discussions (unlike in a text file).".
+
+Benja-Fallenstein:
+  rdfs:label
+    "Benja Fallenstein".
+
+Sounds-good-how-would-it-work-:
+  dc:creator
+    Benja-Fallenstein:;
+  rdfs:label
+    "Sounds good -- how would it work?".
+
+Subprojects:
+  cat:item
+    <http://fenfire.org/#project>,
+    Libvob:,
+    Storm:;
+  rdfs:label
+    "Projects".
 
 <urn:urn-5:SAXQUtecPCLxR897saKQXNcLVMEO:_2>
   rdfs:label
@@ -47,10 +97,13 @@ sure-you-can-discuss-what-s-stopping-you-what-kind-of-links-do-you-want-:
     <urn:urn-5:SAXQUtecPCLxR897saKQXNcLVMEO:_3>.
 
 I-would-like-to-be-able-to-discuss-about-TODO-things-on-mailing-list-and-have-links-to-these-discussions-monkey-M-:
-  sl:linkedTo
-    sure-you-can-discuss-what-s-stopping-you-what-kind-of-links-do-you-want-:;
+  dc:creator
+    <urn:urn-5:rFhr06AKr6vR2Y0BkAOF6UifyIgp:_6>;
   rdfs:label
-    "I would like to be able to discuss about TODO things on mailing list and have links to these discussions (monkey M)".
+    "I would like to be able to discuss about TODO things on mailing list and have links to these discussions (monkey M)";
+  has-reply:
+    sure-you-can-discuss-what-s-stopping-you-what-kind-of-links-do-you-want-:,
+    Sounds-good-how-would-it-work-:.
 
 adding-a-new-item-to-TODO-is-10-key-presses:
   rdfs:label
@@ -98,17 +151,12 @@ preserve-blank-nodes-on-save:
 
 Fenfire:
   sl:linkedTo
-    subproject:,
-    TODO:;
+    Subprojects:,
+    TODO-items:,
+    Properties:,
+    People:;
   rdfs:label
-    "Fenfire";
-  subproject:
-    Libvob:,
-    Storm:.
-
-subproject:
-  rdfs:label
-    "subproject".
+    "HOME".
 
 Libvob:
   rdfs:label
@@ -118,8 +166,8 @@ Storm:
   rdfs:label
     "Storm".
 
-TODO:
-  sl:linkedTo
+TODO-items:
+  cat:item
     deal-with-blank-nodes-when-linking-from-other-graphs-copy-inversefunctionalproperties-:,
     I-would-like-to-be-able-to-discuss-about-TODO-things-on-mailing-list-and-have-links-to-these-discussions-monkey-M-:,
     adding-a-new-item-to-TODO-is-10-key-presses:,
@@ -135,9 +183,35 @@ TODO:
     preserve-blank-nodes-on-save:,
     Article-ISWC-2005-04-30:;
   rdfs:label
-    "TODO".
+    "TODO items".
 
 Article-ISWC-2005-04-30:
   rdfs:label
     "Article ISWC 2005-04-30".
+
+Properties:
+  cat:item
+    has-reply:;
+  rdfs:label
+    "Properties".
+
+has-reply:
+  rdfs:label
+    "has reply".
+
+People:
+  cat:item
+    Benja-Fallenstein:,
+    <urn:urn-5:rFhr06AKr6vR2Y0BkAOF6UifyIgp:_5>,
+    <urn:urn-5:rFhr06AKr6vR2Y0BkAOF6UifyIgp:_6>;
+  rdfs:label
+    "People".
+
+<urn:urn-5:rFhr06AKr6vR2Y0BkAOF6UifyIgp:_5>
+  foaf:name
+    "Tuukka Hastrup".
+
+<urn:urn-5:rFhr06AKr6vR2Y0BkAOF6UifyIgp:_6>
+  foaf:name
+    "Matti Katila".
 
