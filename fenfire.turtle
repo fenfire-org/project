@@ -1,16 +1,17 @@
 @prefix ff: <http://fenfire.org/rdf-v/2003/05/ff#>.
 @prefix sl: <http://fenfire.org/rdf-v/2003/05/structlink#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix I-need-to-use-my-pine-to-discuss-or-irc-In-fenfire-I-would-like-to-have-links-between-application-data-And-this-communication-with-linked-nodes-is-worthless-: <urn:urn-5:4p3+q-pdUybDjkiURxHPgEw0qTYw:_2>.
 @prefix deal-with-blank-nodes-when-linking-from-other-graphs-copy-inversefunctionalproperties-: <urn:urn-5:9-fT7xj9pev-t7-f9rbb-e1nXvqc:_2>.
 @prefix sure-you-can-discuss-what-s-stopping-you-what-kind-of-links-do-you-want-: <urn:urn-5:9-fT7xj9pev-t7-f9rbb-e1nXvqc:_3>.
-@prefix I-would-like-to-be-able-to-discuss-about-TODO-things-on-mailing-list-and-have-links-to-these-discussions-monkey-B-: <urn:urn-5:SAXQUtecPCLxR897saKQXNcLVMEO:_4>.
+@prefix I-would-like-to-be-able-to-discuss-about-TODO-things-on-mailing-list-and-have-links-to-these-discussions-monkey-M-: <urn:urn-5:SAXQUtecPCLxR897saKQXNcLVMEO:_4>.
 @prefix adding-a-new-item-to-TODO-is-10-key-presses: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_10>.
 @prefix show-unread-blog-posts: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_11>.
 @prefix more-UI-feedback-exceptions-typing-errors-background-tasks: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_12>.
 @prefix ISWC-Semantic-Desktop-paper-2005-08-01: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_2>.
 @prefix ISWC-UI-paper-2005-07-30: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_3>.
 @prefix Ghostscript-on-Windows: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_4>.
-@prefix Importing-PDFs-UI-: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_5>.
+@prefix Importing-PDFs-UI-and-other-improvements-to-pdf-reading-Annotations-content-links-etc-In-short-majukati-would-like-to-use-Fenfire-at-least-to-most-parts-to-accomplish-his-thesis-Related-works-to-say-I-could-use-it-even-further-thus-depending-on-my-needs-: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_5>.
 @prefix HTML-support-discover-metadata-from-LINKs: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_6>.
 @prefix HTML-support-show-blogs-without-tags: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_7>.
 @prefix Adding-canvases-UI-: <urn:urn-5:UKz24OlYjHSopMdoqobOVyt1aAmx:_8>.
@@ -26,11 +27,17 @@
   ff:startNode
     Fenfire:.
 
+I-need-to-use-my-pine-to-discuss-or-irc-In-fenfire-I-would-like-to-have-links-between-application-data-And-this-communication-with-linked-nodes-is-worthless-:
+  rdfs:label
+    "I need to use my pine to discuss or irc. In fenfire I would like to have links between application data. And this communication with linked nodes is worthless.".
+
 deal-with-blank-nodes-when-linking-from-other-graphs-copy-inversefunctionalproperties-:
   rdfs:label
     "deal with blank nodes when linking from other graphs: copy inversefunctionalproperties?".
 
 sure-you-can-discuss-what-s-stopping-you-what-kind-of-links-do-you-want-:
+  sl:linkedTo
+    I-need-to-use-my-pine-to-discuss-or-irc-In-fenfire-I-would-like-to-have-links-between-application-data-And-this-communication-with-linked-nodes-is-worthless-:;
   rdfs:label
     "sure you can discuss, what's stopping you? what kind of links do you want?".
 
@@ -39,11 +46,11 @@ sure-you-can-discuss-what-s-stopping-you-what-kind-of-links-do-you-want-:
     "",
     <urn:urn-5:SAXQUtecPCLxR897saKQXNcLVMEO:_3>.
 
-I-would-like-to-be-able-to-discuss-about-TODO-things-on-mailing-list-and-have-links-to-these-discussions-monkey-B-:
+I-would-like-to-be-able-to-discuss-about-TODO-things-on-mailing-list-and-have-links-to-these-discussions-monkey-M-:
   sl:linkedTo
     sure-you-can-discuss-what-s-stopping-you-what-kind-of-links-do-you-want-:;
   rdfs:label
-    "I would like to be able to discuss about TODO things on mailing list and have links to these discussions (monkey B)".
+    "I would like to be able to discuss about TODO things on mailing list and have links to these discussions (monkey M)".
 
 adding-a-new-item-to-TODO-is-10-key-presses:
   rdfs:label
@@ -69,9 +76,9 @@ Ghostscript-on-Windows:
   rdfs:label
     "Ghostscript on Windows".
 
-Importing-PDFs-UI-:
+Importing-PDFs-UI-and-other-improvements-to-pdf-reading-Annotations-content-links-etc-In-short-majukati-would-like-to-use-Fenfire-at-least-to-most-parts-to-accomplish-his-thesis-Related-works-to-say-I-could-use-it-even-further-thus-depending-on-my-needs-:
   rdfs:label
-    "Importing PDFs (UI)".
+    "Importing PDFs (UI);  and other improvements to pdf reading. Annotations, content links etc. In short majukati would like to use Fenfire at least to most parts to accomplish his thesis. Related works to say. I could use it even further thus depending on my needs.".
 
 HTML-support-discover-metadata-from-LINKs:
   rdfs:label
@@ -114,14 +121,14 @@ Storm:
 TODO:
   sl:linkedTo
     deal-with-blank-nodes-when-linking-from-other-graphs-copy-inversefunctionalproperties-:,
-    I-would-like-to-be-able-to-discuss-about-TODO-things-on-mailing-list-and-have-links-to-these-discussions-monkey-B-:,
+    I-would-like-to-be-able-to-discuss-about-TODO-things-on-mailing-list-and-have-links-to-these-discussions-monkey-M-:,
     adding-a-new-item-to-TODO-is-10-key-presses:,
     show-unread-blog-posts:,
     more-UI-feedback-exceptions-typing-errors-background-tasks:,
     ISWC-Semantic-Desktop-paper-2005-08-01:,
     ISWC-UI-paper-2005-07-30:,
     Ghostscript-on-Windows:,
-    Importing-PDFs-UI-:,
+    Importing-PDFs-UI-and-other-improvements-to-pdf-reading-Annotations-content-links-etc-In-short-majukati-would-like-to-use-Fenfire-at-least-to-most-parts-to-accomplish-his-thesis-Related-works-to-say-I-could-use-it-even-further-thus-depending-on-my-needs-:,
     HTML-support-discover-metadata-from-LINKs:,
     HTML-support-show-blogs-without-tags:,
     Adding-canvases-UI-:,
