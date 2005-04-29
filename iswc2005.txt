@@ -1,0 +1,134 @@
+
+http://iswc2005.semanticweb.org/
+
+April 30, 2005  	Research Track paper submissions due
+
+Title:
+Topics: (select applicable) user interfaces?
+Keywords:
+Abstract:
+
+
+
+
+An architecture for RDF editor
+==============================
+
+
+
+Introduction
+------------
+
+
+The Fenfire project has been working on an item-based information
+management environment for XXX years, first as an implementation of
+Ted Nelson's ZigZag and later based on the W3C standards for the
+Semantic Web. The environment has not reached a useful state yet,
+largely because of the unconventional software requirements of such a
+system, but along the Semantic Web standards a subgoal of an RDF
+editor has emerged. To bring closer our gap to the Semantic Web
+community, we would like to report on our research to the extent it
+concerns an architecture for RDF editor.
+
+- motivation
+- previous concepts
+
+
+Previous work
+-------------
+
+
+SemNet has focus+context view. BrownSauce has a navigational view for
+RDF. Haystack has views for properties. Gnowsis is building a Semantic
+Desktop. 
+
+
+
+General architecture
+--------------------
+
+
+As a set of RDF triples is conventionally imaged as a graph of
+labelled nodes, we want the editor to let the user browse this graph,
+make updates to it and create new triples. However, as the amount of
+triples can be high, RDF is a very general model, and the level of
+information can be too low for the user, such a user interface is not
+straight-forward. 
+
+We propose the use of various *views* to represent the graph model to the
+user, in connection with several *controllers* that allow the user to
+make changes to the underlying model in ways that reflect the view the
+user sees. This is not unlike the widely used Model-View-Controller
+separation of user interfaces but we use the RDF graph as the sole
+model, instead of several, application specific ones.
+
+
+Representation views
+
+The smallest view in the architecture under discussion is a
+*representation view*. These views are able to give a graphical
+representation of a node that can then be used as a part of a view
+that shows some larger construct in the graph.
+
+The most elementary instance of a representation view in our
+implementation is called TextReprView. It gives a textual
+representation, most simply the URI of the node in question. We also
+keep a list of *text properties* and if there is a literal value on
+any of these properties, we use one of those instead of the URI. To
+benefit from language information associated with literals, we prefer
+a literal that matches the user's locale to those that don't have
+language information or even have another language declared. If the
+node in question is a literal itself, we indicate that by putting the
+literal value in quotes, ie. "This is not John, this is the word 'John'."
+
+Another example of a representation view would be one that in addition
+to the textual representation view shows any ``foaf:nick`` property of
+the node in parentheses. The applicability of this is highly specific
+to the task of viewing FOAF information about people who the user
+might better know by nickname than by full name. However, the choice
+of the additional property could be user-configurable thus making the
+view applicable for any parenthetical information.
+
+Our implementation also contains a graphical representation view for
+areas of PDF documents. It works by interpreting properties in a
+vocabulary for decribing such areas and displaying the associated
+image data.
+
+
+Property views
+
+The next smallest views after the representation views are the
+property views. These views give a user-interface element for the triples
+of a given node that have the same property as their predicate. 
+
+Our implementation of a general property view employs four columns to
+communicate the property, its direction and its value to the user. The
+first column gives the inverse property, the second column gives the value
+of the inverse property, the third column gives the positive property
+and the fourth column gives the value of the positive property. If
+either the inverse or positive property doesn't have a value, the
+respective columns are left empty. This arrangement can be argued
+to be wasteful, but we hope to provide the user with a feeling of
+spatiality and navigational directions. If there is more than one
+value on the property, the view adds enough rows for the rest of the values.
+
+An important property view in our implementation is the *literal
+property view*. As a literal can only take the position of an object
+in a triple and is not important navigationally, we provide a
+full-width text area for the literal. It can be important to be able
+to view a long literal, so the text area has multiple lines if
+necessary. 
+
+One more viewlet implemented is the container viewlet. Instead of
+using a representation view to show the container, it goes through the
+container to the elements and shows them as a list. To the reverse
+direction, for any of the elements it shows the node that has the
+container as a property.
+
+
+Spatial views
+
+
+
+Structure views
+
