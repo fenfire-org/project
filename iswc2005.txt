@@ -34,6 +34,7 @@ concerns an architecture for RDF editor.
 - previous concepts
 
 
+
 Previous work
 -------------
 
@@ -61,6 +62,14 @@ make changes to the underlying model in ways that reflect the view the
 user sees. This is not unlike the widely used Model-View-Controller
 separation of user interfaces but we use the RDF graph as the sole
 model, instead of several, application specific ones.
+
+Architecturally important is that the view the user sees and the
+controller to it are actually built from several views that separate
+concerns and permit combination of the views to match different kinds
+of user need. Larger views for RDF constructs are built from smaller
+views of RDF primitives. The views actually interface with other views
+through view type interfaces, so we can have several implementations
+for each type.
 
 
 Representation views
@@ -128,7 +137,61 @@ container as a property.
 
 Spatial views
 
+The representation and property views are points in their spatial
+nature. With this we mean that they don't provide visual connections
+between views and they show a single location in the graph. For a
+representation view this is clear, and for a property view we ask the
+reader to take into consideration that a property view shows only a
+single property at a time. A spatial view in this architecture is a lot
+like a window that can be scrolled and that gives an arrangement of
+related information.
+
+One of the spatial views in our implementation is the property list
+view that builds on the property views of the previous section. It
+provides a simple arrangement of the neighbourhood of a node by
+putting a representation view of the node to the top as a heading and
+below that a list of property views for each property of the node. The
+user can scroll the list if there are more properties than fit on the
+screen at a time.
+
+Another spatial view is the canvas view. It shows a two-dimensional
+space around a node by interpreting an RDF vocabulary of canvases and
+items on it, where each item has x and y coordinates as
+properties. Each item on the canvas is displayed using a
+representation view, which allows textual items, regions of PDF
+documents etc. to be arranged.
+
+We have also implemented a spatial view for the PDF documents
+themselves. The user can read the document and scroll in it. Any
+regions that some node represents are shown as hollow rectangles on
+the document. This allows the user to discover and browse links,
+comments or nodes about the document.
 
 
 Structure views
+
+We have tried to make Fenfire useful as an RDF editor with the
+previous free view types. However, we want to discuss one more view
+type that is natural to any kind of structural data and an RDF graph
+in particular. Unfortunately the intellectual property status of the
+view type is unclear because of granted patents on it, and thus we
+don't have a published implementation of these views. The type of view
+in question is a view that shows an item, and related items around
+it. We call this kind of a view a structural view.
+
+The free implementation we would like to publish along our software
+shows for a node a spatial view of it. In a circle around are
+property values of the node in smaller spatial views. Depending on
+space on the screen, the performance of the computer and nature of the
+RDF graph in question, the number of shown properties can be limited
+and the user can rotate to see other properties, or we can show more
+properties, even properties of properties recursively. 
+
+If a spatial view is like a window, a structure view is like
+connections between related items, *between different windows*. We
+think it is useful in providing the user with a better view of
+relations in the surroundings of the current focus. It also provides
+visual connections and integration between several spatial views, even
+those of different implementation.
+
 
