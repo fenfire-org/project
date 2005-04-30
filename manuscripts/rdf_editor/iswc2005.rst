@@ -31,6 +31,10 @@ editor has emerged. To bring closer our gap to the Semantic Web
 community, we would like to report on our research to the extent it
 concerns an architecture for RDF editor.
 
+A general, efficient RDF editor could help bring the Semantic Web data
+closer to both users and implementers. 
+
+
 - motivation
 - previous concepts
 
@@ -311,26 +315,136 @@ Editor controls
 ===============
 
 
+Controls for the editor need to meet the needs of effortless data
+entry of a text editor and, on the other hand, the semantic richness
+of the underlying model. The controls should also match the display. 
 
 
 Mouse controls
 --------------
 
+We have implemented only a simple set of mouse controls because we
+feel that an editor that is used to enter text shouldn't require the
+user to switch between mouse and keyboard usage. Navigation is mostly
+mouse-enabled. First of all, left-clicking always navigates to the
+clicked element. In canvas and pdf document spatial views, left-click
+dragging is used to scroll the visible portion of the
+view. Right-click dragging controls zoom level. In the canvas view,
+items can be moved by dragging with Control key held down.
 
 
 Keyboard navigation
 -------------------
 
+Because any node can have unlimited amount of property values,
+keyboard navigation needs to concist of the steps of first selecting a
+property and then navigating to its value. To enforce the
+subject-predicate-object model, we show subjects of inverse properties
+on the left, objects of positive properties on the right, and require
+the user to commit to this directionality by pressing an arrow key
+left or right to move to the value on the respective side. Up and down
+arrows are then free to be used to select the wanted property in the
+first place.
+
+Holding the Control key modifies the action so that instead of moving
+along the property, the triple of the property is removed from the graph.
+
+When a literal is selected, arrow keys left and right move a text
+cursor instead, and letters and Backspace can be used for normal typing.
+
+As was already mentioned while considering our use of URIs, the user
+can request data about the current resource to be loaded from the
+web. This action has a keyboard shortcut. The same shortcut also
+requests data from Gnowsis, if it is installed. Another keyboard
+shortcut can be used to request Gnowsis to browse the current resource.
 
 
 Potions
 -------
 
+Structure editing is much more complicated. For example, making a new
+connection (ie. triple) means the user has to indicate the action, and
+choose three 
+nodes. Further, a node can be the currently selected node, a node
+nearby, a node the user often mentions, a new resource, a new literal,
+a URI in a namespace or an arbitrary URI the user wants to enter.
+
+In our implementation, there is a simple language called Potions that
+can be used to enter expressions to achieve tasks such as the
+example. To make a new triple, the user should first navigate to
+either the subject or the object of the triple, and then issue the
+keyboard shortcut for either "connect" or "connect backwards",
+respectively. After that, a status bar is visible at the bottom of the
+window, indicating that a command has been selected and that the user
+should complete the action by issuing shortcuts to designate first the 
+property and then the value. To designate nodes, there is a set of
+shortcuts. For instance, one of them lets the user fill the next
+missing parameter to the action by typing a URI. Another one fills the
+next missing parameter with a new literal.
 
 
 Unique property shortcuts
 -------------------------
 
+To fill in a property for an incomplete Potions action, the
+implementation provides a three-letter shortcut derived from the URI
+of the property. The derivation is based on seeding a random number
+generator with a hash value of the URI, so even though each shortcut
+is seemingly random it is always the same for any given URI and we
+expect the user to learn quickly some of the shortcuts they need most
+often. 
+
+These shortcuts are available only to predicates that are used
+in the current graph, and some well-known
+predicates, and the composite of a hash function and random number generator
+seeding is expected to distribute the shortcuts evenly, so the number
+of predicates in use getting the same three-letter shortcut should be
+relatively small. However, the clashes are inevitable, and as a backup
+we can switch to four-letter shortcuts for those properties, and so on.
 
 
+
+Conclusion
+==========
+
+
+In this article, we have described an architecture for an RDF editor
+as implemented as a subgoal of the Fenfire project in search for an
+item-based information management environment. We argued that as RDF
+is central in the Semantic Web standards and applications, such an editor
+concerns the research and implementation on the field.
+
+We started by outlining the architecture of the editor as a collection
+of views and associated controllers on the RDF graph model. We
+proceeded to describe the view architecture of representation,
+property, and spatial view types, and discussed the possibilities of a
+structure view type.
+
+We continued with concerns related to the specific model of RDF as
+opposed to a general labelled graph. We discussed the use of URIs,
+namespaces, schemas and ontologies, blank nodes and literals in our
+implementation of the editor. 
+
+Next, we described the controls implemented to allow browsing and
+editing that match the views. Structure editing such as adding new
+triples was found to be a complex task, and a small language called
+Potions was introduced as one solution. Last, unique property
+shortcuts were proposed as a specialized way to enter predicates.
+
+
+
+Acknowledgements
+================
+
+
+The authors would like to thank Ted Nelson for his ideas, inspiration
+and collaboration on Gzz the zzStructure implementation that lead to
+the Fenfire project. Former leader of both projects, Tuomas Lukka has
+guided us and performed most of the research with respect to software
+architecture and visualization techniques, the latter with Janne
+Kujala.
+
+We would also like to thank Toni Alatalo, Antti-Juhani Kaijanaho,
+Hanna Ollila, and Asko Soukka for their continuing support of the
+project.
 
