@@ -1,7 +1,9 @@
 @prefix cat: <http://fenfire.org/2005/04/categories#>.
 @prefix ff: <http://fenfire.org/rdf-v/2003/05/ff#>.
 @prefix sl: <http://fenfire.org/rdf-v/2003/05/structlink#>.
+@prefix bib: <http://purl.oclc.org/NET/nknouf/ns/bibtex#>.
 @prefix dc: <http://purl.org/dc/elements/1.1/>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix Papers-and-articles-that-I-need-to-read-and-find-any-interesting-things-: <urn:urn-5:1WQ6-2+quooGvGdgzS3ZYd52UjVh:_2>.
@@ -11,15 +13,41 @@
   ff:startNode
     Thesis:.
 
-Thesis:
-  dc:description
-    "A start for Matti's thesis.".
+<http://portal.acm.org/ft_gateway.cfm?id=65005&type=pdf&coll=GUIDE&dl=GUIDE&CFID=43876811&CFTOKEN=99804120>
+  rdf:type
+    <http://fenfire.org/rdf-v/2005/04/ps-pdf-region#PsPdfDocument>.
 
 Papers-and-articles-that-I-need-to-read-and-find-any-interesting-things-:
+  sl:linkedTo
+    <urn:urn-5:lODNNmSWGCKMx0iT77vE7DNh5JWS:_2>;
   rdfs:label
     "Papers and articles that I need to read and find any interesting things.".
 
 Thesis:
   sl:linkedTo
-    Papers-and-articles-that-I-need-to-read-and-find-any-interesting-things-:.
+    Papers-and-articles-that-I-need-to-read-and-find-any-interesting-things-:;
+  dc:description
+    "A start for Matti's thesis.".
+
+<urn:urn-5:lODNNmSWGCKMx0iT77vE7DNh5JWS:_2>
+  <http://fenfire.org/rdf-v/2005/05/document#hasInstance>
+    <http://portal.acm.org/ft_gateway.cfm?id=65005&type=pdf&coll=GUIDE&dl=GUIDE&CFID=43876811&CFTOKEN=99804120>;
+  bib:hasAuthor
+    "P. Borras and D. Clement and Th. Despeyroux and J. Incerpi and G. Kahn and B. Lang and V. Pascual";
+  bib:hasBooktitle
+    "SDE 3: Proceedings of the third ACM SIGSOFT/SIGPLAN software engineering symposium on Practical software development environments";
+  bib:hasDOI
+    "http://doi.acm.org/10.1145/64135.65005";
+  bib:hasISBN
+    "0-89791-290-X";
+  bib:hasLocation
+    "Boston, Massachusetts, United States";
+  bib:hasPages
+    "14--24";
+  bib:hasPublisher
+    "ACM Press";
+  bib:hasTitle
+    "Centaur: the system";
+  bib:hasYear
+    "1988".
 
