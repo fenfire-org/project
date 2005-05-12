@@ -1,0 +1,25 @@
+@prefix cat: <http://fenfire.org/2005/04/categories#>.
+@prefix ff: <http://fenfire.org/rdf-v/2003/05/ff#>.
+@prefix sl: <http://fenfire.org/rdf-v/2003/05/structlink#>.
+@prefix dc: <http://purl.org/dc/elements/1.1/>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix Papers-and-articles-that-I-need-to-read-and-find-any-interesting-things-: <urn:urn-5:1WQ6-2+quooGvGdgzS3ZYd52UjVh:_2>.
+@prefix Thesis: <urn:urn-5:KAYQhAihvJZKr4a45FAjG1Td4d5X:_1>.
+
+<>
+  ff:startNode
+    Thesis:.
+
+Thesis:
+  dc:description
+    "A start for Matti's thesis.".
+
+Papers-and-articles-that-I-need-to-read-and-find-any-interesting-things-:
+  rdfs:label
+    "Papers and articles that I need to read and find any interesting things.".
+
+Thesis:
+  sl:linkedTo
+    Papers-and-articles-that-I-need-to-read-and-find-any-interesting-things-:.
+
