@@ -29,7 +29,7 @@ Thesis:
   dc:description
     "A start for Matti's thesis.".
 
-<urn:urn-5:lODNNmSWGCKMx0iT77vE7DNh5JWS:_2>
+<http://doi.acm.org/10.1145/64135.65005>
   <http://fenfire.org/rdf-v/2005/05/document#hasInstance>
     <http://portal.acm.org/ft_gateway.cfm?id=65005&type=pdf&coll=GUIDE&dl=GUIDE&CFID=43876811&CFTOKEN=99804120>;
   bib:hasAuthor
@@ -51,3 +51,26 @@ Thesis:
   bib:hasYear
     "1988".
 
+<http://doi.acm.org/10.1145/24208.24230>
+  <http://fenfire.org/rdf-v/2005/05/document#hasInstance>
+    <http://portal.acm.org/ft_gateway.cfm?id=24230&type=pdf&coll=GUIDE&dl=GUIDE&CFID=43939977&CFTOKEN=6846216>
+  bib:hasAuthor 
+    "G Engels and M Nagl and W Schafer";
+  bib:hasTitle
+    "On the structure of structure-oriented editors for different applications";
+  bib:hasBooktitle
+    "SDE 2: Proceedings of the second ACM SIGSOFT/SIGPLAN software engineering symposium on Practical software development environments";
+  bib:hasYear
+    "1987";
+  hasISBN
+    "0-89791-212-8";
+  hasPages
+    "190--198";
+  hasLocation 
+    "Palo Alto, California, United States";
+  hasDOI
+    "http://doi.acm.org/10.1145/24208.24230";
+  hasPublisher
+    "ACM Press";
+  hasAddress
+    "New York, NY, USA".
