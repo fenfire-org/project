@@ -84,7 +84,7 @@ Papers-and-articles-that-I-need-to-read-and-find-any-interesting-things-:
   sl:linkedTo
     <http://doi.acm.org/10.1145/24208.24230>,
     <http://doi.acm.org/10.1145/64135.65005>,
-    <urn:urn-5:uGqp-XXA4vVFZxceCc+cUUHmSNNx:_2>;
+    <http://dx.doi.org/10.1006/jvlc.2000.0176>;
   rdfs:label
     "Papers and articles that I need to read and find any interesting things.".
 
@@ -120,7 +120,18 @@ a4-Then-there-is-object-oriented-programming-Again-there-s-nothing-really-wrong-
   rdfs:label
     "a4) Then there is object oriented programming. Again, there's nothing really wrong with it.. but to me it doesn't seem to work. The problem is better seen when giving eye on software for first time; objects use other objects and in the end the code seems to be very disconnected and disjointed since programmer doesn't know all those classes around. At the end you need to read and memorize the source in your head to be able to make changes.".
 
-<urn:urn-5:uGqp-XXA4vVFZxceCc+cUUHmSNNx:_2>
+<http://dx.doi.org/10.1006/jvlc.2000.0176>
   <http://fenfire.org/rdf-v/2005/05/document#hasInstance>
-    <http://www.sciencedirect.com/science?_ob=MImg&_imagekey=B75H1-4FWNN0W-D-1&_cdi=13109&_user=10&_orig=search&_coverDate=04%2F21%2F2005&_qd=1&_sk=998729995&view=c&wchp=dGLbVzb-zSkWA&md5=550915aae66e615b40efef29caad0cdf&ie=/sdarticle.pdf>.
+    <http://www.sciencedirect.com/science?_ob=MImg&_imagekey=B75H1-4FWNN0W-D-1&_cdi=13109&_user=10&_orig=search&_coverDate=04%2F21%2F2005&_qd=1&_sk=998729995&view=c&wchp=dGLbVzb-zSkWA&md5=550915aae66e615b40efef29caad0cdf&ie=/sdarticle.pdf>;
+  bib:hasAuthor
+    "Antti-Pekka Tuovinen";
+  bib:hasTitle
+    "Practical Error Handling in Parsing Visual Languages";
+  bib:hasDOI
+    "http://dx.doi.org/10.1006/jvlc.2000.0176";
+  bib:hasYear
+    "2000";
+  rdfs:label
+    "A.-P. Tuovinen, Practical error handling in parsing visual languages, 2000".
+
 
