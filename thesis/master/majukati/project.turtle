@@ -7,7 +7,12 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix Papers-and-articles-that-I-need-to-read-and-find-any-interesting-things-: <urn:urn-5:1WQ6-2+quooGvGdgzS3ZYd52UjVh:_2>.
+@prefix Why-What-s-my-motivation-: <urn:urn-5:7S9Awr2yX7MJwp8m1vnu+yPq5oK6:_2>.
+@prefix a1-I-think-software-in-overall-is-quite-hard-to-understand-At-the-time-of-software-crisis-in-sixties-it-was-noticed-that-software-is-complex-I-do-admit-that-software-counted-as-one-big-component-is-complex-but-when-considered-as-sets-of-things-it-s-more-and-more-a-set-of-very-simple-things-: <urn:urn-5:7S9Awr2yX7MJwp8m1vnu+yPq5oK6:_3>.
+@prefix a2-These-simple-things-have-been-put-together-as-the-whole-source-tree-In-nineties-there-have-been-a-new-point-of-view-to-these-joints-of-elements-aspect-oriented-programming-where-different-aspects-are-joint-together-in-the-compile-time-of-software-: <urn:urn-5:7S9Awr2yX7MJwp8m1vnu+yPq5oK6:_4>.
+@prefix a3-These-joints-are-nice-but-it-gets-us-away-from-the-source-and-there-s-nothing-wrong-with-source-itself-at-least-in-abstract-level-What-I-think-is-needed-is-a-buzzword-hyperstructure-system-where-digital-photographied-design-scribbles-point-of-view-documents-and-links-to-other-elemts-with-describing-text-could-be-added-to-system-to-make-it-easier-to-outline-those-small-sets-of-easy-elements-: <urn:urn-5:7S9Awr2yX7MJwp8m1vnu+yPq5oK6:_5>.
 @prefix Thesis: <urn:urn-5:KAYQhAihvJZKr4a45FAjG1Td4d5X:_1>.
+@prefix a4-Then-there-is-object-oriented-programming-Again-there-s-nothing-really-wrong-with-it-but-to-me-it-doesn-t-seem-to-work-The-problem-is-better-seen-when-giving-eye-on-software-for-first-time-objects-use-other-objects-and-in-the-end-the-code-seems-to-be-very-disconnected-and-disjointed-since-programmer-doesn-t-know-all-those-classes-around-At-the-end-you-need-to-read-and-memorize-the-source-in-your-head-to-be-able-to-make-changes-: <urn:urn-5:ejWYteQ54DL5CPnj0NyaHIyDNLMs:_2>.
 
 <>
   ff:startNode
@@ -37,7 +42,7 @@
   bib:hasYear
     "1987";
   rdfs:label
-    "Engels et all, On the structure of structure-oriented editors for different applications, 1987".
+    "Engels et al., On the structure of structure-oriented editors for different applications, 1987".
 
 <http://doi.acm.org/10.1145/64135.65005>
   <http://fenfire.org/rdf-v/2005/05/document#hasInstance>
@@ -61,7 +66,7 @@
   bib:hasYear
     "1988";
   rdfs:label
-    "Borras et all, Cenatur: the system, 1988".
+    "Borras et al., Centaur: the system, 1988".
 
 <http://portal.acm.org/ft_gateway.cfm?id=24230&type=pdf&coll=GUIDE&dl=GUIDE&CFID=43939977&CFTOKEN=6846216>
   rdf:type
@@ -71,16 +76,51 @@
   rdf:type
     <http://fenfire.org/rdf-v/2005/04/ps-pdf-region#PsPdfDocument>.
 
+<http://www.sciencedirect.com/science?_ob=MImg&_imagekey=B75H1-4FWNN0W-D-1&_cdi=13109&_user=10&_orig=search&_coverDate=04%2F21%2F2005&_qd=1&_sk=998729995&view=c&wchp=dGLbVzb-zSkWA&md5=550915aae66e615b40efef29caad0cdf&ie=/sdarticle.pdf>
+  <rdfs:type>
+    <http://fenfire.org/rdf-v/2005/04/ps-pdf-region#PsPdfDocument>.
+
 Papers-and-articles-that-I-need-to-read-and-find-any-interesting-things-:
   sl:linkedTo
     <http://doi.acm.org/10.1145/24208.24230>,
-    <http://doi.acm.org/10.1145/64135.65005>;
+    <http://doi.acm.org/10.1145/64135.65005>,
+    <urn:urn-5:uGqp-XXA4vVFZxceCc+cUUHmSNNx:_2>;
   rdfs:label
     "Papers and articles that I need to read and find any interesting things.".
 
+Why-What-s-my-motivation-:
+  sl:linkedTo
+    a1-I-think-software-in-overall-is-quite-hard-to-understand-At-the-time-of-software-crisis-in-sixties-it-was-noticed-that-software-is-complex-I-do-admit-that-software-counted-as-one-big-component-is-complex-but-when-considered-as-sets-of-things-it-s-more-and-more-a-set-of-very-simple-things-:,
+    a2-These-simple-things-have-been-put-together-as-the-whole-source-tree-In-nineties-there-have-been-a-new-point-of-view-to-these-joints-of-elements-aspect-oriented-programming-where-different-aspects-are-joint-together-in-the-compile-time-of-software-:,
+    a3-These-joints-are-nice-but-it-gets-us-away-from-the-source-and-there-s-nothing-wrong-with-source-itself-at-least-in-abstract-level-What-I-think-is-needed-is-a-buzzword-hyperstructure-system-where-digital-photographied-design-scribbles-point-of-view-documents-and-links-to-other-elemts-with-describing-text-could-be-added-to-system-to-make-it-easier-to-outline-those-small-sets-of-easy-elements-:,
+    a4-Then-there-is-object-oriented-programming-Again-there-s-nothing-really-wrong-with-it-but-to-me-it-doesn-t-seem-to-work-The-problem-is-better-seen-when-giving-eye-on-software-for-first-time-objects-use-other-objects-and-in-the-end-the-code-seems-to-be-very-disconnected-and-disjointed-since-programmer-doesn-t-know-all-those-classes-around-At-the-end-you-need-to-read-and-memorize-the-source-in-your-head-to-be-able-to-make-changes-:;
+  rdfs:label
+    "Why? -- What's my motivation?".
+
+a1-I-think-software-in-overall-is-quite-hard-to-understand-At-the-time-of-software-crisis-in-sixties-it-was-noticed-that-software-is-complex-I-do-admit-that-software-counted-as-one-big-component-is-complex-but-when-considered-as-sets-of-things-it-s-more-and-more-a-set-of-very-simple-things-:
+  rdfs:label
+    "a1) I think software in overall is quite hard to understand. At the time of software crisis in sixties it was noticed that software is complex. I do admit that software counted as one big component is complex but when considered as sets of things, it's more and more a set of very simple things. ".
+
+a2-These-simple-things-have-been-put-together-as-the-whole-source-tree-In-nineties-there-have-been-a-new-point-of-view-to-these-joints-of-elements-aspect-oriented-programming-where-different-aspects-are-joint-together-in-the-compile-time-of-software-:
+  rdfs:label
+    "a2) These simple things have been put together as the whole source tree . In nineties there have been a new point of view to these joints of elements -- aspect oriented programming, where different aspects are joint together in the compile time of software. ".
+
+a3-These-joints-are-nice-but-it-gets-us-away-from-the-source-and-there-s-nothing-wrong-with-source-itself-at-least-in-abstract-level-What-I-think-is-needed-is-a-buzzword-hyperstructure-system-where-digital-photographied-design-scribbles-point-of-view-documents-and-links-to-other-elemts-with-describing-text-could-be-added-to-system-to-make-it-easier-to-outline-those-small-sets-of-easy-elements-:
+  rdfs:label
+    "a3) These joints are nice but it gets us away from the source and there's nothing wrong with source itself (at least in abstract level). What I think is needed is a buzzword hyperstructure system where digital photographied design scribbles, point of view documents and links to other elemts with describing text could be added to system to make it easier to outline those  small sets of easy elements.".
+
 Thesis:
   sl:linkedTo
-    Papers-and-articles-that-I-need-to-read-and-find-any-interesting-things-:;
+    Papers-and-articles-that-I-need-to-read-and-find-any-interesting-things-:,
+    Why-What-s-my-motivation-:;
   dc:description
     "A start for Matti's thesis.".
+
+a4-Then-there-is-object-oriented-programming-Again-there-s-nothing-really-wrong-with-it-but-to-me-it-doesn-t-seem-to-work-The-problem-is-better-seen-when-giving-eye-on-software-for-first-time-objects-use-other-objects-and-in-the-end-the-code-seems-to-be-very-disconnected-and-disjointed-since-programmer-doesn-t-know-all-those-classes-around-At-the-end-you-need-to-read-and-memorize-the-source-in-your-head-to-be-able-to-make-changes-:
+  rdfs:label
+    "a4) Then there is object oriented programming. Again, there's nothing really wrong with it.. but to me it doesn't seem to work. The problem is better seen when giving eye on software for first time; objects use other objects and in the end the code seems to be very disconnected and disjointed since programmer doesn't know all those classes around. At the end you need to read and memorize the source in your head to be able to make changes.".
+
+<urn:urn-5:uGqp-XXA4vVFZxceCc+cUUHmSNNx:_2>
+  <http://fenfire.org/rdf-v/2005/05/document#hasInstance>
+    <http://www.sciencedirect.com/science?_ob=MImg&_imagekey=B75H1-4FWNN0W-D-1&_cdi=13109&_user=10&_orig=search&_coverDate=04%2F21%2F2005&_qd=1&_sk=998729995&view=c&wchp=dGLbVzb-zSkWA&md5=550915aae66e615b40efef29caad0cdf&ie=/sdarticle.pdf>.
 
