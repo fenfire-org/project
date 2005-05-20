@@ -13,6 +13,16 @@
 @prefix a3-These-joints-are-nice-but-it-gets-us-away-from-the-source-and-there-s-nothing-wrong-with-source-itself-at-least-in-abstract-level-What-I-think-is-needed-is-a-buzzword-hyperstructure-system-where-digital-photographied-design-scribbles-point-of-view-documents-and-links-to-other-elemts-with-describing-text-could-be-added-to-system-to-make-it-easier-to-outline-those-small-sets-of-easy-elements-: <urn:urn-5:7S9Awr2yX7MJwp8m1vnu+yPq5oK6:_5>.
 @prefix Thesis: <urn:urn-5:KAYQhAihvJZKr4a45FAjG1Td4d5X:_1>.
 @prefix a4-Then-there-is-object-oriented-programming-Again-there-s-nothing-really-wrong-with-it-but-to-me-it-doesn-t-seem-to-work-The-problem-is-better-seen-when-giving-eye-on-software-for-first-time-objects-use-other-objects-and-in-the-end-the-code-seems-to-be-very-disconnected-and-disjointed-since-programmer-doesn-t-know-all-those-classes-around-At-the-end-you-need-to-read-and-memorize-the-source-in-your-head-to-be-able-to-make-changes-: <urn:urn-5:ejWYteQ54DL5CPnj0NyaHIyDNLMs:_2>.
+@prefix Software-chrisis-for-the-last-30-years-: <urn:urn-5:qnOMPmbYyjsChKTixX76jVRakp76:_10>.
+@prefix What-makes-many-simple-things-a-complex-entity-: <urn:urn-5:qnOMPmbYyjsChKTixX76jVRakp76:_11>.
+@prefix Different-perspectives-or-point-of-views: <urn:urn-5:qnOMPmbYyjsChKTixX76jVRakp76:_2>.
+@prefix The-relation-between-human-and-computer-: <urn:urn-5:qnOMPmbYyjsChKTixX76jVRakp76:_3>.
+@prefix Input-Design-document-UML-source-code: <urn:urn-5:qnOMPmbYyjsChKTixX76jVRakp76:_4>.
+@prefix Output-the-software: <urn:urn-5:qnOMPmbYyjsChKTixX76jVRakp76:_5>.
+@prefix The-relation-between-two-or-more-humans-: <urn:urn-5:qnOMPmbYyjsChKTixX76jVRakp76:_6>.
+@prefix The-relation-between-source-and-human-: <urn:urn-5:qnOMPmbYyjsChKTixX76jVRakp76:_7>.
+@prefix There-needs-to-be-thought-idea-or-concept-to-be-expressed-as-a-source-Of-course-the-process-is-usually-iterative-e-g-the-actual-implementation-may-differ-from-the-original-idea-in-data-stuctures-methods-etc-when-finished-because-of-the-orginal-idea-is-difficult-too-hard-to-implement-or-the-implementation-is-too-slow-There-s-no-way-to-read-others-thoughts-In-a-way-producing-source-code-is-one-way-function-if-one-writes-a-code-others-may-have-huge-problems-to-clarify-the-idea-the-thought-from-it-The-easiest-way-to-understand-something-is-to-begin-from-zero-i-e-do-no-assumptions-of-the-code-But-that-may-be-false-too-since-the-writer-of-the-source-code-has-had-assumptions-: <urn:urn-5:qnOMPmbYyjsChKTixX76jVRakp76:_8>.
+@prefix The-problem-with-communication: <urn:urn-5:qnOMPmbYyjsChKTixX76jVRakp76:_9>.
 
 <>
   ff:startNode
@@ -68,6 +78,20 @@
   rdfs:label
     "Borras et al., Centaur: the system, 1988".
 
+<http://dx.doi.org/10.1006/jvlc.2000.0176>
+  <http://fenfire.org/rdf-v/2005/05/document#hasInstance>
+    <http://www.sciencedirect.com/science?_ob=MImg&_imagekey=B75H1-4FWNN0W-D-1&_cdi=13109&_user=10&_orig=search&_coverDate=04%2F21%2F2005&_qd=1&_sk=998729995&view=c&wchp=dGLbVzb-zSkWA&md5=550915aae66e615b40efef29caad0cdf&ie=/sdarticle.pdf>;
+  bib:hasAuthor
+    "Antti-Pekka Tuovinen";
+  bib:hasDOI
+    "http://dx.doi.org/10.1006/jvlc.2000.0176";
+  bib:hasTitle
+    "Practical Error Handling in Parsing Visual Languages";
+  bib:hasYear
+    "2000";
+  rdfs:label
+    "A.-P. Tuovinen, Practical error handling in parsing visual languages, 2000".
+
 <http://portal.acm.org/ft_gateway.cfm?id=24230&type=pdf&coll=GUIDE&dl=GUIDE&CFID=43939977&CFTOKEN=6846216>
   rdf:type
     <http://fenfire.org/rdf-v/2005/04/ps-pdf-region#PsPdfDocument>.
@@ -112,7 +136,8 @@ a3-These-joints-are-nice-but-it-gets-us-away-from-the-source-and-there-s-nothing
 Thesis:
   sl:linkedTo
     Papers-and-articles-that-I-need-to-read-and-find-any-interesting-things-:,
-    Why-What-s-my-motivation-:;
+    Why-What-s-my-motivation-:,
+    Different-perspectives-or-point-of-views:;
   dc:description
     "A start for Matti's thesis.".
 
@@ -120,18 +145,57 @@ a4-Then-there-is-object-oriented-programming-Again-there-s-nothing-really-wrong-
   rdfs:label
     "a4) Then there is object oriented programming. Again, there's nothing really wrong with it.. but to me it doesn't seem to work. The problem is better seen when giving eye on software for first time; objects use other objects and in the end the code seems to be very disconnected and disjointed since programmer doesn't know all those classes around. At the end you need to read and memorize the source in your head to be able to make changes.".
 
-<http://dx.doi.org/10.1006/jvlc.2000.0176>
-  <http://fenfire.org/rdf-v/2005/05/document#hasInstance>
-    <http://www.sciencedirect.com/science?_ob=MImg&_imagekey=B75H1-4FWNN0W-D-1&_cdi=13109&_user=10&_orig=search&_coverDate=04%2F21%2F2005&_qd=1&_sk=998729995&view=c&wchp=dGLbVzb-zSkWA&md5=550915aae66e615b40efef29caad0cdf&ie=/sdarticle.pdf>;
-  bib:hasAuthor
-    "Antti-Pekka Tuovinen";
-  bib:hasTitle
-    "Practical Error Handling in Parsing Visual Languages";
-  bib:hasDOI
-    "http://dx.doi.org/10.1006/jvlc.2000.0176";
-  bib:hasYear
-    "2000";
+Software-chrisis-for-the-last-30-years-:
+  sl:linkedTo
+    What-makes-many-simple-things-a-complex-entity-:;
   rdfs:label
-    "A.-P. Tuovinen, Practical error handling in parsing visual languages, 2000".
+    "Software chrisis for the last 30+ years.".
 
+What-makes-many-simple-things-a-complex-entity-:
+  rdfs:label
+    "What makes many simple things a complex entity?".
+
+Different-perspectives-or-point-of-views:
+  sl:linkedTo
+    Software-chrisis-for-the-last-30-years-:,
+    The-relation-between-human-and-computer-:,
+    The-relation-between-two-or-more-humans-:,
+    The-relation-between-source-and-human-:;
+  rdfs:label
+    "Different perspectives or point of views".
+
+The-relation-between-human-and-computer-:
+  sl:linkedTo
+    Input-Design-document-UML-source-code:,
+    Output-the-software:;
+  rdfs:label
+    "The relation between human and computer.".
+
+Input-Design-document-UML-source-code:
+  rdfs:label
+    "Input: Design document, UML, source code".
+
+Output-the-software:
+  rdfs:label
+    "Output: the software".
+
+The-relation-between-two-or-more-humans-:
+  sl:linkedTo
+    The-problem-with-communication:;
+  rdfs:label
+    "The relation between two or more humans.".
+
+The-relation-between-source-and-human-:
+  sl:linkedTo
+    There-needs-to-be-thought-idea-or-concept-to-be-expressed-as-a-source-Of-course-the-process-is-usually-iterative-e-g-the-actual-implementation-may-differ-from-the-original-idea-in-data-stuctures-methods-etc-when-finished-because-of-the-orginal-idea-is-difficult-too-hard-to-implement-or-the-implementation-is-too-slow-There-s-no-way-to-read-others-thoughts-In-a-way-producing-source-code-is-one-way-function-if-one-writes-a-code-others-may-have-huge-problems-to-clarify-the-idea-the-thought-from-it-The-easiest-way-to-understand-something-is-to-begin-from-zero-i-e-do-no-assumptions-of-the-code-But-that-may-be-false-too-since-the-writer-of-the-source-code-has-had-assumptions-:;
+  rdfs:label
+    "The relation between source and human.".
+
+There-needs-to-be-thought-idea-or-concept-to-be-expressed-as-a-source-Of-course-the-process-is-usually-iterative-e-g-the-actual-implementation-may-differ-from-the-original-idea-in-data-stuctures-methods-etc-when-finished-because-of-the-orginal-idea-is-difficult-too-hard-to-implement-or-the-implementation-is-too-slow-There-s-no-way-to-read-others-thoughts-In-a-way-producing-source-code-is-one-way-function-if-one-writes-a-code-others-may-have-huge-problems-to-clarify-the-idea-the-thought-from-it-The-easiest-way-to-understand-something-is-to-begin-from-zero-i-e-do-no-assumptions-of-the-code-But-that-may-be-false-too-since-the-writer-of-the-source-code-has-had-assumptions-:
+  rdfs:label
+    "There needs to be thought, idea or concept to be expressed as a source. Of course the process is usually iterative, e.g., the actual implementation may differ from the original idea in data stuctures, methods etc. when finished because of the orginal idea is difficult, too hard to implement, or the implementation is too slow. \nThere's no way to read others thoughts. In a way, producing source code is one-way function; if one writes a code, others may have huge problems to clarify the idea, the thought from it. The easiest way to understand something is to begin from zero, i.e., do no assumptions of the code. But that may be false too since the writer of the source code has had assumptions.\n".
+
+The-problem-with-communication:
+  rdfs:label
+    "The problem with communication".
 
