@@ -168,8 +168,6 @@ fix the example easily:</p>
 package org.nongnu.libvob.lob.doc;
 import org.nongnu.libvob.lob.*;
 
-// class is run from printter util to 
-// generate visual printout.
 public class Example_TextWithGlue {
 
     public Lob getLob() {
@@ -194,8 +192,6 @@ package org.nongnu.libvob.lob.doc;
 import org.nongnu.libvob.lob.*;
 import java.util.*;
 
-// class is run from printter util to 
-// generate visual screenshot.
 public class Example_TextBoxesAndGlue {
 
     public Lob getLob() {
@@ -604,11 +600,14 @@ do this for you, automatically. If you downloaded the ZIP file
 with the snapshot, you will have to install Python from <a class="reference" href="http://python.org/">http://python.org/</a>
 (it has a standard Windows installer, don't worry), and run</p>
 <blockquote>
-python org/fenfire/Main.rj org/fenfire/Main.java</blockquote>
+python r2java.py org/fenfire/Main.rj org/fenfire/Main.java</blockquote>
 <p>Now you should be able to compile. Give the two files to compile,
 and put the JAR file in the classpath:</p>
 <blockquote>
-javac -cp fenfire.jar org/fenfire/Main.java org/fenfire/view/repr/PersonView.java</blockquote>
+<p>(in case that your java virtual machine doesn't handle 
+the -cp option, try -classpath instead.)</p>
+<p>javac -cp fenfire.jar org/fenfire/Main.java org/fenfire/view/repr/PersonView.java</p>
+</blockquote>
 <p>Now, you should be able to run with the following commands (on Windows
 and Unix, respectively):</p>
 <blockquote>

@@ -644,10 +644,13 @@ do this for you, automatically. If you downloaded the ZIP file
 with the snapshot, you will have to install Python from http://python.org/
 (it has a standard Windows installer, don't worry), and run
 
-    python org/fenfire/Main.rj org/fenfire/Main.java
+    python r2java.py org/fenfire/Main.rj org/fenfire/Main.java
 
 Now you should be able to compile. Give the two files to compile,
 and put the JAR file in the classpath:
+
+    (in case that your java virtual machine doesn't handle 
+    the -cp option, try -classpath instead.)
 
     javac -cp fenfire.jar org/fenfire/Main.java org/fenfire/view/repr/PersonView.java
 
