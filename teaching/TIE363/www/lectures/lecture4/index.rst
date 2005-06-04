@@ -515,7 +515,7 @@ at the beginning of the class::
 
     static private Object
         NAME = Nodes.get("http://xmlns.com/foaf/0.1/name"),
-        NICK = Nodes.get("http://xmlns.com/foaf/0.1/name");
+        NICK = Nodes.get("http://xmlns.com/foaf/0.1/nick");
 
 Now we have to find out whether the node we have been given
 as a parameter to ``containsNode()`` has at least one 'name'
